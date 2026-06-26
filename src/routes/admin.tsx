@@ -113,7 +113,7 @@ function AdminLoginForm({ onLoginSuccess }: { onLoginSuccess: () => void }) {
       <div className="flex flex-col justify-between p-6 md:p-12 lg:p-16 min-h-screen">
         {/* Top logo */}
         <Link to="/" className="flex items-center gap-2.5 group w-fit">
-          <img src={logoImage} alt="AI CheckPoint Logo" className="h-8 w-auto transition-transform group-hover:scale-105" />
+          <img src={logoImage} alt="AI CheckPoint Logo" className="h-10 w-auto transition-transform group-hover:scale-105" style={{ mixBlendMode: "screen" }} />
           <span className="font-display text-lg font-bold tracking-tight text-white transition-colors group-hover:text-cyan">
             AI.CheckPoint
           </span>
@@ -395,7 +395,7 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
       <header className="border-b border-white/5 bg-surface/30 backdrop-blur-md px-6 py-4 sticky top-0 z-30 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-2.5">
-            <img src={logoImage} alt="AI CheckPoint Logo" className="h-8 w-auto" />
+            <img src={logoImage} alt="AI CheckPoint Logo" className="h-10 w-auto" style={{ mixBlendMode: "screen" }} />
             <span className="font-display text-lg font-bold tracking-tight text-white">
               AI.CheckPoint
             </span>

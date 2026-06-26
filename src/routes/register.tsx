@@ -35,7 +35,7 @@ function RegisterPage() {
         {/* Top Header */}
         <div className="flex items-center justify-between w-full mb-8">
           <Link to="/" className="flex items-center gap-2.5 group">
-            <img src={logoImage} alt="AI CheckPoint Logo" className="h-8 w-auto transition-transform group-hover:scale-105" />
+            <img src={logoImage} alt="AI CheckPoint Logo" className="h-10 w-auto transition-transform group-hover:scale-105" style={{ mixBlendMode: "screen" }} />
             <span className="font-display text-lg font-bold tracking-tight text-white transition-colors group-hover:text-cyan">
               AI.CheckPoint
             </span>

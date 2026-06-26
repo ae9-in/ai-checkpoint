@@ -60,7 +60,7 @@ export function MainframeHero() {
       <header className="relative lg:absolute lg:top-0 lg:inset-x-0 z-10 px-6 sm:px-10 py-6">
         <nav className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5 group">
-            <img src={logoImage} alt="AI CheckPoint Logo" className="h-8 sm:h-9 w-auto" />
+            <img src={logoImage} alt="AI CheckPoint Logo" className="h-10 sm:h-12 w-auto" style={{ mixBlendMode: "screen" }} />
             <span className="font-display text-[20px] sm:text-[25px] font-bold tracking-tight text-white transition-colors group-hover:text-cyan select-none">
               AI CheckPoint
             </span>

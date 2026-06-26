@@ -45,7 +45,7 @@ export function Footer() {
         {/* Column 1: Brand & Status */}
         <AnimatedContainer className="flex flex-col gap-4" delay={0.1}>
           <div className="flex items-center gap-3">
-            <img src={logoImage} alt="AI CheckPoint Logo" className="h-10 w-auto" />
+            <img src={logoImage} alt="AI CheckPoint Logo" className="h-12 w-auto" style={{ mixBlendMode: "screen" }} />
             <span className="font-display text-xl font-bold tracking-tight text-white">
               AI<span className="bg-gradient-to-r from-cyan to-indigo bg-clip-text text-transparent">.</span>CheckPoint
             </span>
