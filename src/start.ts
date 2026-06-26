@@ -1,3 +1,8 @@
+/**
+ * AI CheckPoint - Client/Server entry initialization.
+ * Configured with global error handling and CSRF protection for database actions.
+ * Authored by: jishnunreddy@gmail.com
+ */
 import { createStart, createMiddleware, createCsrfMiddleware } from "@tanstack/react-start";
 
 import { renderErrorPage } from "./lib/error-page";
