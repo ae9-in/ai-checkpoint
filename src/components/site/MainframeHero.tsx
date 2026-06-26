@@ -48,7 +48,7 @@ export function MainframeHero() {
         <img
           src={heroImage}
           alt="AI CheckPoint — custom AI deployment"
-          className="w-full h-full object-contain object-center lg:object-right opacity-95"
+          className="w-full h-full object-cover object-center lg:object-right opacity-95"
           loading="eager"
         />
         {/* Dark gradient veil for readability of left-side copy */}
