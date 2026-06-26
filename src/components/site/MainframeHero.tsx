@@ -42,9 +42,22 @@ export function MainframeHero() {
   };
 
   return (
-    <div className="relative bg-base text-fg font-sans selection:bg-base-elevated selection:text-fg antialiased overflow-x-hidden flex flex-col min-h-screen">
+    <div className="relative bg-base text-fg font-sans selection:bg-base-elevated selection:text-fg antialiased overflow-x-hidden flex flex-col lg:block lg:min-h-screen">
+      {/* Background image */}
+      <div className="order-last lg:order-none relative lg:absolute lg:inset-0 lg:z-0 overflow-hidden pointer-events-none w-full aspect-square md:aspect-video lg:aspect-auto lg:h-full bg-base">
+        <img
+          src={heroImage}
+          alt="AI CheckPoint — custom AI deployment"
+          className="w-full h-full object-contain object-center lg:object-right opacity-95"
+          loading="eager"
+        />
+        {/* Dark gradient veil for readability of left-side copy */}
+        <div className="absolute inset-0 bg-gradient-to-r from-base via-base/70 to-transparent lg:via-base/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-base via-transparent to-transparent" />
+      </div>
+
       {/* Navbar */}
-      <header className="relative z-20 px-6 sm:px-10 py-6">
+      <header className="relative lg:absolute lg:top-0 lg:inset-x-0 z-10 px-6 sm:px-10 py-6">
         <nav className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5 group">
             <img src={logoImage} alt="AI CheckPoint Logo" className="h-8 sm:h-9 w-auto" />
@@ -135,16 +148,15 @@ export function MainframeHero() {
         </div>
       </div>
 
-      {/* Main Grid: Text left / Image right */}
-      <div className="flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 px-6 sm:px-10 lg:px-14 pb-16 items-center">
-        {/* Left Column: Copy & Selections */}
-        <div className="lg:col-span-5 xl:col-span-5 flex flex-col justify-center z-10 py-4 lg:py-6 max-w-xl">
+      {/* Content layer */}
+      <div className="relative z-[1] px-6 sm:px-10 lg:px-14 pt-10 lg:pt-32 pb-16 lg:pb-20">
+        <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-[40px] xl:text-[48px] font-medium tracking-tight leading-[1.1] whitespace-pre-line mb-7">
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-medium tracking-tight leading-[1.08] whitespace-pre-line mb-7">
               {(() => {
                 const highlights = ["AI", "Checkpoint"];
                 const parts = displayed.split(/(\s+)/);
@@ -175,18 +187,18 @@ export function MainframeHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <p className="text-sm md:text-base text-fg-muted leading-relaxed font-normal mb-8 max-w-md">
+            <p className="text-base md:text-lg text-fg-muted leading-relaxed font-normal mb-12 max-w-2xl">
               Smarter decisions. Sharper margins. Zero guesswork. We audit, automate, and engineer AI that earns its keep — your unfair advantage for the next decade.
             </p>
           </motion.div>
 
-          <div>
-            <h3 className="text-base font-medium tracking-tight mb-2 text-fg">
+          <div className="max-w-xl">
+            <h3 className="text-xl font-medium tracking-tight mb-2 text-fg">
               Where do you need a checkpoint?
             </h3>
-            <p className="text-xs text-fg-subtle mb-5">Select all that apply</p>
+            <p className="text-sm text-fg-subtle mb-7">Select all that apply</p>
 
-            <div className="flex flex-wrap gap-2.5 mb-5">
+            <div className="flex flex-wrap gap-3 mb-6">
               {SERVICE_OPTIONS.map((opt) => {
                 const active = services.includes(opt);
                 return (
@@ -195,7 +207,7 @@ export function MainframeHero() {
                     type="button"
                     onClick={() => toggleService(opt)}
                     whileTap={{ scale: 0.96 }}
-                    className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm transition-colors ${
+                    className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-base transition-colors ${
                       active
                         ? "bg-accent text-accent-foreground shadow-md shadow-black/40"
                         : "bg-fg/[0.04] text-fg border border-line-strong hover:bg-fg/[0.08]"
@@ -211,7 +223,7 @@ export function MainframeHero() {
                           transition={{ type: "spring", stiffness: 300, damping: 20 }}
                           className="inline-flex"
                         >
-                          <Check size={14} />
+                          <Check size={16} />
                         </motion.span>
                       )}
                     </AnimatePresence>
@@ -228,7 +240,7 @@ export function MainframeHero() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 0.5 }}
                   exit={{ opacity: 0 }}
-                  className="italic text-[11px] text-fg/60"
+                  className="italic text-xs text-fg/60"
                 >
                   Please click to select services above.
                 </motion.p>
@@ -241,36 +253,24 @@ export function MainframeHero() {
                   transition={{ type: "spring", stiffness: 200, damping: 24 }}
                   className="overflow-hidden"
                 >
-                  <div className="bg-fg text-base border border-line rounded-2xl p-4 flex items-center justify-between gap-4">
-                    <p className="text-xs md:text-sm text-base/90 leading-tight">
+                  <div className="bg-fg text-base border border-line rounded-2xl p-5 flex items-center justify-between gap-4">
+                    <p className="text-sm md:text-base text-base/90">
                       <span className="text-base/70">Ready to inquire about:</span>{" "}
                       <span className="font-medium text-base">{services.join(", ")}</span>
                     </p>
                     <Link
                       to="/register"
                       search={{ services: services.join(", ") } as any}
-                      className="inline-flex items-center gap-1 text-base uppercase text-[10px] tracking-wider font-semibold hover:opacity-60 transition-opacity text-base/90 hover:text-white"
+                      className="inline-flex items-center gap-1 text-base uppercase text-xs tracking-wider font-medium hover:opacity-60 transition-opacity text-base/90 hover:text-white"
                     >
                       Let's Go
-                      <ArrowUpRight size={12} />
+                      <ArrowUpRight size={14} />
                     </Link>
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
-        </div>
-
-        {/* Right Column: Interactive Image Panel showing full diagrams */}
-        <div className="lg:col-span-7 xl:col-span-7 relative w-full h-[320px] sm:h-[450px] lg:h-[480px] xl:h-[580px] rounded-3xl overflow-hidden border border-white/10 shadow-glow bg-surface flex items-center justify-center p-1 z-10">
-          <img
-            src={heroImage}
-            alt="AI CheckPoint — custom AI deployment"
-            className="w-full h-full object-cover object-center rounded-[22px]"
-            loading="eager"
-          />
-          {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none rounded-[22px]" />
         </div>
       </div>
     </div>
