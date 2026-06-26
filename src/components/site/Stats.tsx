@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Settings2, Clock, Wallet, TrendingUp, CheckCircle2, type LucideIcon } from "lucide-react";
 import { CountUp } from "@/components/fx/CountUp";
 import { SectionLabel } from "./SectionLabel";
+import { RollingText } from "@/components/fx/RollingText";
 
 const stats: Array<{
   Icon: LucideIcon;
@@ -44,14 +45,13 @@ export function Stats() {
     <section className="relative bg-mid py-24 sm:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <SectionLabel>The numbers</SectionLabel>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <RollingText
+          as="h2"
           className="font-display mt-4 text-center text-4xl font-bold text-soft sm:text-5xl"
+          stagger={0.025}
         >
-          What AI <span className="text-gradient">optimizes</span> for you
-        </motion.h2>
+          What AI optimizes for you
+        </RollingText>
         <p className="mt-3 text-center text-soft/60">Real results, real businesses.</p>
 
         <div className="mt-14 -mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 md:mx-0 md:grid md:grid-cols-5 md:overflow-visible md:px-0">

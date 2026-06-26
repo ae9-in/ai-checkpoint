@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Zap, Target, TrendingUp, RefreshCw, Shield, Brain, Sparkles, ArrowUpRight } from "lucide-react";
 import { useRef, type ReactNode } from "react";
 import { SectionLabel } from "./SectionLabel";
+import { RollingText } from "@/components/fx/RollingText";
 
 const cards = [
   { icon: Zap, title: "Cut Costs Instantly", body: "AI identifies waste in your processes — labor, time, and materials — and eliminates it automatically." },
@@ -49,39 +50,13 @@ export function Benefits() {
     <section id="benefits" className="relative bg-void py-28 sm:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionLabel>Why choose us</SectionLabel>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+        <RollingText
+          as="h2"
           className="font-display mt-4 text-center text-4xl font-bold text-soft sm:text-5xl"
+          stagger={0.022}
         >
-          What we bring to{" "}
-          <span className="relative inline-block">
-            <span className="text-gradient">your business</span>
-            <svg
-              viewBox="0 0 220 12"
-              className="absolute -bottom-2 left-0 h-3 w-full"
-              preserveAspectRatio="none"
-            >
-              <motion.path
-                d="M2 6 Q 55 0 110 6 T 218 6"
-                fill="none"
-                stroke="url(#wave)"
-                strokeWidth="2"
-                initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2 }}
-              />
-              <defs>
-                <linearGradient id="wave" x1="0" x2="1">
-                  <stop offset="0%" stopColor="#5C3BFF" />
-                  <stop offset="100%" stopColor="#00F5D4" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </span>
-        </motion.h2>
+          What we bring to your business
+        </RollingText>
 
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {cards.map((c, i) => {

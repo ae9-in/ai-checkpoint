@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { SectionLabel } from "./SectionLabel";
+import { RollingText } from "@/components/fx/RollingText";
 
 const includes = [
   "Full AI Audit of your business (worth ₹5,000)",
@@ -25,14 +26,13 @@ export function Pricing() {
     <section id="pricing" className="relative bg-void py-28 sm:py-32">
       <div className="mx-auto max-w-5xl px-6">
         <SectionLabel>Pricing</SectionLabel>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <RollingText
+          as="h2"
           className="font-display mt-4 text-center text-4xl font-bold text-soft sm:text-5xl"
+          stagger={0.03}
         >
-          One package. <span className="text-gradient">Maximum value.</span>
-        </motion.h2>
+          One package. Maximum value.
+        </RollingText>
         <p className="mt-3 text-center text-soft/60">
           Everything your business needs, at a price that makes sense.
         </p>

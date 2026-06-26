@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import { useState } from "react";
 import { SectionLabel } from "./SectionLabel";
+import { RollingText } from "@/components/fx/RollingText";
 
 const faqs = [
   { q: "What exactly does AI CheckPoint do for my business?", a: "We audit your current operations, identify bottlenecks and waste, then implement AI tools tailored to your workflow — from inventory to billing to customer service." },
@@ -20,14 +21,13 @@ export function FAQ() {
     <section className="relative bg-mid py-24 sm:py-28">
       <div className="mx-auto max-w-3xl px-6">
         <SectionLabel>FAQ</SectionLabel>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <RollingText
+          as="h2"
           className="font-display mt-4 text-center text-3xl font-bold text-soft sm:text-4xl"
+          stagger={0.032}
         >
-          Common <span className="text-gradient">questions</span>
-        </motion.h2>
+          Common questions
+        </RollingText>
 
         <div className="mt-12 divide-y divide-indigo/15 border-y border-indigo/15">
           {faqs.map((f, i) => {

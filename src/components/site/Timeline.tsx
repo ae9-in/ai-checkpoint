@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Search, Map, Wrench, RefreshCw } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { SectionLabel } from "./SectionLabel";
+import { RollingText } from "@/components/fx/RollingText";
 
 const steps = [
   { icon: Search, title: "Free AI Audit", body: "We spend 2 hours studying your business operations — manually and digitally." },
@@ -52,14 +53,13 @@ export function Timeline() {
       />
       <div className="relative mx-auto max-w-6xl px-6">
         <SectionLabel>How it works</SectionLabel>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <RollingText
+          as="h2"
           className="font-display mt-4 text-center text-4xl font-bold text-soft sm:text-5xl"
+          stagger={0.028}
         >
-          From <span className="text-gradient">Audit</span> to <span className="text-gradient">Automation</span>
-        </motion.h2>
+          From Audit to Automation
+        </RollingText>
         <p className="mt-3 text-center text-soft/60">Our proven 4-step process.</p>
 
         <div ref={trackRef} className="relative mt-20">
