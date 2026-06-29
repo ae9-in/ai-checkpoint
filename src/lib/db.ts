@@ -2,26 +2,33 @@ import { neon } from "@neondatabase/serverless";
 import * as fs from "fs";
 import * as path from "path";
 
-// Attempt to read DATABASE_URL from .env file manually if not populated by runtime
-function getDatabaseUrl(): string | undefined {
-  if (process.env.DATABASE_URL) {
-    return process.env.DATABASE_URL;
-  }
-
+// Automatically read all variables from .env file manually if not populated by runtime
+function loadEnvVariables() {
   try {
     const envPath = path.resolve(process.cwd(), ".env");
     if (fs.existsSync(envPath)) {
       const content = fs.readFileSync(envPath, "utf-8");
-      const match = content.match(/^DATABASE_URL=["']?([^"\n\r]+)["']?/m);
-      if (match && match[1]) {
-        return match[1].trim();
+      const lines = content.split(/\r?\n/);
+      for (const line of lines) {
+        const match = line.trim().match(/^([\w.-]+)\s*=\s*["']?([^"'\r\n]+)["']?/);
+        if (match) {
+          const key = match[1];
+          const val = match[2].trim();
+          if (!process.env[key]) {
+            process.env[key] = val;
+          }
+        }
       }
     }
   } catch (err) {
     console.error("Error reading .env file manually:", err);
   }
+}
 
-  return undefined;
+loadEnvVariables();
+
+function getDatabaseUrl(): string | undefined {
+  return process.env.DATABASE_URL;
 }
 
 export function getSql() {
