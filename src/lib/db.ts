@@ -28,7 +28,7 @@ function loadEnvVariables() {
 loadEnvVariables();
 
 function getDatabaseUrl(): string | undefined {
-  return process.env.DATABASE_URL;
+  return process.env.DATABASE_URL || (globalThis as any).DATABASE_URL;
 }
 
 export function getSql() {

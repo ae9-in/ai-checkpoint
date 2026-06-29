@@ -3,7 +3,7 @@ import { fullSchema } from "./registration-schema";
 import { getSql, initDb } from "./db";
 
 async function sendEmail(to: string, subject: string, html: string) {
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = process.env.RESEND_API_KEY || (globalThis as any).RESEND_API_KEY;
   if (!apiKey) {
     console.warn("RESEND_API_KEY is not set. Email simulation logged.");
     return { success: false, status: "simulated" };

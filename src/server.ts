@@ -40,11 +40,12 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
-      // Map edge environment bindings to process.env so database and action helpers can access them.
+      // Map edge environment bindings to process.env and globalThis so database and action helpers can access them.
       if (env && typeof env === "object") {
         for (const [key, value] of Object.entries(env)) {
           if (typeof value === "string") {
             process.env[key] = value;
+            (globalThis as any)[key] = value;
           }
         }
       }
