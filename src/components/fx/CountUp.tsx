@@ -9,7 +9,14 @@ type Props = {
   className?: string;
 };
 
-export function CountUp({ to, durationMs = 2000, prefix = "", suffix = "", format, className }: Props) {
+export function CountUp({
+  to,
+  durationMs = 2000,
+  prefix = "",
+  suffix = "",
+  format,
+  className,
+}: Props) {
   const [value, setValue] = useState(0);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
@@ -26,7 +33,7 @@ export function CountUp({ to, durationMs = 2000, prefix = "", suffix = "", forma
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
     io.observe(el);
     return () => io.disconnect();

@@ -26,7 +26,10 @@ function Row({ items, dir }: { items: string[]; dir: "left" | "right" }) {
   return (
     <div className="flex w-max gap-8 whitespace-nowrap will-change-transform" data-dir={dir}>
       {tripled.map((item, i) => (
-        <span key={`${item}-${i}`} className="flex items-center gap-8 text-sm font-medium tracking-wider text-soft">
+        <span
+          key={`${item}-${i}`}
+          className="flex items-center gap-8 text-sm font-medium tracking-wider text-soft"
+        >
           <span>{item}</span>
           <span className="h-1 w-1 rounded-full bg-soft/30" aria-hidden />
         </span>

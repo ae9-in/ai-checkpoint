@@ -4,6 +4,7 @@ import { Settings2, Clock, Wallet, TrendingUp, CheckCircle2, type LucideIcon } f
 import { CountUp } from "@/components/fx/CountUp";
 import { SectionLabel } from "./SectionLabel";
 import { RollingText } from "@/components/fx/RollingText";
+import { Parallax } from "@/components/fx/Parallax";
 
 const stats: Array<{
   Icon: LucideIcon;
@@ -15,17 +16,55 @@ const stats: Array<{
   body: string;
   color: "indigo" | "cyan" | "gold";
 }> = [
-  { Icon: Settings2, label: "Labor", value: 40, suffix: "%", body: "reduction in manual hours", color: "indigo" },
-  { Icon: Clock, label: "Time", value: 3, suffix: "x", body: "faster daily operations", color: "cyan" },
-  { Icon: Wallet, label: "Cost", value: 60, prefix: "₹", suffix: "K+", body: "saved per year on average", color: "gold" },
-  { Icon: TrendingUp, label: "Efficiency", value: 98, suffix: "%", body: "process accuracy rate", color: "indigo" },
-  { Icon: CheckCircle2, label: "Perfection", custom: "Zero", body: "operational headaches", color: "cyan" },
+  {
+    Icon: Settings2,
+    label: "Labor",
+    value: 40,
+    suffix: "%",
+    body: "reduction in manual hours",
+    color: "indigo",
+  },
+  {
+    Icon: Clock,
+    label: "Time",
+    value: 3,
+    suffix: "x",
+    body: "faster daily operations",
+    color: "cyan",
+  },
+  {
+    Icon: Wallet,
+    label: "Cost",
+    value: 60,
+    prefix: "₹",
+    suffix: "K+",
+    body: "saved per year on average",
+    color: "gold",
+  },
+  {
+    Icon: TrendingUp,
+    label: "Efficiency",
+    value: 98,
+    suffix: "%",
+    body: "process accuracy rate",
+    color: "indigo",
+  },
+  {
+    Icon: CheckCircle2,
+    label: "Perfection",
+    custom: "Zero",
+    body: "operational headaches",
+    color: "cyan",
+  },
 ];
 
 const quotes = [
   { q: "We reduced billing errors by 90% in the first month.", a: "Priya R., Clinic Owner" },
   { q: "Inventory used to take 3 hours. Now it's 10 minutes.", a: "Arjun M., Supermarket Owner" },
-  { q: "I never thought AI was for small businesses. AI CheckPoint changed that.", a: "Sana K., Cafe Owner" },
+  {
+    q: "I never thought AI was for small businesses. AI CheckPoint changed that.",
+    a: "Sana K., Cafe Owner",
+  },
 ];
 
 const colorMap = {
@@ -42,8 +81,13 @@ export function Stats() {
   }, []);
 
   return (
-    <section className="relative bg-mid py-24 sm:py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="relative bg-mid py-24 sm:py-28 overflow-hidden">
+      {/* Background Parallax Glow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <Parallax offset={60} className="absolute top-[10%] right-[10%] w-[500px] h-[500px] rounded-full bg-indigo/5 blur-3xl" />
+        <Parallax offset={-60} className="absolute bottom-[10%] left-[5%] w-[400px] h-[400px] rounded-full bg-cyan/5 blur-3xl" />
+      </div>
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
         <SectionLabel>The numbers</SectionLabel>
         <RollingText
           as="h2"
@@ -64,12 +108,18 @@ export function Stats() {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="relative min-w-[240px] flex-shrink-0 snap-start overflow-hidden rounded-[20px] border border-indigo/20 bg-surface p-6 pt-8 md:min-w-0"
             >
-              <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${colorMap[s.color]}`} />
-              <div className={`absolute -top-px left-1/2 h-[2px] w-16 -translate-x-1/2 bg-${s.color}`} />
+              <div
+                className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${colorMap[s.color]}`}
+              />
+              <div
+                className={`absolute -top-px left-1/2 h-[2px] w-16 -translate-x-1/2 bg-${s.color}`}
+              />
               <div className="grid h-10 w-10 place-items-center rounded-lg border border-soft/15 bg-soft/[0.03] text-soft/80">
                 <s.Icon className="h-5 w-5" strokeWidth={1.5} />
               </div>
-              <div className="font-mono-acc mt-6 text-[11px] uppercase tracking-wider text-soft/50">{s.label}</div>
+              <div className="font-mono-acc mt-6 text-[11px] uppercase tracking-wider text-soft/50">
+                {s.label}
+              </div>
               <div className="font-display mt-1 text-5xl font-bold text-soft">
                 {s.custom ? (
                   <span className="text-cyan">{s.custom}</span>
@@ -78,7 +128,13 @@ export function Stats() {
                     to={s.value!}
                     prefix={s.prefix ?? ""}
                     suffix={s.suffix ?? ""}
-                    className={s.color === "gold" ? "text-gold" : s.color === "cyan" ? "text-cyan" : "text-indigo"}
+                    className={
+                      s.color === "gold"
+                        ? "text-gold"
+                        : s.color === "cyan"
+                          ? "text-cyan"
+                          : "text-indigo"
+                    }
                   />
                 )}
               </div>
@@ -99,7 +155,9 @@ export function Stats() {
               style={{ fontFamily: "Georgia, serif" }}
             >
               "{quotes[idx].q}"
-              <footer className="font-mono-acc mt-3 text-xs not-italic text-soft/50">— {quotes[idx].a}</footer>
+              <footer className="font-mono-acc mt-3 text-xs not-italic text-soft/50">
+                — {quotes[idx].a}
+              </footer>
             </motion.blockquote>
           </AnimatePresence>
         </div>

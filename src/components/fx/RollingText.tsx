@@ -87,9 +87,7 @@ export function RollingText({
       ref={ref}
       className={className}
       role={Tag === "h1" || Tag === "h2" || Tag === "h3" ? "heading" : undefined}
-      aria-level={
-        Tag === "h1" ? 1 : Tag === "h2" ? 2 : Tag === "h3" ? 3 : undefined
-      }
+      aria-level={Tag === "h1" ? 1 : Tag === "h2" ? 2 : Tag === "h3" ? 3 : undefined}
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}

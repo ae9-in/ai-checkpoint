@@ -82,10 +82,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "AI CheckPoint — AI for Every Indian Business" },
-      { name: "description", content: "We audit your operations and deploy custom AI — saving costs, eliminating inefficiency, and giving you an edge competitors can't match." },
+      {
+        name: "description",
+        content:
+          "We audit your operations and deploy custom AI — saving costs, eliminating inefficiency, and giving you an edge competitors can't match.",
+      },
       { name: "author", content: "AI CheckPoint" },
       { property: "og:title", content: "AI CheckPoint — AI for Every Indian Business" },
-      { property: "og:description", content: "Free AI audit + ₹2,500 founders package. Setup in 48 hours." },
+      {
+        property: "og:description",
+        content: "Free AI audit + ₹2,500 founders package. Setup in 48 hours.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },

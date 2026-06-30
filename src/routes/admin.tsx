@@ -26,7 +26,7 @@ import {
   Sparkles,
   ShieldCheck,
   TrendingUp,
-  FileText
+  FileText,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -113,7 +113,12 @@ function AdminLoginForm({ onLoginSuccess }: { onLoginSuccess: () => void }) {
       <div className="flex flex-col justify-between p-6 md:p-12 lg:p-16 min-h-screen">
         {/* Top logo */}
         <Link to="/" className="flex items-center gap-2.5 group w-fit">
-          <img src={logoImage} alt="AI CheckPoint Logo" className="h-10 w-auto transition-transform group-hover:scale-105" style={{ mixBlendMode: "screen" }} />
+          <img
+            src={logoImage}
+            alt="AI CheckPoint Logo"
+            className="h-10 w-auto transition-transform group-hover:scale-105"
+            style={{ mixBlendMode: "screen" }}
+          />
           <span className="font-display text-lg font-bold tracking-tight text-white transition-colors group-hover:text-cyan">
             AI.CheckPoint
           </span>
@@ -126,12 +131,17 @@ function AdminLoginForm({ onLoginSuccess }: { onLoginSuccess: () => void }) {
               <Lock className="h-5 w-5" />
             </div>
             <h1 className="text-2xl font-bold tracking-tight">Admin Portal Access</h1>
-            <p className="text-sm text-muted-foreground">Authenticate to review system registrations</p>
+            <p className="text-sm text-muted-foreground">
+              Authenticate to review system registrations
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="grid gap-4">
             <div className="grid gap-2">
-              <label htmlFor="email" className="font-mono-acc text-[11px] uppercase tracking-wider text-soft/50">
+              <label
+                htmlFor="email"
+                className="font-mono-acc text-[11px] uppercase tracking-wider text-soft/50"
+              >
                 Email Address
               </label>
               <div className="relative">
@@ -151,7 +161,10 @@ function AdminLoginForm({ onLoginSuccess }: { onLoginSuccess: () => void }) {
             </div>
 
             <div className="grid gap-2">
-              <label htmlFor="password" className="font-mono-acc text-[11px] uppercase tracking-wider text-soft/50">
+              <label
+                htmlFor="password"
+                className="font-mono-acc text-[11px] uppercase tracking-wider text-soft/50"
+              >
                 Password
               </label>
               <div className="relative">
@@ -213,7 +226,7 @@ function AdminLoginForm({ onLoginSuccess }: { onLoginSuccess: () => void }) {
             transition={{
               duration: 7,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
         </div>
@@ -232,7 +245,8 @@ function AdminLoginForm({ onLoginSuccess }: { onLoginSuccess: () => void }) {
         <div className="relative z-20 flex flex-col items-center justify-end flex-grow pb-8">
           <blockquote className="space-y-3 text-center text-white backdrop-blur-sm bg-black/45 p-6 rounded-2xl border border-white/10 max-w-sm">
             <p className="text-sm font-light text-soft/90 leading-relaxed">
-              “Administrative control interface. Review registrations, export files, and update business statuses.”
+              “Administrative control interface. Review registrations, export files, and update
+              business statuses.”
             </p>
           </blockquote>
         </div>
@@ -305,7 +319,7 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
       "Source",
       "Best Contact Time",
       "Notes",
-      "Created At"
+      "Created At",
     ];
 
     const rows = registrations.map((r) => [
@@ -324,7 +338,7 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
       `"${r.source || ""}"`,
       `"${r.bestTime || ""}"`,
       `"${(r.notes || "").replace(/"/g, '""')}"`,
-      r.createdAt ? new Date(r.createdAt).toISOString() : ""
+      r.createdAt ? new Date(r.createdAt).toISOString() : "",
     ]);
 
     const csvString = [headers.join(","), ...rows.map((e) => e.join(","))].join("\n");
@@ -332,7 +346,10 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.setAttribute("href", url);
-    link.setAttribute("download", `aicp_registrations_${new Date().toISOString().split("T")[0]}.csv`);
+    link.setAttribute(
+      "download",
+      `aicp_registrations_${new Date().toISOString().split("T")[0]}.csv`,
+    );
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -354,13 +371,16 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
   });
 
   // Extract unique industries for filter dropdown
-  const uniqueIndustries = Array.from(new Set(registrations.map((r) => r.industry))).filter(Boolean);
+  const uniqueIndustries = Array.from(new Set(registrations.map((r) => r.industry))).filter(
+    Boolean,
+  );
 
   // Statistics calculation
   const totalSubscribers = registrations.length;
   const totalManualStaff = registrations.reduce((acc, r) => acc + (r.manualStaff || 0), 0);
-  const avgStaffSavings = totalSubscribers > 0 ? (totalManualStaff / totalSubscribers).toFixed(1) : 0;
-  
+  const avgStaffSavings =
+    totalSubscribers > 0 ? (totalManualStaff / totalSubscribers).toFixed(1) : 0;
+
   // Estimate value pipeline: 2500 founders offer per sign up
   const valuePipeline = totalSubscribers * 2500;
 
@@ -372,7 +392,7 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
     return new Intl.NumberFormat("en-IN", {
       style: "currency",
       currency: "INR",
-      maximumFractionDigits: 0
+      maximumFractionDigits: 0,
     }).format(val);
   };
 
@@ -383,8 +403,8 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
       return n >= 1000000
         ? `₹${(n / 1000000).toFixed(1)}M`
         : n >= 100000
-        ? `₹${(n / 100000).toFixed(0)}L`
-        : `₹${(n / 1000).toFixed(0)}K`;
+          ? `₹${(n / 100000).toFixed(0)}L`
+          : `₹${(n / 1000).toFixed(0)}K`;
     };
     return `${fmt(rev[0])} - ${fmt(rev[1])}`;
   };
@@ -395,7 +415,12 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
       <header className="border-b border-white/5 bg-surface/30 backdrop-blur-md px-6 py-4 sticky top-0 z-30 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-2.5">
-            <img src={logoImage} alt="AI CheckPoint Logo" className="h-10 w-auto" style={{ mixBlendMode: "screen" }} />
+            <img
+              src={logoImage}
+              alt="AI CheckPoint Logo"
+              className="h-10 w-auto"
+              style={{ mixBlendMode: "screen" }}
+            />
             <span className="font-display text-lg font-bold tracking-tight text-white">
               AI.CheckPoint
             </span>
@@ -450,7 +475,9 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
 
           <div className="rounded-2xl border border-white/5 bg-surface/20 p-5">
             <div className="flex items-center justify-between text-soft/50 mb-2">
-              <span className="text-xs font-mono-acc uppercase tracking-wider">Revenue Pipeline</span>
+              <span className="text-xs font-mono-acc uppercase tracking-wider">
+                Revenue Pipeline
+              </span>
               <Coins className="h-4 w-4 text-gold" />
             </div>
             <div className="flex items-end justify-between">
@@ -528,7 +555,9 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
           {loading ? (
             <div className="py-24 text-center">
               <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cyan mb-4"></div>
-              <p className="text-sm text-soft/50 font-mono-acc">Retrieving records from Neon DB...</p>
+              <p className="text-sm text-soft/50 font-mono-acc">
+                Retrieving records from Neon DB...
+              </p>
             </div>
           ) : filtered.length === 0 ? (
             <div className="py-24 text-center text-soft/40">
@@ -556,7 +585,7 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
                   const createdDate = new Date(item.createdAt).toLocaleDateString("en-IN", {
                     day: "numeric",
                     month: "short",
-                    year: "numeric"
+                    year: "numeric",
                   });
                   const goals = Array.isArray(item.goals) ? item.goals : [];
 
@@ -586,9 +615,12 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
                         {/* Company / Name */}
                         <div className="col-span-11 md:col-span-3">
                           <div>
-                            <div className="font-semibold text-white truncate">{item.businessName || "N/A"}</div>
+                            <div className="font-semibold text-white truncate">
+                              {item.businessName || "N/A"}
+                            </div>
                             <div className="text-xs text-soft/65 flex items-center gap-1.5 mt-0.5 truncate">
-                              <User className="h-3 w-3 opacity-60 flex-shrink-0" /> {item.fullName || "N/A"}
+                              <User className="h-3 w-3 opacity-60 flex-shrink-0" />{" "}
+                              {item.fullName || "N/A"}
                             </div>
                           </div>
                         </div>
@@ -596,9 +628,12 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
                         {/* Industry / Size */}
                         <div className="col-span-6 md:col-span-2 mt-2 md:mt-0">
                           <div>
-                            <div className="text-soft font-medium truncate">{item.industry || "N/A"}</div>
+                            <div className="text-soft font-medium truncate">
+                              {item.industry || "N/A"}
+                            </div>
                             <div className="text-xs text-soft/65 flex items-center gap-1.5 mt-0.5 truncate">
-                              <Briefcase className="h-3 w-3 opacity-60 flex-shrink-0" /> Size: {item.size || "N/A"}
+                              <Briefcase className="h-3 w-3 opacity-60 flex-shrink-0" /> Size:{" "}
+                              {item.size || "N/A"}
                             </div>
                           </div>
                         </div>
@@ -606,13 +641,18 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
                         {/* Contact details */}
                         <div className="col-span-6 md:col-span-3 mt-2 md:mt-0">
                           <div>
-                            <div className="text-soft font-mono-acc text-xs truncate">{item.email || "N/A"}</div>
+                            <div className="text-soft font-mono-acc text-xs truncate">
+                              {item.email || "N/A"}
+                            </div>
                             <div className="text-xs text-soft/65 mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
-                              {item.phone && <span className="font-mono-acc">+91 {item.phone}</span>}
+                              {item.phone && (
+                                <span className="font-mono-acc">+91 {item.phone}</span>
+                              )}
                               {item.phone && item.city && <span>·</span>}
                               {item.city && (
                                 <span className="flex items-center gap-0.5 truncate">
-                                  <MapPin className="h-3 w-3 opacity-60 flex-shrink-0" /> {item.city}
+                                  <MapPin className="h-3 w-3 opacity-60 flex-shrink-0" />{" "}
+                                  {item.city}
                                 </span>
                               )}
                             </div>
@@ -675,7 +715,8 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
                                 <div className="space-y-2">
                                   <div className="flex items-center justify-between text-xs border-b border-white/5 pb-1.5">
                                     <span className="text-soft/50 flex items-center gap-1.5">
-                                      <Coins className="h-3.5 w-3.5 opacity-60" /> Est. Monthly Revenue
+                                      <Coins className="h-3.5 w-3.5 opacity-60" /> Est. Monthly
+                                      Revenue
                                     </span>
                                     <span className="font-semibold text-soft">
                                       {fmtRevenueRange(item.revenue)}
@@ -706,7 +747,9 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
                                   Automation Goals
                                 </h4>
                                 {goals.length === 0 ? (
-                                  <p className="text-xs text-soft/40 italic">No specific goals selected.</p>
+                                  <p className="text-xs text-soft/40 italic">
+                                    No specific goals selected.
+                                  </p>
                                 ) : (
                                   <div className="flex flex-wrap gap-1.5">
                                     {goals.map((g: string) => (
@@ -729,10 +772,14 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
                                 <div className="space-y-2">
                                   <div className="text-xs flex gap-2">
                                     <span className="text-soft/50 w-20">Discovery:</span>
-                                    <span className="font-semibold text-soft">{item.source || "Unknown"}</span>
+                                    <span className="font-semibold text-soft">
+                                      {item.source || "Unknown"}
+                                    </span>
                                   </div>
                                   <div className="text-xs">
-                                    <span className="text-soft/50 block mb-1">Additional Notes:</span>
+                                    <span className="text-soft/50 block mb-1">
+                                      Additional Notes:
+                                    </span>
                                     <p className="text-soft/80 leading-relaxed bg-surface/50 border border-white/5 p-2 rounded-lg min-h-[50px] italic whitespace-pre-wrap">
                                       {item.notes || "No notes provided by client."}
                                     </p>

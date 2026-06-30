@@ -13,15 +13,15 @@ async function sendEmail(to: string, subject: string, html: string) {
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${apiKey}`,
-        "Content-Type": "application/json"
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         from: "AI CheckPoint <onboarding@resend.dev>",
         to: to,
         subject: subject,
-        html: html
-      })
+        html: html,
+      }),
     });
 
     if (response.ok) {
@@ -130,42 +130,41 @@ export const submitRegistration = createServerFn({ method: "POST" })
     }
   });
 
-export const getRegistrations = createServerFn({ method: "GET" })
-  .handler(async () => {
-    const sql = getSql();
-    if (!sql) {
-      throw new Error("Database connection is not configured.");
-    }
+export const getRegistrations = createServerFn({ method: "GET" }).handler(async () => {
+  const sql = getSql();
+  if (!sql) {
+    throw new Error("Database connection is not configured.");
+  }
 
-    try {
-      const results = await sql`
+  try {
+    const results = await sql`
         SELECT * FROM registrations ORDER BY created_at DESC
       `;
-      return results.map((r: any) => ({
-        id: r.id,
-        fullName: r.full_name,
-        phone: r.phone,
-        email: r.email,
-        city: r.city,
-        businessName: r.business_name,
-        industry: r.industry,
-        size: r.business_size,
-        revenue: [r.revenue_min, r.revenue_max],
-        manualStaff: r.manual_staff,
-        goals: r.goals,
-        source: r.source,
-        bestTime: r.best_time,
-        notes: r.notes,
-        createdAt: r.created_at
-      }));
-    } catch (error) {
-      console.error("Failed to fetch registrations:", error);
-      throw new Error("Failed to fetch registrations from database");
-    }
-  });
+    return results.map((r: any) => ({
+      id: r.id,
+      fullName: r.full_name,
+      phone: r.phone,
+      email: r.email,
+      city: r.city,
+      businessName: r.business_name,
+      industry: r.industry,
+      size: r.business_size,
+      revenue: [r.revenue_min, r.revenue_max],
+      manualStaff: r.manual_staff,
+      goals: r.goals,
+      source: r.source,
+      bestTime: r.best_time,
+      notes: r.notes,
+      createdAt: r.created_at,
+    }));
+  } catch (error) {
+    console.error("Failed to fetch registrations:", error);
+    throw new Error("Failed to fetch registrations from database");
+  }
+});
 
 export const deleteRegistration = createServerFn({ method: "POST" })
-  .validator((id: unknown) => typeof id === "number" ? id : -1)
+  .validator((id: unknown) => (typeof id === "number" ? id : -1))
   .handler(async ({ data: id }) => {
     const sql = getSql();
     if (!sql) {
@@ -186,4 +185,3 @@ export const deleteRegistration = createServerFn({ method: "POST" })
       throw new Error("Failed to delete registration from database");
     }
   });
-

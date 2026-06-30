@@ -16,9 +16,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "AI CheckPoint — AI for Every Indian Business" },
-      { name: "description", content: "We audit your operations and deploy custom AI — save costs, eliminate inefficiency, and stay ahead of the competition. Founders package ₹2,500." },
+      {
+        name: "description",
+        content:
+          "We audit your operations and deploy custom AI — save costs, eliminate inefficiency, and stay ahead of the competition. Founders package ₹2,500.",
+      },
       { property: "og:title", content: "AI CheckPoint — AI for Every Indian Business" },
-      { property: "og:description", content: "Free AI audit + ₹2,500 founders package. Setup in 48 hours." },
+      {
+        property: "og:description",
+        content: "Free AI audit + ₹2,500 founders package. Setup in 48 hours.",
+      },
     ],
   }),
   component: Index,

@@ -120,7 +120,9 @@ export function Pricing() {
               </div>
             ))}
             <div className="flex items-center justify-between border-t border-indigo/20 pt-3 text-base">
-              <span className="text-soft/70">Total value <span className="text-soft/40">₹5,000</span> · You pay</span>
+              <span className="text-soft/70">
+                Total value <span className="text-soft/40">₹5,000</span> · You pay
+              </span>
               <span className="text-cyan font-bold">₹2,500</span>
             </div>
           </div>
@@ -132,7 +134,8 @@ export function Pricing() {
           </Link>
 
           <p className="mt-4 text-center text-xs text-soft/55">
-            <span className="blink-soft text-gold">Limited</span> founder slots available. Price increases after launch.
+            <span className="blink-soft text-gold">Limited</span> founder slots available. Price
+            increases after launch.
           </p>
         </motion.div>
       </div>

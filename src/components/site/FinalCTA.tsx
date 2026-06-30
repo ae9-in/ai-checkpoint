@@ -1,10 +1,19 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
+import { Parallax } from "@/components/fx/Parallax";
 
 const headlineA = "Ready to Transform";
 const headlineB = "Your Business?";
 
-function SplitChars({ text, className = "", delay = 0 }: { text: string; className?: string; delay?: number }) {
+function SplitChars({
+  text,
+  className = "",
+  delay = 0,
+}: {
+  text: string;
+  className?: string;
+  delay?: number;
+}) {
   return (
     <span className={className}>
       {text.split("").map((c, i) => (
@@ -28,20 +37,23 @@ export function FinalCTA() {
     <section
       className="relative overflow-hidden py-32 sm:py-40"
       style={{
-        background:
-          "linear-gradient(180deg, #06070C 0%, #0B0C12 60%, #101117 100%)",
+        background: "linear-gradient(180deg, #06070C 0%, #0B0C12 60%, #101117 100%)",
       }}
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-32 -top-32 h-[400px] w-[400px] rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%)" }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(255,255,255,0.04), transparent 70%)" }}
-      />
+      <Parallax offset={95} className="pointer-events-none absolute -right-32 -top-32 h-[400px] w-[400px] rounded-full">
+        <div
+          aria-hidden
+          className="w-full h-full"
+          style={{ background: "radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%)" }}
+        />
+      </Parallax>
+      <Parallax offset={-75} className="pointer-events-none absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full">
+        <div
+          aria-hidden
+          className="w-full h-full"
+          style={{ background: "radial-gradient(circle, rgba(255,255,255,0.04), transparent 70%)" }}
+        />
+      </Parallax>
 
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <h2 className="font-display text-5xl font-extrabold leading-[1.05] sm:text-6xl">

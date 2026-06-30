@@ -6,10 +6,26 @@ import { SectionLabel } from "./SectionLabel";
 import { RollingText } from "@/components/fx/RollingText";
 
 const steps = [
-  { icon: Search, title: "Free AI Audit", body: "We spend 2 hours studying your business operations — manually and digitally." },
-  { icon: Map, title: "Custom AI Roadmap", body: "We present a tailored AI plan with specific tools, timelines, and cost savings." },
-  { icon: Wrench, title: "Implementation & Training", body: "Our team sets everything up and trains your staff — in-person or online." },
-  { icon: RefreshCw, title: "Ongoing Optimization", body: "Monthly check-ins, updates, and reviews. We don't disappear after setup." },
+  {
+    icon: Search,
+    title: "Free AI Audit",
+    body: "We spend 2 hours studying your business operations — manually and digitally.",
+  },
+  {
+    icon: Map,
+    title: "Custom AI Roadmap",
+    body: "We present a tailored AI plan with specific tools, timelines, and cost savings.",
+  },
+  {
+    icon: Wrench,
+    title: "Implementation & Training",
+    body: "Our team sets everything up and trains your staff — in-person or online.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Ongoing Optimization",
+    body: "Monthly check-ins, updates, and reviews. We don't disappear after setup.",
+  },
 ];
 
 export function Timeline() {
@@ -38,8 +54,7 @@ export function Timeline() {
       id="how"
       className="relative overflow-hidden py-28 sm:py-32"
       style={{
-        background:
-          "radial-gradient(120% 80% at 50% 0%, #0a1a3a 0%, #060b1f 45%, #03060f 100%)",
+        background: "radial-gradient(120% 80% at 50% 0%, #0a1a3a 0%, #060b1f 45%, #03060f 100%)",
       }}
     >
       {/* subtle blue glow accents */}
@@ -78,8 +93,7 @@ export function Timeline() {
                 width: progressWidth,
                 background:
                   "linear-gradient(90deg, rgba(255,255,255,0) 0%, #ffffff 12%, #ffffff 100%)",
-                boxShadow:
-                  "0 0 12px rgba(255,255,255,0.55), 0 0 28px rgba(160,190,255,0.35)",
+                boxShadow: "0 0 12px rgba(255,255,255,0.55), 0 0 28px rgba(160,190,255,0.35)",
               }}
             />
           </div>
@@ -119,8 +133,7 @@ export function Timeline() {
                       transition={{ type: "spring", stiffness: 260, damping: 20 }}
                       className="relative grid h-24 w-24 place-items-center rounded-full border"
                       style={{
-                        background:
-                          "radial-gradient(circle at 50% 40%, #1a2240 0%, #0a0f24 70%)",
+                        background: "radial-gradient(circle at 50% 40%, #1a2240 0%, #0a0f24 70%)",
                         boxShadow: isCurrent
                           ? "0 0 0 6px rgba(6,9,20,0.95), 0 0 0 8px rgba(255,255,255,0.35), 0 0 40px rgba(255,255,255,0.25)"
                           : isActive
@@ -142,7 +155,9 @@ export function Timeline() {
                       <span
                         className="font-mono-acc absolute -right-1 -top-1 grid h-7 w-7 place-items-center rounded-full border bg-[#06091a] text-xs transition-colors"
                         style={{
-                          borderColor: isActive ? "rgba(255,255,255,0.6)" : "rgba(255,255,255,0.15)",
+                          borderColor: isActive
+                            ? "rgba(255,255,255,0.6)"
+                            : "rgba(255,255,255,0.15)",
                           color: isActive ? "#ffffff" : "rgba(255,255,255,0.7)",
                         }}
                       >
@@ -158,7 +173,9 @@ export function Timeline() {
                   </h3>
                   <p
                     className="mt-2 max-w-xs text-sm transition-colors"
-                    style={{ color: isActive ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.55)" }}
+                    style={{
+                      color: isActive ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.55)",
+                    }}
                   >
                     {s.body}
                   </p>
@@ -175,8 +192,9 @@ export function Timeline() {
           className="mt-20 flex flex-col items-center gap-6 text-center"
         >
           <p className="max-w-2xl text-soft/70">
-            All of this in your <span className="text-cyan font-semibold">₹2,500 package</span> — with{" "}
-            <span className="text-gold font-semibold">₹1,000 of digital marketing</span> and FREE tools included.
+            All of this in your <span className="text-cyan font-semibold">₹2,500 package</span> —
+            with <span className="text-gold font-semibold">₹1,000 of digital marketing</span> and
+            FREE tools included.
           </p>
           <Link to="/register" data-cursor="cta">
             <span className="pulse-glow inline-flex h-14 items-center justify-center rounded-full bg-gradient-primary px-8 font-semibold text-void">

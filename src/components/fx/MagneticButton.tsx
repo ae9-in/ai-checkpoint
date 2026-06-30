@@ -8,7 +8,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export const MagneticButton = forwardRef<HTMLButtonElement, Props>(function MagneticButton(
   { children, strength = 24, className, ...rest },
-  ref
+  ref,
 ) {
   const localRef = useRef<HTMLButtonElement>(null);
   const x = useMotionValue(0);

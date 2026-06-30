@@ -1,22 +1,27 @@
 import { motion } from "framer-motion";
+import { Parallax } from "@/components/fx/Parallax";
 
 export function CheckpointIntro() {
   return (
     <section className="relative bg-base text-fg overflow-hidden isolate">
       {/* Background video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ objectPosition: "70% center" }}
-      >
-        <source
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4"
-          type="video/mp4"
-        />
-      </video>
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <Parallax offset={80} className="absolute inset-x-0 h-[120%] -top-[10%]">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "70% center" }}
+          >
+            <source
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204221_5339e40b-e73d-4ab0-9c65-79c18c66fd50.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </Parallax>
+      </div>
       {/* Readability veil */}
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
@@ -53,14 +58,14 @@ export function CheckpointIntro() {
             className="lg:col-span-8 space-y-8"
           >
             <p className="text-2xl md:text-3xl lg:text-4xl leading-[1.25] tracking-tight text-white">
-              A <span className="text-white/55">checkpoint</span> is the moment your
-              business stops, looks at every workflow, and asks one question —
+              A <span className="text-white/55">checkpoint</span> is the moment your business stops,
+              looks at every workflow, and asks one question —
               <span className="text-white"> where can AI do this better?</span>
             </p>
             <p className="text-base md:text-lg text-white/55 leading-relaxed max-w-2xl">
-              We sit with your team, map the bottlenecks, and ship AI that quietly
-              removes the work no one should be doing. No buzzwords. No bloated
-              dashboards. Just measurable hours back, every week.
+              We sit with your team, map the bottlenecks, and ship AI that quietly removes the work
+              no one should be doing. No buzzwords. No bloated dashboards. Just measurable hours
+              back, every week.
             </p>
           </motion.div>
         </div>

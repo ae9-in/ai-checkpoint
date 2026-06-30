@@ -10,7 +10,10 @@ export const Route = createFileRoute("/register")({
   head: () => ({
     meta: [
       { title: "Register — AI CheckPoint" },
-      { name: "description", content: "Book your free AI audit. Our specialist will contact you within 24 hours." },
+      {
+        name: "description",
+        content: "Book your free AI audit. Our specialist will contact you within 24 hours.",
+      },
       { property: "og:title", content: "Register — AI CheckPoint" },
       { property: "og:description", content: "Free AI audit + ₹2,500 founders package." },
     ],
@@ -35,12 +38,17 @@ function RegisterPage() {
         {/* Top Header */}
         <div className="flex items-center justify-between w-full mb-8">
           <Link to="/" className="flex items-center gap-2.5 group">
-            <img src={logoImage} alt="AI CheckPoint Logo" className="h-10 w-auto transition-transform group-hover:scale-105" style={{ mixBlendMode: "screen" }} />
+            <img
+              src={logoImage}
+              alt="AI CheckPoint Logo"
+              className="h-10 w-auto transition-transform group-hover:scale-105"
+              style={{ mixBlendMode: "screen" }}
+            />
             <span className="font-display text-lg font-bold tracking-tight text-white transition-colors group-hover:text-cyan">
               AI.CheckPoint
             </span>
           </Link>
-          
+
           {/* Elegant Badge for Founders Package */}
           <div className="hidden sm:flex items-center gap-2 rounded-full border border-gold/25 bg-gold/5 px-3.5 py-1 text-xs font-medium text-gold shadow-sm">
             <Sparkles className="h-3 w-3 animate-pulse" />
@@ -86,14 +94,16 @@ function RegisterPage() {
             transition={{
               duration: 6,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
         </div>
 
         {/* Floating Key Features */}
         <div className="relative z-20 flex flex-col gap-3 self-end max-w-xs bg-void/75 backdrop-blur-md border border-white/10 p-5 rounded-2xl">
-          <h4 className="font-mono-acc text-[10px] uppercase tracking-wider text-cyan">Audit Benefits</h4>
+          <h4 className="font-mono-acc text-[10px] uppercase tracking-wider text-cyan">
+            Audit Benefits
+          </h4>
           <ul className="space-y-2.5 text-xs text-soft/85">
             <li className="flex items-center gap-2">
               <span className="text-cyan font-bold">✓</span> Free 2-hour business audit
@@ -114,18 +124,20 @@ function RegisterPage() {
         <div className="relative z-20 flex flex-col items-center justify-end flex-grow pb-8">
           <blockquote className="space-y-3 text-center text-white backdrop-blur-sm bg-black/45 p-8 rounded-2xl border border-white/10 max-w-lg">
             <p className="text-lg font-medium leading-relaxed font-display">
-              “<Typewriter
+              “
+              <Typewriter
                 text={[
                   "Transform your business workflow. A customized AI roadmap and audit awaits.",
                   "Save hours of manual effort by automating your repetitive processes.",
                   "Deploy cutting-edge AI agents tailored specifically for your operational needs.",
-                  "Lock in the Founders Package for just ₹2,500 (value ₹5,000)."
+                  "Lock in the Founders Package for just ₹2,500 (value ₹5,000).",
                 ]}
                 speed={55}
                 loop={true}
                 delay={3000}
                 deleteSpeed={35}
-              />”
+              />
+              ”
             </p>
             <cite className="block text-xs font-mono-acc text-cyan uppercase tracking-wider not-italic">
               — AI CheckPoint

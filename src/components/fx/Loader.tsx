@@ -38,7 +38,9 @@ export function Loader() {
             />
           </div>
           <div className="mt-3 text-xs tabular-nums opacity-60">
-            {Math.round(progress * 100).toString().padStart(3, "0")}
+            {Math.round(progress * 100)
+              .toString()
+              .padStart(3, "0")}
           </div>
         </motion.div>
       )}

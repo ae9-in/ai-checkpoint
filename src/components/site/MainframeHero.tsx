@@ -1,137 +1,125 @@
-import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowUpRight } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
-import logoImage from "@/assets/logo.png";
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-
-function useTypewriter(text: string, speed = 38, startDelay = 600) {
-  const [displayed, setDisplayed] = useState("");
-  const [done, setDone] = useState(false);
-
-  useEffect(() => {
-    setDisplayed("");
-    setDone(false);
-    let i = 0;
-    const start = setTimeout(() => {
-      const id = setInterval(() => {
-        i += 1;
-        setDisplayed(text.slice(0, i));
-        if (i >= text.length) {
-          clearInterval(id);
-          setDone(true);
-        }
-      }, speed);
-    }, startDelay);
-    return () => clearTimeout(start);
-  }, [text, speed, startDelay]);
-
-  return { displayed, done };
-}
-
-const SERVICE_OPTIONS = ["Brand", "Digital", "Campaign", "Other"] as const;
+import {
+  Star,
+  Clock,
+  Calendar,
+  Play,
+  ChevronLeft,
+  ChevronRight,
+  User,
+  Menu,
+  X,
+} from "lucide-react";
+import logoImage from "@/assets/logo.png";
+import { Parallax } from "@/components/fx/Parallax";
+import DecryptedText from "@/components/fx/DecryptedText";
+import PillNav from "@/components/fx/PillNav";
 
 export function MainframeHero() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [services, setServices] = useState<string[]>([]);
 
-  const { displayed, done } = useTypewriter("The AI Checkpoint\nbuilt to outpace tomorrow.", 38, 600);
-
-  const toggleService = (s: string) => {
-    setServices((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
-  };
+  const navLinks = [
+    { label: "Audit", to: "/register" },
+    { label: "Solutions", to: "/", hash: "benefits" },
+    { label: "Industries", to: "/", hash: "industries" },
+    { label: "Pricing", to: "/", hash: "pricing" },
+  ];
 
   return (
-    <div className="relative bg-base text-fg font-sans selection:bg-base-elevated selection:text-fg antialiased overflow-x-hidden flex flex-col lg:block lg:min-h-screen">
-      {/* Background image */}
-      <div className="order-last lg:order-none relative lg:absolute lg:inset-0 lg:z-0 overflow-hidden pointer-events-none w-full aspect-square md:aspect-video lg:aspect-auto lg:h-full bg-base">
-        <img
-          src={heroImage}
-          alt="AI CheckPoint — custom AI deployment"
-          className="w-full h-full object-contain object-center lg:object-right opacity-95"
-          loading="eager"
-        />
-        {/* Dark gradient veil for readability of left-side copy */}
-        <div className="absolute inset-0 bg-gradient-to-r from-base via-base/70 to-transparent lg:via-base/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-base via-transparent to-transparent" />
+    <div className="relative bg-black text-white font-inter overflow-hidden flex flex-col h-[100dvh]">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0 overflow-hidden bg-black">
+        <Parallax offset={100} className="absolute inset-x-0 h-[120%] -top-[10%]">
+          <video
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260411_104032_69319010-2458-492b-b04d-b40a5dfa4482.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        </Parallax>
       </div>
 
+      {/* Bottom Blur Overlay */}
+      <div
+        className="absolute inset-0 z-[1] backdrop-blur-xl pointer-events-none"
+        style={{
+          maskImage: "linear-gradient(to top, black 0%, transparent 45%)",
+          WebkitMaskImage: "linear-gradient(to top, black 0%, transparent 45%)",
+        }}
+      />
+
       {/* Navbar */}
-      <header className="relative lg:absolute lg:top-0 lg:inset-x-0 z-10 px-6 sm:px-10 py-6">
-        <nav className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <img src={logoImage} alt="AI CheckPoint Logo" className="h-10 sm:h-12 w-auto" style={{ mixBlendMode: "screen" }} />
-            <span className="font-display text-[20px] sm:text-[25px] font-bold tracking-tight text-white transition-colors group-hover:text-cyan select-none">
-              AI CheckPoint
-            </span>
-          </Link>
+      <header className="relative z-50 flex items-center justify-between px-4 sm:px-6 md:px-12 py-4 md:py-6">
+        {/* Left: Logo */}
+        <Link
+          to="/"
+          className="flex items-center gap-2 group animate-blur-fade-up"
+          style={{ animationDelay: "0ms" }}
+        >
+          <img
+            src={logoImage}
+            alt="AI CheckPoint Logo"
+            className="h-8 md:h-10 w-auto mix-blend-screen"
+          />
+          <span className="font-display text-[20px] sm:text-[25px] font-bold tracking-tight text-white transition-colors group-hover:text-cyan select-none">
+            <DecryptedText text="AI CheckPoint" animateOn="hover" />
+          </span>
+        </Link>
 
-          <div className="hidden md:flex items-center gap-2 text-[18px] text-fg/85">
-            {[
-              { label: "Audit", to: "/register" },
-              { label: "Solutions", to: "/", hash: "benefits" },
-              { label: "Industries", to: "/", hash: "industries" },
-              { label: "Pricing", to: "/", hash: "pricing" }
-            ].map((link, i, arr) => (
-              <span key={link.label} className="flex items-center gap-2">
-                {link.to === "/register" ? (
-                  <Link to="/register" className="hover:opacity-60 transition-opacity">
-                    {link.label}
-                  </Link>
-                ) : (
-                  <Link to="/" hash={link.hash} className="hover:opacity-60 transition-opacity">
-                    {link.label}
-                  </Link>
-                )}
-                {i < arr.length - 1 && <span className="opacity-60">,</span>}
-              </span>
-            ))}
-          </div>
+        {/* Center: Desktop Nav */}
+        <div className="hidden lg:block animate-blur-fade-up" style={{ animationDelay: "150ms" }}>
+          <PillNav
+            items={navLinks}
+            baseColor="#ffffff"
+            pillColor="transparent"
+            hoveredPillTextColor="#000000"
+            pillTextColor="#ffffff"
+            initialLoadAnimation={false}
+          />
+        </div>
 
-          <Link to="/register" className="hidden md:inline-block text-[18px] text-fg underline underline-offset-4 hover:opacity-60 transition-opacity">
-            Get in touch
-          </Link>
+        {/* Right: Buttons */}
+        <div className="flex items-center gap-3">
+
+          <button
+            className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full liquid-glass animate-blur-fade-up text-white"
+            style={{ animationDelay: "400ms" }}
+          >
+            <User size={18} />
+          </button>
 
           {/* Mobile burger */}
           <button
-            type="button"
+            onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full liquid-glass animate-blur-fade-up relative text-white"
+            style={{ animationDelay: "350ms" }}
             aria-label="Toggle menu"
-            onClick={() => setMobileMenuOpen((v) => !v)}
-            className="md:hidden relative z-[10] w-8 h-8 flex flex-col items-center justify-center gap-[5px]"
           >
-            <span
-              className={`w-6 h-[2px] bg-fg transition-all duration-300 ${
-                isMobileMenuOpen ? "rotate-45 translate-y-[7px]" : ""
-              }`}
+            <Menu
+              size={18}
+              className={`absolute transition-all duration-500 ease-out ${isMobileMenuOpen ? "rotate-180 opacity-0 scale-50" : "rotate-0 opacity-100 scale-100"}`}
             />
-            <span
-              className={`w-6 h-[2px] bg-fg transition-all duration-300 ${
-                isMobileMenuOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`w-6 h-[2px] bg-fg transition-all duration-300 ${
-                isMobileMenuOpen ? "-rotate-45 -translate-y-[7px]" : ""
-              }`}
+            <X
+              size={18}
+              className={`absolute transition-all duration-500 ease-out ${isMobileMenuOpen ? "rotate-0 opacity-100 scale-100" : "-rotate-180 opacity-0 scale-50"}`}
             />
           </button>
-        </nav>
+        </div>
       </header>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile Menu Dropdown */}
       <div
-        className={`fixed inset-0 z-[9] md:hidden bg-base/95 backdrop-blur-sm transition-opacity duration-300 ${
-          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`absolute top-[72px] inset-x-0 z-40 bg-gray-900/95 backdrop-blur-lg border-t border-b border-gray-800 shadow-2xl transition-all duration-500 ease-out lg:hidden ${
+          isMobileMenuOpen
+            ? "translate-y-0 opacity-100 pointer-events-auto"
+            : "-translate-y-4 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex h-full flex-col justify-center px-10 gap-8">
-          {[
-            { label: "Audit", to: "/register" },
-            { label: "Solutions", to: "/", hash: "benefits" },
-            { label: "Industries", to: "/", hash: "industries" },
-            { label: "Pricing", to: "/", hash: "pricing" },
-            { label: "Get in touch", to: "/register" }
-          ].map((link) => {
+        <div className="flex flex-col p-4 gap-2">
+          {navLinks.map((link, i) => {
             const isReg = link.to === "/register";
             return (
               <Link
@@ -139,137 +127,89 @@ export function MainframeHero() {
                 to={isReg ? "/register" : "/"}
                 hash={isReg ? undefined : link.hash}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-3xl text-fg font-medium"
+                className="py-3 px-3 rounded-lg hover:bg-gray-800/50 transition-colors font-medium text-white"
+                style={{
+                  transitionDelay: isMobileMenuOpen ? `${i * 50}ms` : "0ms",
+                  transform: isMobileMenuOpen ? "translateX(0)" : "translateX(-10px)",
+                  opacity: isMobileMenuOpen ? 1 : 0,
+                  transition:
+                    "transform 0.5s ease-out, opacity 0.5s ease-out, background-color 0.2s",
+                }}
               >
                 {link.label}
               </Link>
             );
           })}
+
+          <div className="sm:hidden flex items-center justify-center mt-4 pt-4 border-t border-gray-800">
+            <button className="flex items-center justify-center w-10 h-10 rounded-full liquid-glass text-white">
+              <User size={18} />
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Content layer */}
-      <div className="relative z-[1] px-6 sm:px-10 lg:px-14 pt-10 lg:pt-32 pb-16 lg:pb-20">
-        <div className="max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-medium tracking-tight leading-[1.08] whitespace-pre-line mb-7">
-              {(() => {
-                const highlights = ["AI", "Checkpoint"];
-                const parts = displayed.split(/(\s+)/);
-                return parts.map((tok, i) => {
-                  if (/^\s+$/.test(tok)) return tok;
-                  const clean = tok.replace(/[.,]/g, "");
-                  if (highlights.includes(clean)) {
-                    return (
-                      <span
-                        key={i}
-                        className="bg-gradient-to-r from-[#8B7CFF] via-[#C9A26B] to-[#E8D3A8] bg-clip-text text-transparent"
-                      >
-                        {tok}
-                      </span>
-                    );
-                  }
-                  return <span key={i} className="text-fg">{tok}</span>;
-                });
-              })()}
-              {!done && (
-                <span className="inline-block w-[0.08em] h-[0.9em] bg-accent align-[-0.1em] ml-1 animate-blink" />
-              )}
-            </h1>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <p className="text-base md:text-lg text-fg-muted leading-relaxed font-normal mb-12 max-w-2xl">
-              Smarter decisions. Sharper margins. Zero guesswork. We audit, automate, and engineer AI that earns its keep — your unfair advantage for the next decade.
-            </p>
-          </motion.div>
-
-          <div className="max-w-xl">
-            <h3 className="text-xl font-medium tracking-tight mb-2 text-fg">
-              Where do you need a checkpoint?
-            </h3>
-            <p className="text-sm text-fg-subtle mb-7">Select all that apply</p>
-
-            <div className="flex flex-wrap gap-3 mb-6">
-              {SERVICE_OPTIONS.map((opt) => {
-                const active = services.includes(opt);
-                return (
-                  <motion.button
-                    key={opt}
-                    type="button"
-                    onClick={() => toggleService(opt)}
-                    whileTap={{ scale: 0.96 }}
-                    className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-base transition-colors ${
-                      active
-                        ? "bg-accent text-accent-foreground shadow-md shadow-black/40"
-                        : "bg-fg/[0.04] text-fg border border-line-strong hover:bg-fg/[0.08]"
-                    }`}
-                  >
-                    <AnimatePresence>
-                      {active && (
-                        <motion.span
-                          key="check"
-                          initial={{ scale: 0, opacity: 0 }}
-                          animate={{ scale: 1, opacity: 1 }}
-                          exit={{ scale: 0, opacity: 0 }}
-                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                          className="inline-flex"
-                        >
-                          <Check size={16} />
-                        </motion.span>
-                      )}
-                    </AnimatePresence>
-                    {opt}
-                  </motion.button>
-                );
-              })}
+      {/* Hero Content */}
+      <div className="relative z-10 flex-1 flex flex-col justify-end px-4 sm:px-6 md:px-12 pb-8 md:pb-16">
+        <div className="flex flex-col md:flex-row items-end gap-8">
+          {/* Left Side */}
+          <div className="flex-1 w-full">
+            {/* Metadata row */}
+            <div
+              className="flex flex-wrap gap-3 sm:gap-6 mb-6 md:mb-8 text-xs sm:text-sm animate-blur-fade-up text-white"
+              style={{ animationDelay: "300ms" }}
+            >
+              <span className="flex items-center gap-1 font-medium">
+                <Star size={16} className="fill-white w-4 h-4 sm:w-5 sm:h-5" /> 5.0/5 Rating
+              </span>
+              <span className="flex items-center gap-1">
+                <Clock size={16} /> Setup in 48h
+              </span>
+              <span className="flex items-center gap-1">
+                <Calendar size={16} /> Enterprise Grade
+              </span>
             </div>
 
-            <AnimatePresence mode="wait">
-              {services.length === 0 ? (
-                <motion.p
-                  key="empty"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 0.5 }}
-                  exit={{ opacity: 0 }}
-                  className="italic text-xs text-fg/60"
-                >
-                  Please click to select services above.
-                </motion.p>
-              ) : (
-                <motion.div
-                  key="active"
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 24 }}
-                  className="overflow-hidden"
-                >
-                  <div className="bg-fg text-base border border-line rounded-2xl p-5 flex items-center justify-between gap-4">
-                    <p className="text-sm md:text-base text-base/90">
-                      <span className="text-base/70">Ready to inquire about:</span>{" "}
-                      <span className="font-medium text-base">{services.join(", ")}</span>
-                    </p>
-                    <Link
-                      to="/register"
-                      search={{ services: services.join(", ") } as any}
-                      className="inline-flex items-center gap-1 text-base uppercase text-xs tracking-wider font-medium hover:opacity-60 transition-opacity text-base/90 hover:text-white"
-                    >
-                      Let's Go
-                      <ArrowUpRight size={14} />
-                    </Link>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {/* Title */}
+            <h1
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal mb-4 md:mb-6 animate-blur-fade-up whitespace-pre-line text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)]"
+              style={{ animationDelay: "400ms", letterSpacing: "-0.04em" }}
+            >
+              The <span className="text-white font-semibold bg-gradient-to-r from-[#8B7CFF] via-[#C9A26B] to-[#E8D3A8] bg-clip-text text-transparent">
+                <DecryptedText text="AI" animateOn="view" speed={100} sequential={true} delay={1800} />
+              </span>{" "}
+              <DecryptedText text="Checkpoint" animateOn="view" speed={60} sequential={true} delay={1800} />
+              <br />
+              built to outpace tomorrow.
+            </h1>
+
+            {/* Description */}
+            <p
+              className="text-base sm:text-lg md:text-xl text-white/90 mb-6 md:mb-12 max-w-2xl animate-blur-fade-up drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
+              style={{ animationDelay: "500ms" }}
+            >
+              <span className="text-white font-semibold">Smarter decisions. Sharper margins. Zero guesswork.</span> We audit, automate, and engineer <span className="font-semibold bg-gradient-to-r from-[#8B7CFF] via-[#C9A26B] to-[#E8D3A8] bg-clip-text text-transparent">AI that earns its keep</span> — your unfair advantage for the next decade.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-3 sm:gap-4">
+              <Link
+                to="/register"
+                className="inline-flex items-center gap-2 bg-white text-black rounded-full font-medium px-6 sm:px-8 py-2.5 sm:py-3 hover:bg-gray-200 transition-colors animate-blur-fade-up"
+                style={{ animationDelay: "600ms" }}
+              >
+                <Play size={18} className="fill-black" />
+                Get Started
+              </Link>
+              <Link
+                to="/"
+                hash="benefits"
+                className="inline-flex items-center justify-center rounded-full font-medium liquid-glass px-6 sm:px-8 py-2.5 sm:py-3 animate-blur-fade-up transition-opacity hover:opacity-80 text-white"
+                style={{ animationDelay: "700ms" }}
+              >
+                Our Solutions
+              </Link>
+            </div>
           </div>
         </div>
       </div>

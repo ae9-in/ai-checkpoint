@@ -13,15 +13,16 @@ export function RegisterLeft() {
     <aside
       className="relative isolate overflow-hidden p-10 md:sticky md:top-0 md:h-screen md:p-14"
       style={{
-        background:
-          "linear-gradient(135deg, #5C3BFF 0%, #0D0E1F 100%)",
+        background: "linear-gradient(135deg, #5C3BFF 0%, #0D0E1F 100%)",
       }}
     >
       <HeroScene className="absolute inset-0 -z-10 opacity-60" />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
-        style={{ background: "radial-gradient(circle at 30% 30%, rgba(0,245,212,0.18), transparent 55%)" }}
+        style={{
+          background: "radial-gradient(circle at 30% 30%, rgba(0,245,212,0.18), transparent 55%)",
+        }}
       />
 
       <a href="/" className="font-display text-lg font-bold text-soft">
@@ -32,7 +33,8 @@ export function RegisterLeft() {
         Let's transform <br /> your business.
       </h1>
       <p className="mt-4 max-w-md text-soft/75">
-        Fill in your details and our AI specialist will contact you within 24 hours for a FREE audit.
+        Fill in your details and our AI specialist will contact you within 24 hours for a FREE
+        audit.
       </p>
 
       <ul className="mt-8 space-y-3">
@@ -63,14 +65,14 @@ export function RegisterLeft() {
       </ul>
 
       <div className="mt-10 rounded-2xl border border-soft/15 bg-void/40 p-5 backdrop-blur-md">
-        <div className="font-mono-acc text-[11px] uppercase tracking-wider text-cyan">Founders package</div>
+        <div className="font-mono-acc text-[11px] uppercase tracking-wider text-cyan">
+          Founders package
+        </div>
         <div className="mt-1 flex items-end gap-3">
           <span className="font-display text-3xl font-bold text-soft">₹2,500</span>
           <span className="font-mono-acc mb-1 text-sm text-soft/45 line-through">₹5,000</span>
         </div>
-        <p className="mt-1 text-sm text-soft/70">
-          AI setup + ₹1,000 Digital Marketing — FREE.
-        </p>
+        <p className="mt-1 text-sm text-soft/70">AI setup + ₹1,000 Digital Marketing — FREE.</p>
       </div>
 
       <div className="font-mono-acc mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] uppercase tracking-wider text-soft/55">

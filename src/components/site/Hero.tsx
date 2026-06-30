@@ -29,7 +29,11 @@ export function Hero() {
           </span>
           <div className="hidden items-center gap-6 md:flex">
             {navLinks.map((l) => (
-              <a key={l} href="#" className="text-sm text-white/80 transition-colors hover:text-white">
+              <a
+                key={l}
+                href="#"
+                className="text-sm text-white/80 transition-colors hover:text-white"
+              >
                 {l}
               </a>
             ))}

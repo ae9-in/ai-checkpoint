@@ -21,7 +21,9 @@ export function StepProgress({ step }: { step: number }) {
               >
                 {done ? "✓" : idx}
               </motion.div>
-              <span className={`hidden text-xs uppercase tracking-wider sm:inline ${active ? "text-soft" : "text-soft/45"}`}>
+              <span
+                className={`hidden text-xs uppercase tracking-wider sm:inline ${active ? "text-soft" : "text-soft/45"}`}
+              >
                 {label}
               </span>
             </div>

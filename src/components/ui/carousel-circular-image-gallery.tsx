@@ -93,7 +93,14 @@ export function ImageGallery({ images, width = 600, height = 480 }: ImageGallery
         aria-label="Previous"
         className="absolute left-2 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full border border-line-strong bg-base-elevated/60 text-fg backdrop-blur transition-colors hover:border-accent hover:text-accent"
       >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M15 18l-6-6 6-6" />
         </svg>
       </button>
@@ -103,7 +110,14 @@ export function ImageGallery({ images, width = 600, height = 480 }: ImageGallery
         aria-label="Next"
         className="absolute right-2 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full border border-line-strong bg-base-elevated/60 text-fg backdrop-blur transition-colors hover:border-accent hover:text-accent"
       >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M9 6l6 6-6 6" />
         </svg>
       </button>
@@ -122,7 +136,16 @@ interface GalleryImageProps {
   height: number;
 }
 
-function GalleryImage({ url, title, open, id, onInPlace, total, width, height }: GalleryImageProps) {
+function GalleryImage({
+  url,
+  title,
+  open,
+  id,
+  onInPlace,
+  total,
+  width,
+  height,
+}: GalleryImageProps) {
   const firstLoad = useRef(true);
 
   const gap = 14;
@@ -134,19 +157,29 @@ function GalleryImage({ url, title, open, id, onInPlace, total, width, height }:
 
   const getPosSmall = () => ({
     attr: {
-      cx: width / 2 - (total * (circleRadius * 2 + gap) - gap) / 2 + id * (circleRadius * 2 + gap) + circleRadius,
+      cx:
+        width / 2 -
+        (total * (circleRadius * 2 + gap) - gap) / 2 +
+        id * (circleRadius * 2 + gap) +
+        circleRadius,
       cy: height - 40,
       r: circleRadius,
     },
   });
   const getPosSmallAbove = () => ({
     attr: {
-      cx: width / 2 - (total * (circleRadius * 2 + gap) - gap) / 2 + id * (circleRadius * 2 + gap) + circleRadius,
+      cx:
+        width / 2 -
+        (total * (circleRadius * 2 + gap) - gap) / 2 +
+        id * (circleRadius * 2 + gap) +
+        circleRadius,
       cy: height / 2,
       r: circleRadius * 2,
     },
   });
-  const getPosCenter = () => ({ attr: { cx: width / 2, cy: height / 2 - 20, r: circleRadius * 6 } });
+  const getPosCenter = () => ({
+    attr: { cx: width / 2, cy: height / 2 - 20, r: circleRadius * 6 },
+  });
   const fullR = Math.hypot(width, height - 80) / 2;
   const getPosEnd = () => ({ attr: { cx: width / 2, cy: (height - 80) / 2, r: fullR } });
   const getPosStart = () => ({ attr: { cx: width / 2, cy: (height - 80) / 2, r: fullR } });
@@ -222,7 +255,10 @@ function Tabs({ images, onSelect, active, width, height }: TabsProps) {
   const gap = 14;
   const circleRadius = 7;
   const getPosX = (i: number) =>
-    width / 2 - (images.length * (circleRadius * 2 + gap) - gap) / 2 + i * (circleRadius * 2 + gap) + circleRadius;
+    width / 2 -
+    (images.length * (circleRadius * 2 + gap) - gap) / 2 +
+    i * (circleRadius * 2 + gap) +
+    circleRadius;
   const cy = height - 40;
 
   return (

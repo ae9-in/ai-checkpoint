@@ -56,7 +56,7 @@ function Orb() {
       `
       float _n = snoise(position * 0.9 + vec3(uTime * 0.18));
       vec3 transformed = position + normal * (_n * 0.06);
-      `
+      `,
     );
   };
 
@@ -64,10 +64,8 @@ function Orb() {
     uniforms.uTime.value = clock.elapsedTime;
     if (groupRef.current) {
       groupRef.current.rotation.y += delta * 0.12;
-      groupRef.current.rotation.x +=
-        (pointer.y * 0.3 - groupRef.current.rotation.x) * 0.03;
-      groupRef.current.rotation.y +=
-        (pointer.x * 0.3 - groupRef.current.rotation.y) * 0.02;
+      groupRef.current.rotation.x += (pointer.y * 0.3 - groupRef.current.rotation.x) * 0.03;
+      groupRef.current.rotation.y += (pointer.x * 0.3 - groupRef.current.rotation.y) * 0.02;
     }
     if (innerRef.current) {
       const s = 1 + Math.sin(clock.elapsedTime * 1.4) * 0.04;
@@ -190,7 +188,7 @@ function Particles() {
       uTime: { value: 0 },
       uColor: { value: new THREE.Color("#00F5D4") },
     }),
-    []
+    [],
   );
 
   useFrame(({ clock }) => {
@@ -210,7 +208,8 @@ function Particles() {
         depthWrite={false}
         blending={THREE.AdditiveBlending}
         uniforms={uniforms}
-        vertexShader={/* glsl */ `
+        vertexShader={
+          /* glsl */ `
           attribute float aSeed;
           varying float vSeed;
           uniform float uTime;
@@ -226,8 +225,10 @@ function Particles() {
             gl_Position = projectionMatrix * mv;
             gl_PointSize = (1.4 + aSeed * 2.4) * (300.0 / -mv.z);
           }
-        `}
-        fragmentShader={/* glsl */ `
+        `
+        }
+        fragmentShader={
+          /* glsl */ `
           varying float vSeed;
           uniform vec3 uColor;
           void main(){
@@ -238,7 +239,8 @@ function Particles() {
             vec3 col = mix(uColor, vec3(0.85, 0.78, 1.0), vSeed);
             gl_FragColor = vec4(col, a);
           }
-        `}
+        `
+        }
       />
     </points>
   );

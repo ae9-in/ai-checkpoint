@@ -1,16 +1,50 @@
 import { motion } from "framer-motion";
-import { Zap, Target, TrendingUp, RefreshCw, Shield, Brain, Sparkles, ArrowUpRight } from "lucide-react";
+import {
+  Zap,
+  Target,
+  TrendingUp,
+  RefreshCw,
+  Shield,
+  Brain,
+  Sparkles,
+  ArrowUpRight,
+} from "lucide-react";
 import { useRef, type ReactNode } from "react";
 import { SectionLabel } from "./SectionLabel";
 import { RollingText } from "@/components/fx/RollingText";
+import { Parallax } from "@/components/fx/Parallax";
 
 const cards = [
-  { icon: Zap, title: "Cut Costs Instantly", body: "AI identifies waste in your processes — labor, time, and materials — and eliminates it automatically." },
-  { icon: Target, title: "Pinpoint Accuracy", body: "Remove human error from data entry, inventory, billing, and reporting. Decisions backed by real numbers." },
-  { icon: TrendingUp, title: "Edge Over Competitors", body: "While they operate manually, you operate with AI. Faster, smarter, and cheaper, every day." },
-  { icon: RefreshCw, title: "Always Up to Date", body: "AI tools evolve with your business. Regular updates keep you ahead — no manual upgrades needed." },
-  { icon: Shield, title: "Seamless Integration", body: "We handle setup end-to-end. Your team gets trained. You get results. Zero technical headache." },
-  { icon: Brain, title: "Smarter Decisions", body: "Real-time dashboards and AI insights so you always know what's working and what needs attention." },
+  {
+    icon: Zap,
+    title: "Cut Costs Instantly",
+    body: "AI identifies waste in your processes — labor, time, and materials — and eliminates it automatically.",
+  },
+  {
+    icon: Target,
+    title: "Pinpoint Accuracy",
+    body: "Remove human error from data entry, inventory, billing, and reporting. Decisions backed by real numbers.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Edge Over Competitors",
+    body: "While they operate manually, you operate with AI. Faster, smarter, and cheaper, every day.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Always Up to Date",
+    body: "AI tools evolve with your business. Regular updates keep you ahead — no manual upgrades needed.",
+  },
+  {
+    icon: Shield,
+    title: "Seamless Integration",
+    body: "We handle setup end-to-end. Your team gets trained. You get results. Zero technical headache.",
+  },
+  {
+    icon: Brain,
+    title: "Smarter Decisions",
+    body: "Real-time dashboards and AI insights so you always know what's working and what needs attention.",
+  },
 ];
 
 function TiltCard({ children }: { children: ReactNode }) {
@@ -24,8 +58,8 @@ function TiltCard({ children }: { children: ReactNode }) {
         const r = el.getBoundingClientRect();
         const x = e.clientX - r.left;
         const y = e.clientY - r.top;
-        const rx = ((y / r.height) - 0.5) * -6;
-        const ry = ((x / r.width) - 0.5) * 6;
+        const rx = (y / r.height - 0.5) * -6;
+        const ry = (x / r.width - 0.5) * 6;
         el.style.setProperty("--mx", `${x}px`);
         el.style.setProperty("--my", `${y}px`);
         el.style.setProperty("--rx", `${rx}deg`);
@@ -38,7 +72,12 @@ function TiltCard({ children }: { children: ReactNode }) {
         el.style.setProperty("--ry", `0deg`);
       }}
       className="group/spot relative h-full [perspective:1000px]"
-      style={{ ["--mx" as string]: "50%", ["--my" as string]: "50%", ["--rx" as string]: "0deg", ["--ry" as string]: "0deg" }}
+      style={{
+        ["--mx" as string]: "50%",
+        ["--my" as string]: "50%",
+        ["--rx" as string]: "0deg",
+        ["--ry" as string]: "0deg",
+      }}
     >
       {children}
     </div>
@@ -47,8 +86,13 @@ function TiltCard({ children }: { children: ReactNode }) {
 
 export function Benefits() {
   return (
-    <section id="benefits" className="relative bg-void py-28 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="benefits" className="relative bg-void py-28 sm:py-32 overflow-hidden">
+      {/* Floating parallax blur circles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <Parallax offset={80} className="absolute top-[20%] -left-48 w-96 h-96 rounded-full bg-cyan/5 blur-3xl" />
+        <Parallax offset={-80} className="absolute bottom-[20%] -right-48 w-96 h-96 rounded-full bg-indigo/5 blur-3xl" />
+      </div>
+      <div className="mx-auto max-w-7xl px-6 relative z-10">
         <SectionLabel>Why choose us</SectionLabel>
         <RollingText
           as="h2"
@@ -70,54 +114,63 @@ export function Benefits() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
               >
-                <TiltCard>
-                  <div
-                    className="group relative h-full overflow-hidden rounded-[22px] border border-soft/[0.06] bg-gradient-to-b from-surface/90 to-mid/90 p-7 transition-all duration-500 will-change-transform hover:-translate-y-1 hover:border-cyan/30"
-                    style={{ transform: "rotateX(var(--rx)) rotateY(var(--ry))", transformStyle: "preserve-3d" }}
-                  >
-                    {/* Gradient border halo on hover */}
+                <Parallax offset={[-30, 5, 40][i % 3]} className="h-full">
+                  <TiltCard>
                     <div
-                      aria-hidden
-                      className="pointer-events-none absolute inset-0 rounded-[22px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                      className="group relative h-full overflow-hidden rounded-[22px] border border-soft/[0.06] bg-gradient-to-b from-surface/90 to-mid/90 p-7 transition-all duration-500 will-change-transform hover:-translate-y-1 hover:border-cyan/30"
                       style={{
-                        background:
-                          "radial-gradient(500px circle at var(--mx) var(--my), rgba(0,245,212,0.18), transparent 45%)",
+                        transform: "rotateX(var(--rx)) rotateY(var(--ry))",
+                        transformStyle: "preserve-3d",
                       }}
-                    />
-                    {/* Conic accent line */}
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute -inset-px rounded-[22px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                      style={{
-                        background:
-                          "conic-gradient(from var(--ry, 0deg) at var(--mx) var(--my), rgba(92,59,255,0.5), rgba(0,245,212,0.5), transparent 30%)",
-                        WebkitMask:
-                          "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-                        WebkitMaskComposite: "xor",
-                        maskComposite: "exclude",
-                        padding: "1px",
-                      }}
-                    />
+                    >
+                      {/* Gradient border halo on hover */}
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute inset-0 rounded-[22px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                        style={{
+                          background:
+                            "radial-gradient(500px circle at var(--mx) var(--my), rgba(0,245,212,0.18), transparent 45%)",
+                        }}
+                      />
+                      {/* Conic accent line */}
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute -inset-px rounded-[22px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                        style={{
+                          background:
+                            "conic-gradient(from var(--ry, 0deg) at var(--mx) var(--my), rgba(92,59,255,0.5), rgba(0,245,212,0.5), transparent 30%)",
+                          WebkitMask:
+                            "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+                          WebkitMaskComposite: "xor",
+                          maskComposite: "exclude",
+                          padding: "1px",
+                        }}
+                      />
 
-                    <div className="relative flex items-start justify-between">
-                      <div className="relative grid h-12 w-12 place-items-center rounded-xl border border-indigo/40 bg-indigo/10 text-cyan transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
-                        <Icon className="h-5 w-5" />
-                        <span className="absolute inset-0 rounded-xl bg-gradient-primary opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-70" />
+                      <div className="relative flex items-start justify-between">
+                        <div className="relative grid h-12 w-12 place-items-center rounded-xl border border-indigo/40 bg-indigo/10 text-cyan transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+                          <Icon className="h-5 w-5" />
+                          <span className="absolute inset-0 rounded-xl bg-gradient-primary opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-70" />
+                        </div>
+                        <span className="font-mono-acc text-[11px] tracking-[0.2em] text-soft/30">
+                          {num}
+                        </span>
                       </div>
-                      <span className="font-mono-acc text-[11px] tracking-[0.2em] text-soft/30">{num}</span>
-                    </div>
 
-                    <h3 className="font-display relative mt-6 text-[22px] font-semibold leading-tight text-soft">
-                      {c.title}
-                    </h3>
-                    <p className="relative mt-2.5 text-[14.5px] leading-relaxed text-soft/60">{c.body}</p>
+                      <h3 className="font-display relative mt-6 text-[22px] font-semibold leading-tight text-soft">
+                        {c.title}
+                      </h3>
+                      <p className="relative mt-2.5 text-[14.5px] leading-relaxed text-soft/60">
+                        {c.body}
+                      </p>
 
-                    <div className="relative mt-6 flex items-center gap-2 text-[13px] text-cyan opacity-0 transition-all duration-500 group-hover:opacity-100">
-                      <span className="font-mono-acc tracking-wide">EXPLORE</span>
-                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <div className="relative mt-6 flex items-center gap-2 text-[13px] text-cyan opacity-0 transition-all duration-500 group-hover:opacity-100">
+                        <span className="font-mono-acc tracking-wide">EXPLORE</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </div>
                     </div>
-                  </div>
-                </TiltCard>
+                  </TiltCard>
+                </Parallax>
               </motion.div>
             );
           })}
@@ -133,8 +186,7 @@ export function Benefits() {
             <div
               className="grid items-center gap-8 rounded-[24px] border border-indigo/40 p-8 sm:p-12 md:grid-cols-[auto_1fr]"
               style={{
-                background:
-                  "linear-gradient(135deg, #0D0E1F 0%, rgba(92,59,255,0.15) 100%)",
+                background: "linear-gradient(135deg, #0D0E1F 0%, rgba(92,59,255,0.15) 100%)",
               }}
             >
               <div className="float-y grid h-20 w-20 place-items-center rounded-2xl bg-gradient-primary text-void glow-indigo-lg">
@@ -145,14 +197,22 @@ export function Benefits() {
                   Save Time. Save Money. Stay Ahead.
                 </h3>
                 <p className="mt-3 max-w-2xl text-soft/65">
-                  One package, everything included — audit, setup, training, and a month of support so AI lands
-                  in your business without friction.
+                  One package, everything included — audit, setup, training, and a month of support
+                  so AI lands in your business without friction.
                 </p>
                 <div className="font-mono-acc mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
-                  <span className="rounded-full border border-cyan/40 bg-cyan/5 px-3 py-1 text-cyan">48 hr setup</span>
-                  <span className="rounded-full border border-indigo/40 bg-indigo/10 px-3 py-1 text-soft">₹2,500 package</span>
-                  <span className="rounded-full border border-gold/40 bg-gold/5 px-3 py-1 text-gold">₹1,000 marketing included</span>
-                  <span className="rounded-full border border-soft/20 bg-soft/5 px-3 py-1 text-soft">FREE onboarding</span>
+                  <span className="rounded-full border border-cyan/40 bg-cyan/5 px-3 py-1 text-cyan">
+                    48 hr setup
+                  </span>
+                  <span className="rounded-full border border-indigo/40 bg-indigo/10 px-3 py-1 text-soft">
+                    ₹2,500 package
+                  </span>
+                  <span className="rounded-full border border-gold/40 bg-gold/5 px-3 py-1 text-gold">
+                    ₹1,000 marketing included
+                  </span>
+                  <span className="rounded-full border border-soft/20 bg-soft/5 px-3 py-1 text-soft">
+                    FREE onboarding
+                  </span>
                 </div>
               </div>
             </div>

@@ -6,7 +6,10 @@ export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
       { title: "Sign In — AI CheckPoint" },
-      { name: "description", content: "Access your AI CheckPoint dashboard or create a new account to book audits." },
+      {
+        name: "description",
+        content: "Access your AI CheckPoint dashboard or create a new account to book audits.",
+      },
     ],
   }),
 });

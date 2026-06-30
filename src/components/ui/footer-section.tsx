@@ -1,14 +1,14 @@
-'use client';
-import React from 'react';
-import type { ComponentProps, ReactNode } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
-import { Instagram, Linkedin, MessageCircle } from 'lucide-react';
+"use client";
+import React from "react";
+import type { ComponentProps, ReactNode } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { Instagram, Linkedin, MessageCircle } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import logoImage from "@/assets/logo.png";
 
 type ViewAnimationProps = {
   delay?: number;
-  className?: ComponentProps<typeof motion.div>['className'];
+  className?: ComponentProps<typeof motion.div>["className"];
   children: ReactNode;
 };
 
@@ -21,8 +21,8 @@ function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationPr
 
   return (
     <motion.div
-      initial={{ filter: 'blur(4px)', translateY: -8, opacity: 0 }}
-      whileInView={{ filter: 'blur(0px)', translateY: 0, opacity: 1 }}
+      initial={{ filter: "blur(4px)", translateY: -8, opacity: 0 }}
+      whileInView={{ filter: "blur(0px)", translateY: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ delay, duration: 0.8 }}
       className={className}
@@ -37,7 +37,7 @@ export function Footer() {
     <footer className="relative w-full max-w-7xl mx-auto flex flex-col items-stretch justify-center border-t border-indigo/10 bg-black px-6 py-16 lg:py-20 overflow-hidden">
       {/* Ambient top glowing line from template */}
       <div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur z-0" />
-      
+
       {/* Rise ambient radial glow */}
       <div className="pointer-events-none absolute -bottom-48 left-1/2 h-[350px] w-[600px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-indigo/20 via-cyan/15 to-transparent blur-[120px] z-0" />
 
@@ -45,13 +45,23 @@ export function Footer() {
         {/* Column 1: Brand & Status */}
         <AnimatedContainer className="flex flex-col gap-4" delay={0.1}>
           <div className="flex items-center gap-3">
-            <img src={logoImage} alt="AI CheckPoint Logo" className="h-12 w-auto" style={{ mixBlendMode: "screen" }} />
+            <img
+              src={logoImage}
+              alt="AI CheckPoint Logo"
+              className="h-12 w-auto"
+              style={{ mixBlendMode: "screen" }}
+            />
             <span className="font-display text-xl font-bold tracking-tight text-white">
-              AI<span className="bg-gradient-to-r from-cyan to-indigo bg-clip-text text-transparent">.</span>CheckPoint
+              AI
+              <span className="bg-gradient-to-r from-cyan to-indigo bg-clip-text text-transparent">
+                .
+              </span>
+              CheckPoint
             </span>
           </div>
           <p className="text-sm text-soft/65 max-w-xs leading-relaxed">
-            Democratizing AI for Indian enterprises. Auditing operations, automating workloads, and accelerating growth.
+            Democratizing AI for Indian enterprises. Auditing operations, automating workloads, and
+            accelerating growth.
           </p>
 
           {/* Pulsing Status Indicator */}
@@ -66,7 +76,11 @@ export function Footer() {
           </div>
 
           <div className="mt-4 flex items-center gap-3">
-            {[{ icon: Instagram, href: "#" }, { icon: Linkedin, href: "#" }, { icon: MessageCircle, href: "#" }].map((s, idx) => (
+            {[
+              { icon: Instagram, href: "#" },
+              { icon: Linkedin, href: "#" },
+              { icon: MessageCircle, href: "#" },
+            ].map((s, idx) => (
               <a
                 key={idx}
                 href={s.href}
@@ -86,7 +100,7 @@ export function Footer() {
               { label: "Industries", href: "#industries" },
               { label: "Our Benefits", href: "#benefits" },
               { label: "Founders' Pricing", href: "#pricing" },
-              { label: "How It Works", href: "#how" }
+              { label: "How It Works", href: "#how" },
             ].map((link) => (
               <li key={link.label}>
                 <a
@@ -135,13 +149,20 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="relative z-10 mt-16 border-t border-indigo/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-soft/40">
-        <div>
-          © {new Date().getFullYear()} AI CheckPoint. All rights reserved.
-        </div>
+        <div>© {new Date().getFullYear()} AI CheckPoint. All rights reserved.</div>
         <div className="flex items-center gap-6">
-          <a href="#" className="hover:text-soft/65 transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-soft/65 transition-colors">Terms of Service</a>
-          <Link to="/admin" className="hover:text-cyan transition-colors font-mono-acc uppercase text-[9px] tracking-wider border border-white/5 bg-white/5 px-2 py-0.5 rounded">Admin Portal</Link>
+          <a href="#" className="hover:text-soft/65 transition-colors">
+            Privacy Policy
+          </a>
+          <a href="#" className="hover:text-soft/65 transition-colors">
+            Terms of Service
+          </a>
+          <Link
+            to="/admin"
+            className="hover:text-cyan transition-colors font-mono-acc uppercase text-[9px] tracking-wider border border-white/5 bg-white/5 px-2 py-0.5 rounded"
+          >
+            Admin Portal
+          </Link>
           <span className="text-cyan/60 font-mono-acc">Made in India 🇮🇳</span>
         </div>
       </div>
