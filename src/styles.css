@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-@import "tailwindcss";
+@import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 
@@ -422,16 +422,15 @@ html.has-custom-cursor * {
   --rotation: 0deg;
   --border-glow: var(--primary);
   --border-dim: var(--border);
-  --card-bg: var(--card);
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  background-image: linear-gradient(var(--card-bg), var(--card-bg)),
+  background-image: linear-gradient(var(--card), var(--card)),
     conic-gradient(
       from var(--rotation),
       var(--border-glow) 0deg,
-      var(--border-glow) 25deg,
-      var(--border-dim) 100deg,
+      var(--border-glow) 90deg,
+      var(--border-dim) 90deg,
       var(--border-dim) 360deg
     );
-  transition: --rotation 0.15s ease-out;
+  transition: --rotation 0.4s cubic-bezier(0.1, 0.5, 0.5, 1);
 }
