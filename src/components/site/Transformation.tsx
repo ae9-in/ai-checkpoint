@@ -10,12 +10,12 @@ export function Transformation() {
         <img
           src="/transformation_bg.png"
           alt=""
-          className="w-full h-full object-cover opacity-25 filter blur-sm scale-105"
+          className="w-full h-full object-cover opacity-75 filter blur-sm scale-105"
         />
         {/* Dark overlays to maintain readability */}
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute top-1/2 left-[20%] -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-red-950/10 blur-[120px]" />
-        <div className="absolute top-1/2 right-[20%] -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-cyan/10 blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black" />
+        <div className="absolute top-1/2 left-[20%] -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-red-950/15 blur-[120px]" />
+        <div className="absolute top-1/2 right-[20%] -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-cyan/15 blur-[120px]" />
       </div>
 
       <div className="mx-auto max-w-7xl px-6 relative z-10">
@@ -31,7 +31,7 @@ export function Transformation() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="relative rounded-3xl border border-red-500/15 bg-[#06070c]/55 backdrop-blur-md p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-red-500/30 transition-all duration-300 shadow-[0_4px_30px_rgba(239,68,68,0.03)]"
+            className="relative rounded-3xl border border-red-500/20 bg-red-950/[0.04] backdrop-blur-xl p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-red-500/35 transition-all duration-300 shadow-[0_8px_32px_0_rgba(0,0,0,0.55)] shadow-red-500/5"
           >
             <div>
               <div className="flex items-center gap-2 mb-4">
@@ -86,7 +86,7 @@ export function Transformation() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="relative rounded-3xl border border-cyan/25 bg-[#06070c]/55 backdrop-blur-md p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-cyan/45 transition-all duration-300 shadow-[0_0_30px_rgba(0,245,212,0.05)]"
+            className="relative rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-xl p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-cyan/35 transition-all duration-300 shadow-[0_8px_32px_0_rgba(0,0,0,0.55)] shadow-indigo/5"
           >
             <div>
               <div className="flex items-center gap-2 mb-4">
