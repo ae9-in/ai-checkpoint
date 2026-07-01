@@ -68,11 +68,12 @@ export function Industries() {
                     <motion.div
                       initial={false}
                       animate={{
-                        y: isActive ? -16 : 0,
-                        scale: isActive ? 1.02 : 1,
+                        clipPath: !isActive
+                          ? "inset(12% 0 12% 0 round 2.5rem)"
+                          : "inset(0% 0 0% 0 round 2.5rem)",
                       }}
-                      transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
-                      className="relative h-[85%] w-full overflow-hidden rounded-[2.5rem] bg-surface border border-white/5 shadow-2xl"
+                      transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+                      className="relative h-[85%] w-full overflow-hidden rounded-[2.5rem] bg-surface border border-white/5"
                     >
                       {/* Background Image */}
                       <img
@@ -80,18 +81,23 @@ export function Industries() {
                         alt={industry.name}
                         className={cn(
                           "absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out z-0",
-                          isActive ? "scale-105" : "scale-100 filter brightness-[0.55] saturate-[0.7]"
+                          isActive ? "scale-105" : "scale-100 filter brightness-[0.6] saturate-[0.8]"
                         )}
                       />
 
                       {/* Gradient Overlay */}
                       <div className={cn(
-                        "absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent z-10 transition-opacity duration-500",
-                        isActive ? "opacity-95" : "opacity-80"
+                        "absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 transition-opacity duration-500",
+                        isActive ? "opacity-95" : "opacity-75"
                       )} />
 
                       {/* Content Overlay */}
-                      <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-20 pointer-events-none">
+                      <motion.div
+                        initial={false}
+                        animate={{ opacity: isActive ? 1 : 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-20 pointer-events-none"
+                      >
                         <div className="flex items-center gap-3">
                           <motion.div 
                             className={cn(
@@ -106,31 +112,32 @@ export function Industries() {
                           </h3>
                         </div>
 
-                        {/* Description and use cases are always visible, styled by active state */}
+                        {/* Expandable description and use cases for the active card */}
                         <motion.div
                           initial={false}
                           animate={{
-                            opacity: isActive ? 1 : 0.65,
-                            marginTop: 12,
+                            height: isActive ? "auto" : 0,
+                            opacity: isActive ? 1 : 0,
+                            marginTop: isActive ? 12 : 0,
                           }}
-                          transition={{ duration: 0.4 }}
-                          className="block"
+                          transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
+                          className="overflow-hidden"
                         >
-                          <p className="text-white/90 text-xs sm:text-sm leading-relaxed mb-4">
+                          <p className="text-white/85 text-xs sm:text-sm leading-relaxed mb-4">
                             {industry.description}
                           </p>
                           <div className="flex flex-wrap gap-1.5">
                             {industry.useCases.map((uc, i) => (
                               <span
                                 key={i}
-                                className="text-[10px] font-semibold bg-white/10 border border-white/5 text-white px-2.5 py-1 rounded-full backdrop-blur-md"
+                                className="text-[10px] font-semibold bg-white/15 border border-white/10 text-white px-2.5 py-1 rounded-full backdrop-blur-md"
                               >
                                 {uc}
                               </span>
                             ))}
                           </div>
                         </motion.div>
-                      </div>
+                      </motion.div>
                     </motion.div>
                   </CarouselItem>
                 );
