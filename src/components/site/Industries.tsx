@@ -68,12 +68,11 @@ export function Industries() {
                     <motion.div
                       initial={false}
                       animate={{
-                        clipPath: !isActive
-                          ? "inset(12% 0 12% 0 round 2.5rem)"
-                          : "inset(0% 0 0% 0 round 2.5rem)",
+                        y: isActive ? -16 : 0,
+                        scale: isActive ? 1.02 : 1,
                       }}
-                      transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-                      className="relative h-[85%] w-full overflow-hidden rounded-[2.5rem] bg-surface border border-white/5"
+                      transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
+                      className="relative h-[85%] w-full overflow-hidden rounded-[2.5rem] bg-surface border border-white/5 shadow-2xl"
                     >
                       {/* Background Image */}
                       <img
@@ -81,14 +80,14 @@ export function Industries() {
                         alt={industry.name}
                         className={cn(
                           "absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out z-0",
-                          isActive ? "scale-105" : "scale-100 filter brightness-[0.6] saturate-[0.8]"
+                          isActive ? "scale-105" : "scale-100 filter brightness-[0.55] saturate-[0.7]"
                         )}
                       />
 
                       {/* Gradient Overlay */}
                       <div className={cn(
-                        "absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 transition-opacity duration-500",
-                        isActive ? "opacity-95" : "opacity-75"
+                        "absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-transparent z-10 transition-opacity duration-500",
+                        isActive ? "opacity-95" : "opacity-80"
                       )} />
 
                       {/* Content Overlay */}
@@ -107,25 +106,24 @@ export function Industries() {
                           </h3>
                         </div>
 
-                        {/* Expandable description and use cases for the active card */}
+                        {/* Description and use cases are always visible, styled by active state */}
                         <motion.div
                           initial={false}
                           animate={{
-                            height: isActive ? "auto" : 0,
-                            opacity: isActive ? 1 : 0,
-                            marginTop: isActive ? 12 : 0,
+                            opacity: isActive ? 1 : 0.65,
+                            marginTop: 12,
                           }}
-                          transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
-                          className="overflow-hidden"
+                          transition={{ duration: 0.4 }}
+                          className="block"
                         >
-                          <p className="text-white/85 text-xs sm:text-sm leading-relaxed mb-4">
+                          <p className="text-white/90 text-xs sm:text-sm leading-relaxed mb-4">
                             {industry.description}
                           </p>
                           <div className="flex flex-wrap gap-1.5">
                             {industry.useCases.map((uc, i) => (
                               <span
                                 key={i}
-                                className="text-[10px] font-semibold bg-white/15 border border-white/10 text-white px-2.5 py-1 rounded-full backdrop-blur-md"
+                                className="text-[10px] font-semibold bg-white/10 border border-white/5 text-white px-2.5 py-1 rounded-full backdrop-blur-md"
                               >
                                 {uc}
                               </span>
