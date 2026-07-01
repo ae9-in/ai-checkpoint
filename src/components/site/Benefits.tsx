@@ -60,10 +60,19 @@ function TiltCard({ children }: { children: ReactNode }) {
         const y = e.clientY - r.top;
         const rx = (y / r.height - 0.5) * -6;
         const ry = (x / r.width - 0.5) * 6;
+
+        // Angle for cursor-reactive-border
+        const dx = e.clientX - (r.left + r.width / 2);
+        const dy = e.clientY - (r.top + r.height / 2);
+        const angleRad = Math.atan2(dy, dx);
+        let angleDeg = angleRad * (180 / Math.PI);
+        angleDeg = (angleDeg + 360) % 360;
+
         el.style.setProperty("--mx", `${x}px`);
         el.style.setProperty("--my", `${y}px`);
         el.style.setProperty("--rx", `${rx}deg`);
         el.style.setProperty("--ry", `${ry}deg`);
+        el.style.setProperty("--rotation", `${angleDeg}deg`);
       }}
       onMouseLeave={() => {
         const el = ref.current;
@@ -77,6 +86,7 @@ function TiltCard({ children }: { children: ReactNode }) {
         ["--my" as string]: "50%",
         ["--rx" as string]: "0deg",
         ["--ry" as string]: "0deg",
+        ["--rotation" as string]: "0deg",
       }}
     >
       {children}
@@ -117,11 +127,14 @@ export function Benefits() {
                 <Parallax offset={[-30, 5, 40][i % 3]} className="h-full">
                   <TiltCard>
                     <div
-                      className="group relative h-full overflow-hidden rounded-[22px] border border-soft/[0.06] bg-gradient-to-b from-surface/90 to-mid/90 p-7 transition-all duration-500 will-change-transform hover:-translate-y-1 hover:border-cyan/30"
+                      className="group relative h-full overflow-hidden rounded-[22px] border border-transparent cursor-reactive-border p-7 transition-all duration-500 will-change-transform hover:-translate-y-1"
                       style={{
                         transform: "rotateX(var(--rx)) rotateY(var(--ry))",
                         transformStyle: "preserve-3d",
-                      }}
+                        "--border-glow": "rgba(201, 162, 107, 0.45)",
+                        "--border-dim": "rgba(255, 255, 255, 0.05)",
+                        "--card-bg": "rgba(16, 17, 23, 0.85)"
+                      } as React.CSSProperties}
                     >
                       {/* Gradient border halo on hover */}
                       <div
@@ -130,20 +143,6 @@ export function Benefits() {
                         style={{
                           background:
                             "radial-gradient(500px circle at var(--mx) var(--my), rgba(0,245,212,0.18), transparent 45%)",
-                        }}
-                      />
-                      {/* Conic accent line */}
-                      <div
-                        aria-hidden
-                        className="pointer-events-none absolute -inset-px rounded-[22px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                        style={{
-                          background:
-                            "conic-gradient(from var(--ry, 0deg) at var(--mx) var(--my), rgba(92,59,255,0.5), rgba(0,245,212,0.5), transparent 30%)",
-                          WebkitMask:
-                            "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-                          WebkitMaskComposite: "xor",
-                          maskComposite: "exclude",
-                          padding: "1px",
                         }}
                       />
 

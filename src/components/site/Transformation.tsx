@@ -52,8 +52,12 @@ export function Transformation() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
             onMouseMove={(e) => handleMouseMove(e, manualCardRef)}
-            className="relative rounded-3xl border border-transparent cursor-reactive-border bg-red-950/[0.04] backdrop-blur-xl p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-red-500/35 transition-all duration-300 shadow-[0_8px_32px_0_rgba(0,0,0,0.55)] shadow-red-500/5"
-            style={{ "--border-glow": "#ef4444", "--border-dim": "rgba(239, 68, 68, 0.15)" } as React.CSSProperties}
+            className="relative rounded-3xl border border-transparent cursor-reactive-border bg-transparent backdrop-blur-xl p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-red-500/35 transition-all duration-300 shadow-[0_8px_32px_0_rgba(0,0,0,0.55)] shadow-red-500/5"
+            style={{ 
+              "--border-glow": "#ef4444", 
+              "--border-dim": "rgba(239, 68, 68, 0.15)",
+              "--card-bg": "rgba(20, 6, 6, 0.55)"
+            } as React.CSSProperties}
           >
             <div>
               <div className="flex items-center gap-2 mb-4">
@@ -110,8 +114,12 @@ export function Transformation() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
             onMouseMove={(e) => handleMouseMove(e, aiCardRef)}
-            className="relative rounded-3xl border border-transparent cursor-reactive-border bg-white/[0.02] backdrop-blur-xl p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-cyan/35 transition-all duration-300 shadow-[0_8px_32px_0_rgba(0,0,0,0.55)] shadow-indigo/5"
-            style={{ "--border-glow": "#00f5d4", "--border-dim": "rgba(0, 245, 212, 0.15)" } as React.CSSProperties}
+            className="relative rounded-3xl border border-transparent cursor-reactive-border bg-transparent backdrop-blur-xl p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-cyan/35 transition-all duration-300 shadow-[0_8px_32px_0_rgba(0,0,0,0.55)] shadow-indigo/5"
+            style={{ 
+              "--border-glow": "#00f5d4", 
+              "--border-dim": "rgba(0, 245, 212, 0.15)",
+              "--card-bg": "rgba(6, 7, 12, 0.55)"
+            } as React.CSSProperties}
           >
             <div>
               <div className="flex items-center gap-2 mb-4">
