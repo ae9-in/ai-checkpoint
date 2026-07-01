@@ -35,6 +35,7 @@ export const Route = createFileRoute("/admin")({
     meta: [
       { title: "Admin Portal — AI CheckPoint" },
       { name: "description", content: "Admin dashboard to manage registrations." },
+      { name: "robots", content: "noindex, nofollow" },
     ],
   }),
   component: AdminPage,

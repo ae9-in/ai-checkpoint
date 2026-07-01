@@ -174,49 +174,6 @@ export function Benefits() {
               </motion.div>
             );
           })}
-
-          {/* Hero card — full width */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="md:col-span-2 lg:col-span-3"
-          >
-            <div
-              className="grid items-center gap-8 rounded-[24px] border border-indigo/40 p-8 sm:p-12 md:grid-cols-[auto_1fr]"
-              style={{
-                background: "linear-gradient(135deg, #0D0E1F 0%, rgba(92,59,255,0.15) 100%)",
-              }}
-            >
-              <div className="float-y grid h-20 w-20 place-items-center rounded-2xl bg-gradient-primary text-void glow-indigo-lg">
-                <Sparkles className="h-9 w-9" />
-              </div>
-              <div>
-                <h3 className="font-display text-3xl font-bold text-soft sm:text-4xl">
-                  Save Time. Save Money. Stay Ahead.
-                </h3>
-                <p className="mt-3 max-w-2xl text-soft/65">
-                  One package, everything included — audit, setup, training, and a month of support
-                  so AI lands in your business without friction.
-                </p>
-                <div className="font-mono-acc mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
-                  <span className="rounded-full border border-cyan/40 bg-cyan/5 px-3 py-1 text-cyan">
-                    48 hr setup
-                  </span>
-                  <span className="rounded-full border border-indigo/40 bg-indigo/10 px-3 py-1 text-soft">
-                    ₹2,500 package
-                  </span>
-                  <span className="rounded-full border border-gold/40 bg-gold/5 px-3 py-1 text-gold">
-                    ₹1,000 marketing included
-                  </span>
-                  <span className="rounded-full border border-soft/20 bg-soft/5 px-3 py-1 text-soft">
-                    FREE onboarding
-                  </span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

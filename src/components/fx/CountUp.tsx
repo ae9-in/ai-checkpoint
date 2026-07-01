@@ -17,7 +17,7 @@ export function CountUp({
   format,
   className,
 }: Props) {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(to);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
 

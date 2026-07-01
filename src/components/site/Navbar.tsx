@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Menu, X, Cpu } from "lucide-react";
 import { ScrollProgress } from "@/components/fx/ScrollProgress";
 
+const MotionLink = motion(Link);
+
 const links = [
   { label: "Benefits", to: "/", hash: "benefits" },
   { label: "Industries", to: "/", hash: "industries" },
@@ -48,15 +50,16 @@ export function Navbar() {
 
           <nav className="hidden items-center gap-8 md:flex">
             {links.map((l) => (
-              <a
+              <Link
                 key={l.label}
-                href={`#${l.hash}`}
+                to={l.to}
+                hash={l.hash}
                 data-cursor="link"
-                className="group relative text-sm text-soft/80 transition-colors hover:text-soft"
+                className="group relative text-sm text-soft/80 transition-colors hover:text-white"
               >
                 {l.label}
                 <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-cyan transition-transform duration-300 group-hover:scale-x-100" />
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -88,17 +91,18 @@ export function Navbar() {
           >
             <div className="flex flex-col gap-1">
               {links.map((l, i) => (
-                <motion.a
+                <MotionLink
                   key={l.label}
-                  href={`#${l.hash}`}
+                  to={l.to}
+                  hash={l.hash}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.06 }}
                   onClick={() => setOpen(false)}
-                  className="rounded-lg px-3 py-3 text-base text-soft/85 hover:bg-indigo/10 hover:text-soft"
+                  className="rounded-lg px-3 py-3 text-base text-soft/85 hover:bg-indigo/10 hover:text-soft block"
                 >
                   {l.label}
-                </motion.a>
+                </MotionLink>
               ))}
               <Link
                 to="/register"

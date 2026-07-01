@@ -4,6 +4,7 @@ import { Loader } from "@/components/fx/Loader";
 import { CheckpointIntro } from "@/components/site/CheckpointIntro";
 import { LogoLoop } from "@/components/site/LogoLoop";
 import { Benefits } from "@/components/site/Benefits";
+import { Transformation } from "@/components/site/Transformation";
 import { Industries } from "@/components/site/Industries";
 import { Timeline } from "@/components/site/Timeline";
 import { Stats } from "@/components/site/Stats";
@@ -15,16 +16,16 @@ import { Footer } from "@/components/site/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AI CheckPoint — AI for Every Indian Business" },
+      { title: "AI Automation & Business Audits for Indian SMBs | AI CheckPoint" },
       {
         name: "description",
         content:
-          "We audit your operations and deploy custom AI — save costs, eliminate inefficiency, and stay ahead of the competition. Founders package ₹2,500.",
+          "AI CheckPoint audits operations and deploys custom AI tools for Indian small businesses. Eliminate operational waste, cut costs, and scale in 48 hours.",
       },
-      { property: "og:title", content: "AI CheckPoint — AI for Every Indian Business" },
+      { property: "og:title", content: "AI Automation & Business Audits for Indian SMBs | AI CheckPoint" },
       {
         property: "og:description",
-        content: "Free AI audit + ₹2,500 founders package. Setup in 48 hours.",
+        content: "Book a free AI operations audit. Founders package setup for ₹2,500.",
       },
     ],
   }),
@@ -39,6 +40,7 @@ function Index() {
       <LogoLoop />
       <CheckpointIntro />
       <Benefits />
+      <Transformation />
       <Industries />
       <Timeline />
       <Stats />

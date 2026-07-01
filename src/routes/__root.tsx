@@ -81,6 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "0_DCP051x6LejV-Td0sW5vLOIbXEk8gY8BMX-Cnm9qM" },
       { title: "AI CheckPoint — AI for Every Indian Business" },
       {
         name: "description",
@@ -95,9 +96,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@AICheckPoint" },
     ],
     links: [
+      {
+        rel: "canonical",
+        href: "https://www.aicheckpoint.in/",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        href: "/favicon.png",
+      },
       {
         rel: "stylesheet",
         href: appCss,
@@ -126,10 +136,43 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AI CheckPoint",
+    "url": "https://www.aicheckpoint.in/",
+    "logo": "https://www.aicheckpoint.in/favicon.png",
+    "description": "AI audit and implementation services for Indian small and medium businesses.",
+    "areaServed": "IN"
+  };
+
+  const businessSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "AI CheckPoint",
+    "url": "https://www.aicheckpoint.in/",
+    "logo": "https://www.aicheckpoint.in/favicon.png",
+    "description": "AI operations audit and automation integrations for Indian businesses.",
+    "priceRange": "₹₹",
+    "areaServed": {
+      "@type": "Country",
+      "name": "India"
+    }
+  };
+
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
+        <meta name="google-site-verification" content="0_DCP051x6LejV-Td0sW5vLOIbXEk8gY8BMX-Cnm9qM" />
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
+        />
       </head>
       <body>
         {children}

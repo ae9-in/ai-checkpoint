@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import logoImage from "@/assets/logo.png";
+import heroImage from "@/assets/hero-image.jpg";
 import { Parallax } from "@/components/fx/Parallax";
 import DecryptedText from "@/components/fx/DecryptedText";
 import PillNav from "@/components/fx/PillNav";
@@ -32,11 +33,13 @@ export function MainframeHero() {
       <div className="absolute inset-0 z-0 overflow-hidden bg-black">
         <Parallax offset={100} className="absolute inset-x-0 h-[120%] -top-[10%]">
           <video
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260411_104032_69319010-2458-492b-b04d-b40a5dfa4482.mp4"
+            src="/hero.mp4"
             autoPlay
             loop
             muted
             playsInline
+            preload="metadata"
+            poster={heroImage}
             className="w-full h-full object-cover"
           />
         </Parallax>
@@ -84,12 +87,13 @@ export function MainframeHero() {
         {/* Right: Buttons */}
         <div className="flex items-center gap-3">
 
-          <button
-            className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full liquid-glass animate-blur-fade-up text-white"
+          <Link
+            to="/register"
+            className="hidden sm:inline-flex items-center justify-center rounded-full bg-gradient-primary px-5 py-2 text-xs font-semibold text-void animate-blur-fade-up shadow-md shadow-indigo/20 hover:scale-[1.04] transition-transform"
             style={{ animationDelay: "400ms" }}
           >
-            <User size={18} />
-          </button>
+            Book Free Audit
+          </Link>
 
           {/* Mobile burger */}
           <button
@@ -142,9 +146,13 @@ export function MainframeHero() {
           })}
 
           <div className="sm:hidden flex items-center justify-center mt-4 pt-4 border-t border-gray-800">
-            <button className="flex items-center justify-center w-10 h-10 rounded-full liquid-glass text-white">
-              <User size={18} />
-            </button>
+            <Link
+              to="/register"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex w-full items-center justify-center rounded-full bg-gradient-primary py-2.5 text-xs font-semibold text-void"
+            >
+              Book Free Audit
+            </Link>
           </div>
         </div>
       </div>

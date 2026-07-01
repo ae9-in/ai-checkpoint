@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /register/thank-you
+
+Sitemap: https://www.aicheckpoint.in/sitemap.xml

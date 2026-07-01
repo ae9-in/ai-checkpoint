@@ -97,19 +97,20 @@ export function Footer() {
           <h4 className="font-mono-acc text-xs uppercase tracking-widest text-cyan/70">Explore</h4>
           <ul className="mt-6 space-y-3.5 text-sm">
             {[
-              { label: "Industries", href: "#industries" },
-              { label: "Our Benefits", href: "#benefits" },
-              { label: "Founders' Pricing", href: "#pricing" },
-              { label: "How It Works", href: "#how" },
+              { label: "AI Solutions", href: "/solutions" },
+              { label: "Target Industries", href: "/industries" },
+              { label: "Founders' Pricing", href: "/pricing" },
+              { label: "FAQ Portal", href: "/faq" },
+              { label: "Insights & Resources", href: "/resources" },
             ].map((link) => (
               <li key={link.label}>
-                <a
-                  href={link.href}
+                <Link
+                  to={link.href}
                   className="group flex items-center gap-1 text-soft/65 transition-colors hover:text-white"
                 >
                   <span className="h-1 w-0 bg-cyan transition-all duration-300 group-hover:w-2 group-hover:mr-1.5 rounded-full" />
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

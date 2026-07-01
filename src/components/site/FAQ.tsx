@@ -64,30 +64,30 @@ export function FAQ() {
                 <span
                   className={`absolute left-0 top-0 h-full w-[2px] bg-indigo transition-opacity ${isOpen ? "opacity-100" : "opacity-0"}`}
                 />
-                <button
-                  type="button"
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between px-6 py-5 text-left text-[15px] font-medium text-soft hover:text-soft"
-                  data-cursor="link"
+                <h3 className="m-0 text-left font-medium text-soft">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    className="flex w-full items-center justify-between px-6 py-5 text-left text-[15px] font-medium text-soft hover:text-soft"
+                    data-cursor="link"
+                  >
+                    {f.q}
+                    <motion.span animate={{ rotate: isOpen ? 45 : 0 }} className="ml-4 text-cyan">
+                      <Plus className="h-5 w-5" />
+                    </motion.span>
+                  </button>
+                </h3>
+                <motion.div
+                  initial={false}
+                  animate={{
+                    height: isOpen ? "auto" : 0,
+                    opacity: isOpen ? 1 : 0,
+                  }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  className="overflow-hidden"
                 >
-                  {f.q}
-                  <motion.span animate={{ rotate: isOpen ? 45 : 0 }} className="ml-4 text-cyan">
-                    <Plus className="h-5 w-5" />
-                  </motion.span>
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <p className="px-6 pb-5 text-[15px] leading-relaxed text-soft/65">{f.a}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                  <p className="px-6 pb-5 text-[15px] leading-relaxed text-soft/65">{f.a}</p>
+                </motion.div>
               </div>
             );
           })}
