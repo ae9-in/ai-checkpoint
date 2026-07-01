@@ -18,11 +18,6 @@ export function Transformation() {
         </h2>
 
         <div className="relative grid gap-8 md:grid-cols-2 items-stretch mt-12">
-          {/* Middle "VS" Circle */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:grid h-12 w-12 place-items-center rounded-full bg-void border border-indigo/35 text-[11px] font-mono-acc font-semibold text-cyan z-20 shadow-[0_0_20px_rgba(92,59,255,0.25)]">
-            VS
-          </div>
-
           {/* Left Column: Manual (The Old Way) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -72,6 +67,11 @@ export function Transformation() {
               <span>SYSTEM_WARNING: RESOURCE_DEPLETION_ACTIVE</span>
             </div>
           </motion.div>
+
+          {/* Middle "VS" Circle */}
+          <div className="flex md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 my-2 md:my-0 mx-auto h-12 w-12 items-center justify-center rounded-full bg-void border border-indigo/35 text-[11px] font-mono-acc font-semibold text-cyan z-20 shadow-[0_0_20px_rgba(92,59,255,0.25)] select-none">
+            VS
+          </div>
 
           {/* Right Column: AI-Powered (The Next Paradigm) */}
           <motion.div

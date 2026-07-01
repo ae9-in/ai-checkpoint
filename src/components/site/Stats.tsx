@@ -98,7 +98,7 @@ export function Stats() {
         </RollingText>
         <p className="mt-3 text-center text-soft/60">Real results, real businesses.</p>
 
-        <div className="mt-14 -mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 md:mx-0 md:grid md:grid-cols-5 md:overflow-visible md:px-0">
+        <div className="mt-14 -mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 md:mx-0 md:grid md:grid-cols-5 md:overflow-visible md:px-0 no-scrollbar">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}

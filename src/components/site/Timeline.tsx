@@ -100,14 +100,14 @@ export function Timeline() {
           {/* vertical cream connector (mobile) */}
           <div
             aria-hidden
-            className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 md:hidden"
+            className="absolute left-[56px] top-0 h-full w-px md:hidden"
             style={{
               backgroundImage:
-                "linear-gradient(to bottom, transparent, rgba(255,255,255,0.85), transparent)",
+                "linear-gradient(to bottom, transparent 4%, rgba(255,255,255,0.3) 10%, rgba(255,255,255,0.3) 90%, transparent 96%)",
             }}
           />
 
-          <div className="grid gap-12 md:grid-cols-4 md:gap-6">
+          <div className="grid gap-10 md:grid-cols-4 md:gap-6">
             {steps.map((s, i) => {
               const Icon = s.icon;
               const isActive = i <= active;
@@ -121,9 +121,9 @@ export function Timeline() {
                   transition={{ duration: 0.5, delay: i * 0.15 }}
                   onMouseEnter={() => setHovered(i)}
                   onMouseLeave={() => setHovered(null)}
-                  className="group flex cursor-default flex-col items-center text-center"
+                  className="group flex flex-col md:flex-col items-start md:items-center text-left md:text-center pl-28 md:pl-0 relative min-h-[80px] md:min-h-0"
                 >
-                  <div className="relative">
+                  <div className="absolute left-4 md:relative md:left-auto">
                     {/* outer dark ring to mask the connecting line */}
                     <motion.span
                       animate={{
@@ -131,7 +131,7 @@ export function Timeline() {
                         borderColor: isActive ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.1)",
                       }}
                       transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                      className="relative grid h-24 w-24 place-items-center rounded-full border"
+                      className="relative grid h-20 w-20 md:h-24 md:w-24 place-items-center rounded-full border"
                       style={{
                         background: "radial-gradient(circle at 50% 40%, #1a2240 0%, #0a0f24 70%)",
                         boxShadow: isCurrent
@@ -142,7 +142,7 @@ export function Timeline() {
                       }}
                     >
                       <span
-                        className="grid h-16 w-16 place-items-center rounded-full text-[#1a1207]"
+                        className="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full text-[#1a1207]"
                         style={{
                           background:
                             "radial-gradient(circle at 35% 30%, #f1dcb1 0%, #d8b785 55%, #b8915a 100%)",
@@ -150,10 +150,10 @@ export function Timeline() {
                             "inset 0 1px 2px rgba(255,255,255,0.4), 0 4px 14px rgba(201,162,107,0.35)",
                         }}
                       >
-                        <Icon className="h-7 w-7" strokeWidth={1.8} />
+                        <Icon className="h-5 w-5 md:h-7 md:w-7" strokeWidth={1.8} />
                       </span>
                       <span
-                        className="font-mono-acc absolute -right-1 -top-1 grid h-7 w-7 place-items-center rounded-full border bg-[#06091a] text-xs transition-colors"
+                        className="font-mono-acc absolute -right-0.5 -top-0.5 md:-right-1 md:-top-1 grid h-6 w-6 md:h-7 md:w-7 place-items-center rounded-full border bg-[#06091a] text-[10px] md:text-xs transition-colors"
                         style={{
                           borderColor: isActive
                             ? "rgba(255,255,255,0.6)"
@@ -166,13 +166,13 @@ export function Timeline() {
                     </motion.span>
                   </div>
                   <h3
-                    className="font-display mt-6 text-lg font-semibold transition-colors"
+                    className="font-display mt-1 md:mt-6 text-base md:text-lg font-semibold transition-colors"
                     style={{ color: isActive ? "#ffffff" : "rgba(255,255,255,0.75)" }}
                   >
                     {s.title}
                   </h3>
                   <p
-                    className="mt-2 max-w-xs text-sm transition-colors"
+                    className="mt-1 md:mt-2 max-w-xs text-xs md:text-sm transition-colors"
                     style={{
                       color: isActive ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.55)",
                     }}

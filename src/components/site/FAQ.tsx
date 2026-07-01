@@ -68,11 +68,11 @@ export function FAQ() {
                   <button
                     type="button"
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between px-6 py-5 text-left text-[15px] font-medium text-soft hover:text-soft"
+                    className="flex w-full items-center justify-between px-4 sm:px-6 py-4 sm:py-5 text-left text-[14px] sm:text-[15px] font-medium text-soft hover:text-soft"
                     data-cursor="link"
                   >
                     {f.q}
-                    <motion.span animate={{ rotate: isOpen ? 45 : 0 }} className="ml-4 text-cyan">
+                    <motion.span animate={{ rotate: isOpen ? 45 : 0 }} className="ml-4 text-cyan flex-shrink-0">
                       <Plus className="h-5 w-5" />
                     </motion.span>
                   </button>
@@ -86,7 +86,7 @@ export function FAQ() {
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="px-6 pb-5 text-[15px] leading-relaxed text-soft/65">{f.a}</p>
+                  <p className="px-4 sm:px-6 pb-4 sm:pb-5 text-[14px] sm:text-[15px] leading-relaxed text-soft/65">{f.a}</p>
                 </motion.div>
               </div>
             );

@@ -2,7 +2,7 @@ import Ribbons from "./Ribbons";
 
 export function CustomCursor() {
   return (
-    <div className="fixed inset-0 pointer-events-none w-screen h-screen z-[9999]">
+    <div className="fixed inset-0 pointer-events-none w-screen h-screen z-[9999] hidden lg:block">
       <Ribbons
         baseThickness={12}
         colors={["#ffffff"]}
