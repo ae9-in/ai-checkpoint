@@ -1,5 +1,9 @@
+import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import { HeroScene } from "@/components/site/HeroScene";
+
+const HeroScene = lazy(() =>
+  import("@/components/site/HeroScene").then((m) => ({ default: m.HeroScene })),
+);
 
 const checks = [
   "Free 2-hour business audit",
@@ -16,7 +20,9 @@ export function RegisterLeft() {
         background: "linear-gradient(135deg, #5C3BFF 0%, #0D0E1F 100%)",
       }}
     >
-      <HeroScene className="absolute inset-0 -z-10 opacity-60" />
+      <Suspense fallback={null}>
+        <HeroScene className="absolute inset-0 -z-10 opacity-60" />
+      </Suspense>
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"

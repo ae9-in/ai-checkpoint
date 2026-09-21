@@ -1,0 +1,288 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1400" width="1000" height="1400" fill="none">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0c12"/>
+      <stop offset="100%" stop-color="#06070c"/>
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141620"/>
+      <stop offset="100%" stop-color="#0e0f16"/>
+    </linearGradient>
+
+    <linearGradient id="chartAreaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c9a26b" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#06070c" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#c9a26b"/>
+    </linearGradient>
+
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1000" height="1400" fill="#06070c"/>
+
+  <!-- App Window Container -->
+  <rect x="40" y="40" width="920" height="1320" rx="20" fill="url(#bgGrad)" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1.5"/>
+
+  <!-- App Window Topbar / Chrome -->
+  <path d="M 40 60 A 20 20 0 0 1 60 40 L 940 40 A 20 20 0 0 1 960 60 L 960 100 L 40 100 Z" fill="#0b0c12"/>
+  <line x1="40" y1="100" x2="960" y2="100" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+
+  <!-- Window Dots -->
+  <circle cx="70" cy="70" r="5" fill="#f5f4ee" fill-opacity="0.2"/>
+  <circle cx="90" cy="70" r="5" fill="#f5f4ee" fill-opacity="0.2"/>
+  <circle cx="110" cy="70" r="5" fill="#f5f4ee" fill-opacity="0.2"/>
+
+  <!-- Brand Mark / App Title -->
+  <rect x="150" y="58" width="24" height="24" rx="6" fill="#c9a26b"/>
+  <path d="M 157 70 L 167 70 M 162 64 L 162 76" stroke="#06070c" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="186" y="75" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="14" font-weight="600" letter-spacing="0.5">NEXUS CRM</text>
+
+  <!-- Topbar Search & Profile -->
+  <rect x="620" y="56" width="220" height="28" rx="14" fill="#141620" stroke="#ffffff" stroke-opacity="0.08"/>
+  <circle cx="638" cy="70" r="4" stroke="#f5f4ee" stroke-opacity="0.4" stroke-width="1.2"/>
+  <line x1="641" y1="73" x2="646" y2="78" stroke="#f5f4ee" stroke-opacity="0.4" stroke-width="1.2"/>
+  <text x="656" y="74" fill="#f5f4ee" fill-opacity="0.4" font-family="system-ui, sans-serif" font-size="11">Search deals, contacts...</text>
+
+  <circle cx="875" cy="70" r="14" fill="#141620" stroke="#ffffff" stroke-opacity="0.1"/>
+  <text x="875" y="74" text-anchor="middle" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="11" font-weight="600">AP</text>
+  <circle cx="920" cy="70" r="3.5" fill="#c9a26b"/>
+
+  <!-- Left Sidebar Nav (x: 40 to 220) -->
+  <rect x="40" y="100" width="180" height="1260" fill="#090a0f"/>
+  <line x1="220" y1="100" x2="220" y2="1360" stroke="#ffffff" stroke-opacity="0.06"/>
+
+  <!-- Nav Items -->
+  <g transform="translate(60, 130)">
+    <!-- Active Nav: Pipelines -->
+    <rect x="0" y="0" width="140" height="38" rx="8" fill="#141620" stroke="#ffffff" stroke-opacity="0.1"/>
+    <rect x="0" y="8" width="3" height="22" rx="1.5" fill="#c9a26b"/>
+    <circle cx="20" cy="19" r="6" stroke="#c9a26b" stroke-width="1.5" fill="none"/>
+    <text x="36" y="23" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Pipelines</text>
+
+    <!-- Other Nav items -->
+    <g transform="translate(0, 48)">
+      <circle cx="20" cy="19" r="6" stroke="#f5f4ee" stroke-opacity="0.4" stroke-width="1.5" fill="none"/>
+      <text x="36" y="23" fill="#f5f4ee" fill-opacity="0.5" font-family="system-ui, sans-serif" font-size="12">Lead Streams</text>
+    </g>
+    <g transform="translate(0, 96)">
+      <circle cx="20" cy="19" r="6" stroke="#f5f4ee" stroke-opacity="0.4" stroke-width="1.5" fill="none"/>
+      <text x="36" y="23" fill="#f5f4ee" fill-opacity="0.5" font-family="system-ui, sans-serif" font-size="12">Contacts</text>
+    </g>
+    <g transform="translate(0, 144)">
+      <circle cx="20" cy="19" r="6" stroke="#f5f4ee" stroke-opacity="0.4" stroke-width="1.5" fill="none"/>
+      <text x="36" y="23" fill="#f5f4ee" fill-opacity="0.5" font-family="system-ui, sans-serif" font-size="12">Automations</text>
+    </g>
+    <g transform="translate(0, 192)">
+      <circle cx="20" cy="19" r="6" stroke="#f5f4ee" stroke-opacity="0.4" stroke-width="1.5" fill="none"/>
+      <text x="36" y="23" fill="#f5f4ee" fill-opacity="0.5" font-family="system-ui, sans-serif" font-size="12">Analytics</text>
+    </g>
+    <g transform="translate(0, 240)">
+      <circle cx="20" cy="19" r="6" stroke="#f5f4ee" stroke-opacity="0.4" stroke-width="1.5" fill="none"/>
+      <text x="36" y="23" fill="#f5f4ee" fill-opacity="0.5" font-family="system-ui, sans-serif" font-size="12">Settings</text>
+    </g>
+  </g>
+
+  <!-- MAIN DASHBOARD CONTENT (x: 240 to 940) -->
+  <!-- Header Row: Title & Action CTA -->
+  <g transform="translate(250, 130)">
+    <text x="0" y="24" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Enterprise Deal Flow</text>
+    <text x="0" y="44" fill="#f5f4ee" fill-opacity="0.45" font-family="system-ui, sans-serif" font-size="12">Live synchronization across 14 sales channels</text>
+
+    <!-- Primary Button (Gold Accent) -->
+    <g transform="translate(560, 6)">
+      <rect x="0" y="0" width="120" height="34" rx="17" fill="#c9a26b"/>
+      <text x="60" y="21" text-anchor="middle" fill="#06070c" font-family="system-ui, sans-serif" font-size="11" font-weight="700">+ NEW DEAL</text>
+    </g>
+  </g>
+
+  <!-- 3 KPI TILES (y: 200) -->
+  <g transform="translate(250, 200)">
+    <!-- Tile 1: Pipeline Value -->
+    <g>
+      <rect x="0" y="0" width="215" height="105" rx="14" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.08"/>
+      <text x="20" y="30" fill="#f5f4ee" fill-opacity="0.5" font-family="system-ui, sans-serif" font-size="11" font-weight="500">TOTAL PIPELINE</text>
+      <text x="20" y="68" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="28" font-weight="700">₹48.6L</text>
+      <rect x="20" y="78" width="60" height="16" rx="8" fill="#c9a26b" fill-opacity="0.15"/>
+      <text x="50" y="89" text-anchor="middle" fill="#c9a26b" font-family="system-ui, sans-serif" font-size="9" font-weight="700">+24.8% MoM</text>
+    </g>
+
+    <!-- Tile 2: Win Rate -->
+    <g transform="translate(235, 0)">
+      <rect x="0" y="0" width="215" height="105" rx="14" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.08"/>
+      <text x="20" y="30" fill="#f5f4ee" fill-opacity="0.5" font-family="system-ui, sans-serif" font-size="11" font-weight="500">WIN RATE</text>
+      <text x="20" y="68" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="28" font-weight="700">68.4%</text>
+      <text x="20" y="90" fill="#f5f4ee" fill-opacity="0.4" font-family="system-ui, sans-serif" font-size="10">Target benchmark: 60%</text>
+    </g>
+
+    <!-- Tile 3: Avg Cycle Time -->
+    <g transform="translate(470, 0)">
+      <rect x="0" y="0" width="210" height="105" rx="14" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.08"/>
+      <text x="20" y="30" fill="#f5f4ee" fill-opacity="0.5" font-family="system-ui, sans-serif" font-size="11" font-weight="500">AVG CYCLE TIME</text>
+      <text x="20" y="68" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="28" font-weight="700">9.2 Days</text>
+      <text x="20" y="90" fill="#c9a26b" font-family="system-ui, sans-serif" font-size="10">-3.4 days vs industry</text>
+    </g>
+  </g>
+
+  <!-- REVENUE CONVERSION AREA CHART (y: 330) -->
+  <g transform="translate(250, 330)">
+    <rect x="0" y="0" width="680" height="260" rx="16" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.08"/>
+    
+    <text x="24" y="34" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Revenue Trajectory &amp; AI Projections</text>
+    <text x="24" y="52" fill="#f5f4ee" fill-opacity="0.45" font-family="system-ui, sans-serif" font-size="11">Real-time closing probability weighted across all active reps</text>
+
+    <!-- Chart grid lines -->
+    <line x1="24" y1="90" x2="656" y2="90" stroke="#ffffff" stroke-opacity="0.04"/>
+    <line x1="24" y1="140" x2="656" y2="140" stroke="#ffffff" stroke-opacity="0.04"/>
+    <line x1="24" y1="190" x2="656" y2="190" stroke="#ffffff" stroke-opacity="0.04"/>
+    <line x1="24" y1="230" x2="656" y2="230" stroke="#ffffff" stroke-opacity="0.08"/>
+
+    <!-- Chart Area Fill & Stroke -->
+    <path d="M 40 220 C 120 210, 160 170, 220 180 C 280 190, 340 130, 400 120 C 460 110, 520 80, 580 65 L 580 230 L 40 230 Z" fill="url(#chartAreaGrad)"/>
+    <path d="M 40 220 C 120 210, 160 170, 220 180 C 280 190, 340 130, 400 120 C 460 110, 520 80, 580 65" stroke="#f5f4ee" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Peak Indicator (Gold Marker) -->
+    <line x1="580" y1="65" x2="580" y2="230" stroke="#c9a26b" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <circle cx="580" cy="65" r="7" fill="#c9a26b" filter="url(#goldGlow)"/>
+    <circle cx="580" cy="65" r="3" fill="#ffffff"/>
+
+    <!-- Gold Value Badge on Peak -->
+    <rect x="525" y="24" width="110" height="26" rx="6" fill="#1c1810" stroke="#c9a26b" stroke-width="1"/>
+    <text x="580" y="41" text-anchor="middle" fill="#c9a26b" font-family="system-ui, sans-serif" font-size="11" font-weight="700">₹48.6L (Peak)</text>
+  </g>
+
+  <!-- TWO MIDDLE CARDS: Pipeline Stages Bar & Donut Breakdown (y: 615) -->
+  <g transform="translate(250, 615)">
+    <!-- Stage Bars Card -->
+    <g>
+      <rect x="0" y="0" width="330" height="230" rx="16" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.08"/>
+      <text x="24" y="32" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="13" font-weight="600">Pipeline Stage Health</text>
+      
+      <!-- Stage 1 -->
+      <text x="24" y="68" fill="#f5f4ee" fill-opacity="0.6" font-family="system-ui, sans-serif" font-size="10">Lead Discovery</text>
+      <rect x="24" y="76" width="280" height="8" rx="4" fill="#141620"/>
+      <rect x="24" y="76" width="190" height="8" rx="4" fill="#f5f4ee" fill-opacity="0.3"/>
+
+      <!-- Stage 2 -->
+      <text x="24" y="112" fill="#f5f4ee" fill-opacity="0.6" font-family="system-ui, sans-serif" font-size="10">Technical Audit</text>
+      <rect x="24" y="120" width="280" height="8" rx="4" fill="#141620"/>
+      <rect x="24" y="120" width="140" height="8" rx="4" fill="#f5f4ee" fill-opacity="0.5"/>
+
+      <!-- Stage 3 -->
+      <text x="24" y="156" fill="#f5f4ee" fill-opacity="0.6" font-family="system-ui, sans-serif" font-size="10">Proposal Sent</text>
+      <rect x="24" y="164" width="280" height="8" rx="4" fill="#141620"/>
+      <rect x="24" y="164" width="95" height="8" rx="4" fill="#f5f4ee" fill-opacity="0.7"/>
+
+      <!-- Stage 4: Closed Won (Gold) -->
+      <text x="24" y="200" fill="#c9a26b" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Closed / Onboarded</text>
+      <rect x="24" y="208" width="280" height="8" rx="4" fill="#141620"/>
+      <rect x="24" y="208" width="240" height="8" rx="4" fill="#c9a26b"/>
+    </g>
+
+    <!-- Stage Donut Breakdown Card -->
+    <g transform="translate(350, 0)">
+      <rect x="0" y="0" width="330" height="230" rx="16" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.08"/>
+      <text x="24" y="32" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="13" font-weight="600">Channel Attribution</text>
+
+      <!-- Donut Circle -->
+      <g transform="translate(110, 130)">
+        <circle cx="0" cy="0" r="50" stroke="#141620" stroke-width="18" fill="none"/>
+        <circle cx="0" cy="0" r="50" stroke="#f5f4ee" stroke-opacity="0.2" stroke-width="18" stroke-dasharray="80 300" fill="none"/>
+        <circle cx="0" cy="0" r="50" stroke="#f5f4ee" stroke-opacity="0.6" stroke-width="18" stroke-dasharray="90 300" stroke-dashoffset="-90" fill="none"/>
+        <circle cx="0" cy="0" r="50" stroke="#c9a26b" stroke-width="18" stroke-dasharray="110 300" stroke-dashoffset="-190" fill="none"/>
+        <text x="0" y="4" text-anchor="middle" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="13" font-weight="700">84%</text>
+      </g>
+
+      <!-- Legend -->
+      <g transform="translate(190, 80)">
+        <circle cx="0" cy="10" r="4" fill="#c9a26b"/>
+        <text x="12" y="13" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="11">Direct AI Inbound (48%)</text>
+
+        <circle cx="0" cy="35" r="4" fill="#f5f4ee" fill-opacity="0.6"/>
+        <text x="12" y="38" fill="#f5f4ee" fill-opacity="0.7" font-family="system-ui, sans-serif" font-size="11">Referrals (32%)</text>
+
+        <circle cx="0" cy="60" r="4" fill="#f5f4ee" fill-opacity="0.2"/>
+        <text x="12" y="63" fill="#f5f4ee" fill-opacity="0.5" font-family="system-ui, sans-serif" font-size="11">Outbound (20%)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- RECENT HIGH-VALUE DEALS TABLE (y: 870) -->
+  <g transform="translate(250, 870)">
+    <rect x="0" y="0" width="680" height="450" rx="16" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.08"/>
+    
+    <text x="24" y="36" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="14" font-weight="600">High-Velocity Deals</text>
+    <text x="24" y="56" fill="#f5f4ee" fill-opacity="0.45" font-family="system-ui, sans-serif" font-size="11">Deals requiring immediate attention or auto-closing today</text>
+
+    <!-- Table Header -->
+    <g transform="translate(24, 85)">
+      <text x="0" y="0" fill="#f5f4ee" fill-opacity="0.4" font-family="system-ui, sans-serif" font-size="10" font-weight="600">CLIENT / ENTERPRISE</text>
+      <text x="240" y="0" fill="#f5f4ee" fill-opacity="0.4" font-family="system-ui, sans-serif" font-size="10" font-weight="600">DEAL VALUE</text>
+      <text x="380" y="0" fill="#f5f4ee" fill-opacity="0.4" font-family="system-ui, sans-serif" font-size="10" font-weight="600">OWNER</text>
+      <text x="520" y="0" fill="#f5f4ee" fill-opacity="0.4" font-family="system-ui, sans-serif" font-size="10" font-weight="600">STAGE STATUS</text>
+      <line x1="0" y1="12" x2="632" y2="12" stroke="#ffffff" stroke-opacity="0.06"/>
+    </g>
+
+    <!-- Table Row 1 -->
+    <g transform="translate(24, 120)">
+      <text x="0" y="16" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Apex Logistics Group</text>
+      <text x="0" y="32" fill="#f5f4ee" fill-opacity="0.4" font-family="system-ui, sans-serif" font-size="10">Fleet automation rollout</text>
+
+      <text x="240" y="22" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="13" font-weight="700">₹8,50,000</text>
+      <text x="380" y="22" fill="#f5f4ee" fill-opacity="0.8" font-family="system-ui, sans-serif" font-size="12">K. Sharma</text>
+
+      <!-- Pill (Gold - Closed Won) -->
+      <rect x="520" y="5" width="105" height="24" rx="12" fill="#c9a26b" fill-opacity="0.15" stroke="#c9a26b" stroke-opacity="0.4"/>
+      <text x="572" y="21" text-anchor="middle" fill="#c9a26b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">CLOSED WON</text>
+      <line x1="0" y1="48" x2="632" y2="48" stroke="#ffffff" stroke-opacity="0.04"/>
+    </g>
+
+    <!-- Table Row 2 -->
+    <g transform="translate(24, 190)">
+      <text x="0" y="16" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Nova MedTech Systems</text>
+      <text x="0" y="32" fill="#f5f4ee" fill-opacity="0.4" font-family="system-ui, sans-serif" font-size="10">Diagnostic AI workflow</text>
+
+      <text x="240" y="22" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="13" font-weight="700">₹6,20,000</text>
+      <text x="380" y="22" fill="#f5f4ee" fill-opacity="0.8" font-family="system-ui, sans-serif" font-size="12">A. Verma</text>
+
+      <rect x="520" y="5" width="105" height="24" rx="12" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.15"/>
+      <text x="572" y="21" text-anchor="middle" fill="#f5f4ee" fill-opacity="0.8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">PROPOSAL</text>
+      <line x1="0" y1="48" x2="632" y2="48" stroke="#ffffff" stroke-opacity="0.04"/>
+    </g>
+
+    <!-- Table Row 3 -->
+    <g transform="translate(24, 260)">
+      <text x="0" y="16" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Zenith Retail Chain</text>
+      <text x="0" y="32" fill="#f5f4ee" fill-opacity="0.4" font-family="system-ui, sans-serif" font-size="10">Automated inventory sync</text>
+
+      <text x="240" y="22" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="13" font-weight="700">₹4,80,000</text>
+      <text x="380" y="22" fill="#f5f4ee" fill-opacity="0.8" font-family="system-ui, sans-serif" font-size="12">P. Mehta</text>
+
+      <rect x="520" y="5" width="105" height="24" rx="12" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.15"/>
+      <text x="572" y="21" text-anchor="middle" fill="#f5f4ee" fill-opacity="0.8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">IN REVIEW</text>
+      <line x1="0" y1="48" x2="632" y2="48" stroke="#ffffff" stroke-opacity="0.04"/>
+    </g>
+
+    <!-- Table Row 4 -->
+    <g transform="translate(24, 330)">
+      <text x="0" y="16" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Crestview Hospitality</text>
+      <text x="0" y="32" fill="#f5f4ee" fill-opacity="0.4" font-family="system-ui, sans-serif" font-size="10">Guest retention agent</text>
+
+      <text x="240" y="22" fill="#f5f4ee" font-family="system-ui, sans-serif" font-size="13" font-weight="700">₹3,40,000</text>
+      <text x="380" y="22" fill="#f5f4ee" fill-opacity="0.8" font-family="system-ui, sans-serif" font-size="12">R. Patel</text>
+
+      <rect x="520" y="5" width="105" height="24" rx="12" fill="#c9a26b" fill-opacity="0.15" stroke="#c9a26b" stroke-opacity="0.4"/>
+      <text x="572" y="21" text-anchor="middle" fill="#c9a26b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">CLOSED WON</text>
+    </g>
+  </g>
+</svg>

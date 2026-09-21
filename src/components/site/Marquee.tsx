@@ -1,3 +1,6 @@
+import { useRef, useState, useEffect } from "react";
+import { useReducedMotion } from "framer-motion";
+
 const industries = [
   "Retail & Supermarkets",
   "Medical Clinics",
@@ -39,16 +42,39 @@ function Row({ items, dir }: { items: string[]; dir: "left" | "right" }) {
 }
 
 export function Marquee() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [inView, setInView] = useState(true);
+  const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.05 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const playState = inView && !reduceMotion ? "running" : "paused";
+
   return (
-    <section className="relative overflow-hidden border-y border-white/10 bg-black">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden border-y border-white/10 bg-black"
+    >
       <div className="overflow-hidden py-4">
-        <div className="marquee-left">
+        <div className="marquee-left" style={{ animationPlayState: playState }}>
           <Row items={industries} dir="left" />
         </div>
       </div>
       <div className="border-t border-white/10" />
       <div className="overflow-hidden py-4">
-        <div className="marquee-right">
+        <div className="marquee-right" style={{ animationPlayState: playState }}>
           <Row items={benefits} dir="right" />
         </div>
       </div>

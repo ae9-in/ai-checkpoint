@@ -9,7 +9,7 @@ const MotionLink = motion(Link);
 const links = [
   { label: "Benefits", to: "/", hash: "benefits" },
   { label: "Industries", to: "/", hash: "industries" },
-  { label: "Pricing", to: "/", hash: "pricing" },
+  { label: "Services", to: "/", hash: "services" },
   { label: "About", to: "/", hash: "about" },
 ];
 

@@ -24,7 +24,7 @@ export function MainframeHero() {
     { label: "Audit", to: "/register" },
     { label: "Solutions", to: "/", hash: "benefits" },
     { label: "Industries", to: "/", hash: "industries" },
-    { label: "Pricing", to: "/", hash: "pricing" },
+    { label: "Services", to: "/", hash: "services" },
   ];
 
   return (
@@ -86,7 +86,6 @@ export function MainframeHero() {
 
         {/* Right: Buttons */}
         <div className="flex items-center gap-3">
-
           <Link
             to="/register"
             className="hidden sm:inline-flex items-center justify-center rounded-full bg-gradient-primary px-5 py-2 text-xs font-semibold text-void animate-blur-fade-up shadow-md shadow-indigo/20 hover:scale-[1.04] transition-transform"
@@ -183,10 +182,23 @@ export function MainframeHero() {
               className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal mb-4 md:mb-6 animate-blur-fade-up whitespace-pre-line text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)]"
               style={{ animationDelay: "400ms", letterSpacing: "-0.04em" }}
             >
-              The <span className="text-white font-semibold bg-gradient-to-r from-[#8B7CFF] via-[#C9A26B] to-[#E8D3A8] bg-clip-text text-transparent">
-                <DecryptedText text="AI" animateOn="view" speed={100} sequential={true} delay={1800} />
+              The{" "}
+              <span className="text-white font-semibold bg-gradient-to-r from-[#8B7CFF] via-[#C9A26B] to-[#E8D3A8] bg-clip-text text-transparent">
+                <DecryptedText
+                  text="AI"
+                  animateOn="view"
+                  speed={100}
+                  sequential={true}
+                  delay={1800}
+                />
               </span>{" "}
-              <DecryptedText text="Checkpoint" animateOn="view" speed={60} sequential={true} delay={1800} />
+              <DecryptedText
+                text="Checkpoint"
+                animateOn="view"
+                speed={60}
+                sequential={true}
+                delay={1800}
+              />
               <br />
               built to outpace tomorrow.
             </h1>
@@ -196,7 +208,14 @@ export function MainframeHero() {
               className="text-base sm:text-lg md:text-xl text-white/90 mb-6 md:mb-12 max-w-2xl animate-blur-fade-up drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
               style={{ animationDelay: "500ms" }}
             >
-              <span className="text-white font-semibold">Smarter decisions. Sharper margins. Zero guesswork.</span> We audit, automate, and engineer <span className="font-semibold bg-gradient-to-r from-[#8B7CFF] via-[#C9A26B] to-[#E8D3A8] bg-clip-text text-transparent">AI that earns its keep</span> — your unfair advantage for the next decade.
+              <span className="text-white font-semibold">
+                Smarter decisions. Sharper margins. Zero guesswork.
+              </span>{" "}
+              We audit, automate, and engineer{" "}
+              <span className="font-semibold bg-gradient-to-r from-[#8B7CFF] via-[#C9A26B] to-[#E8D3A8] bg-clip-text text-transparent">
+                AI that earns its keep
+              </span>{" "}
+              — your unfair advantage for the next decade.
             </p>
 
             {/* CTA Buttons */}

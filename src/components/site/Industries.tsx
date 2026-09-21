@@ -54,7 +54,7 @@ export function Industries() {
               }),
             ]}
           >
-            <CarouselContent className="flex h-[560px] w-full -ml-4">
+            <CarouselContent className="flex h-[460px] sm:h-[500px] lg:h-[560px] w-full -ml-4">
               {industries.map((industry, index) => {
                 const isActive = current === index;
                 const Icon = industry.icon;
@@ -81,15 +81,19 @@ export function Industries() {
                         alt={industry.name}
                         className={cn(
                           "absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out z-0",
-                          isActive ? "scale-105" : "scale-100 filter brightness-[0.6] saturate-[0.8]"
+                          isActive
+                            ? "scale-105"
+                            : "scale-100 filter brightness-[0.6] saturate-[0.8]",
                         )}
                       />
 
                       {/* Gradient Overlay */}
-                      <div className={cn(
-                        "absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 transition-opacity duration-500",
-                        isActive ? "opacity-95" : "opacity-75"
-                      )} />
+                      <div
+                        className={cn(
+                          "absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 transition-opacity duration-500",
+                          isActive ? "opacity-95" : "opacity-75",
+                        )}
+                      />
 
                       {/* Content Overlay */}
                       <motion.div
@@ -99,10 +103,10 @@ export function Industries() {
                         className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end z-20 pointer-events-none"
                       >
                         <div className="flex items-center gap-3">
-                          <motion.div 
+                          <motion.div
                             className={cn(
                               "p-2.5 rounded-full backdrop-blur-md text-white transition-colors duration-300 flex items-center justify-center",
-                              isActive ? "bg-white text-black" : "bg-white/10"
+                              isActive ? "bg-white text-black" : "bg-white/10",
                             )}
                           >
                             <Icon size={20} />
@@ -162,7 +166,7 @@ export function Industries() {
                     onClick={() => api?.scrollTo(index)}
                     className={cn(
                       "h-1.5 rounded-full transition-all duration-300 cursor-pointer",
-                      current === index ? "w-6 bg-white" : "w-1.5 bg-white/20"
+                      current === index ? "w-6 bg-white" : "w-1.5 bg-white/20",
                     )}
                     aria-label={`Go to slide ${index + 1}`}
                   />
