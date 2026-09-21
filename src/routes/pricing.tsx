@@ -9,13 +9,13 @@ import { useEffect } from "react";
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Pricing & Founders Package — AI CheckPoint" },
+      { title: "Pricing & Engagement — AI CheckPoint" },
       {
         name: "description",
-        content: "Transparent pricing for Indian SMBs. Grab our Founders Special Offer at ₹2,500 (Value ₹5,000). Get started with an operations audit in 48 hours.",
+        content: "Transparent, value-driven AI implementation for Indian SMBs. Start with a free operations audit and get started in 48 hours.",
       },
-      { property: "og:title", content: "Pricing & Founders Package — AI CheckPoint" },
-      { property: "og:description", content: "₹2,500 Founders Special Offer (Value ₹5,000). Save ₹2,500 today." },
+      { property: "og:title", content: "Pricing & Engagement — AI CheckPoint" },
+      { property: "og:description", content: "Audit-first AI implementation tailored to your operational scale." },
     ],
     links: [
       {
@@ -34,17 +34,14 @@ function PricingPage() {
 
   const pricingSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "AI Audit & Implementation Package - Founders Offer",
+    "@type": "Service",
+    "name": "AI Audit & Implementation Services",
     "image": "https://www.aicheckpoint.in/favicon.png",
-    "description": "Comprehensive AI audit, custom roadmap, setup, training, and 1 month of support.",
-    "offers": {
-      "@type": "Offer",
-      "price": "2500",
-      "priceCurrency": "INR",
-      "priceValidUntil": "2026-12-31",
-      "availability": "https://schema.org/InStock",
-      "url": "https://www.aicheckpoint.in/pricing"
+    "description": "Comprehensive AI audit, custom roadmap, setup, training, and ongoing support.",
+    "provider": {
+      "@type": "Organization",
+      "name": "AI CheckPoint",
+      "url": "https://www.aicheckpoint.in/"
     }
   };
 

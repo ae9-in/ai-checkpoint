@@ -21,9 +21,9 @@ export const articles: Article[] = [
       "The short answer is: it depends on your scale. But unlike traditional software integrations that cost lakhs upfront, modern API-driven tools and serverless databases have dropped the entry price of AI dramatically. Today, custom automation can cost as little as a few thousand rupees.",
       "Typically, AI implementation costs fall into three main buckets: Audit & Roadmap, Core Setup & Integration, and Maintenance & Updates.",
       "1. Audit & Roadmap: Identifying what workflows to automate. Most consultants charge ₹5,000 to ₹15,000 for this. At AI CheckPoint, we offer this initial operations audit completely free.",
-      "2. Core Setup & Integration: Connecting database actions, configuring API models (like OpenAI or Gemini), and designing user-friendly interfaces (like WhatsApp business flows). Depending on complexity, typical Indian agencies charge ₹15,000 to ₹50,000. Our special Founders Package covers this complete end-to-end setup for just ₹2,500.",
+      "2. Core Setup & Integration: Connecting database actions, configuring API models (like OpenAI or Gemini), and designing user-friendly interfaces (like WhatsApp business flows). Depending on complexity, typical Indian agencies charge ₹15,000 to ₹50,000. Our team at AI CheckPoint delivers this complete end-to-end setup tailored to your specific business scale.",
       "3. Maintenance & Continuous Tuning: AI models require periodic updates. Monthly retention maintenance runs between ₹1,500 and ₹5,000, which includes model tuning and API keys monitoring.",
-      "Investing in AI automation is not a cost; it's a yield-bearing investment. If a ₹2,500 automation saves your staff 2 hours daily, it pays for itself in less than a month."
+      "Investing in AI automation is not a cost; it's a yield-bearing investment. If an automation saves your staff 2 hours daily, it pays for itself in less than a month."
     ]
   },
   {

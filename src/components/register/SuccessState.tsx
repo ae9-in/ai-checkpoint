@@ -19,7 +19,7 @@ export function SuccessState() {
   }, []);
 
   const whatsapp = `https://wa.me/?text=${encodeURIComponent(
-    "Check out AI CheckPoint — free AI audit + ₹2,500 founders package for Indian businesses. https://aicheckpoint.in",
+    "Check out AI CheckPoint — free AI audit and custom AI automation for Indian businesses. https://aicheckpoint.in",
   )}`;
 
   return (

@@ -72,13 +72,12 @@ export function RegisterLeft() {
 
       <div className="mt-10 rounded-2xl border border-soft/15 bg-void/40 p-5 backdrop-blur-md">
         <div className="font-mono-acc text-[11px] uppercase tracking-wider text-cyan">
-          Founders package
+          Free Operations Audit
         </div>
-        <div className="mt-1 flex items-end gap-3">
-          <span className="font-display text-3xl font-bold text-soft">₹2,500</span>
-          <span className="font-mono-acc mb-1 text-sm text-soft/45 line-through">₹5,000</span>
+        <div className="mt-2">
+          <span className="font-display text-2xl font-bold text-soft">100% Free Initial Audit</span>
         </div>
-        <p className="mt-1 text-sm text-soft/70">AI setup + ₹1,000 Digital Marketing — FREE.</p>
+        <p className="mt-1 text-sm text-soft/70">Custom AI roadmap + workflow analysis with zero upfront commitment.</p>
       </div>
 
       <div className="font-mono-acc mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] uppercase tracking-wider text-soft/55">

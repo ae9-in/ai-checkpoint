@@ -192,9 +192,9 @@ export function Timeline() {
           className="mt-20 flex flex-col items-center gap-6 text-center"
         >
           <p className="max-w-2xl text-soft/70">
-            All of this in your <span className="text-cyan font-semibold">₹2,500 package</span> —
-            with <span className="text-gold font-semibold">₹1,000 of digital marketing</span> and
-            FREE tools included.
+            All of this tailored for your business — with{" "}
+            <span className="text-cyan font-semibold">custom AI implementation</span>, staff
+            training, and dedicated ongoing support.
           </p>
           <Link to="/register" data-cursor="cta">
             <span className="pulse-glow inline-flex h-14 items-center justify-center rounded-full bg-gradient-primary px-8 font-semibold text-void">

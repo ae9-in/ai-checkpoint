@@ -12,7 +12,7 @@ export const Route = createFileRoute("/faq")({
       { title: "Frequently Asked Questions — AI CheckPoint" },
       {
         name: "description",
-        content: "Find answers to common questions about our AI audits, setup process, pricing (₹2,500 package), staff training, maintenance, and cancellation policies.",
+        content: "Find answers to common questions about our AI audits, setup process, custom pricing, staff training, maintenance, and cancellation policies.",
       },
       { property: "og:title", content: "Frequently Asked Questions — AI CheckPoint" },
       { property: "og:description", content: "How AI CheckPoint works, integration time, staff training, and pricing details." },
@@ -49,8 +49,8 @@ const faqs = [
     a: "We provide both in-person sessions and recorded video walkthroughs. Staff usually feel comfortable with the new tools within 2-3 days.",
   },
   {
-    q: "Is ₹2,500 a one-time or recurring cost?",
-    a: "₹2,500 is a one-time setup cost. Optional monthly maintenance subscriptions are available if you want continuous optimization and support.",
+    q: "How does pricing and engagement work?",
+    a: "We start with a free, comprehensive AI audit of your operations. After identifying high-yield automations, we provide transparent, custom setup pricing tailored to your scale with no hidden costs.",
   },
   {
     q: "What happens if AI updates change my tools?",

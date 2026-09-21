@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:description",
-        content: "Book a free AI operations audit. Founders package setup for ₹2,500.",
+        content: "Book a free AI operations audit. Custom AI automation setup for Indian SMBs.",
       },
     ],
   }),
@@ -46,8 +46,8 @@ function Index() {
       <Transformation />
       <Industries />
       <Timeline />
-      <Stats />
       <Services />
+      <Stats />
       <FAQ />
       <FinalCTA />
       <Footer />

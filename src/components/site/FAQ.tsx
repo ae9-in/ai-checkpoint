@@ -26,8 +26,8 @@ const faqs = [
     a: "We provide both in-person sessions and recorded video walkthroughs. Staff usually feel comfortable with the new tools within 2-3 days.",
   },
   {
-    q: "Is ₹2,500 a one-time or recurring cost?",
-    a: "₹2,500 is a one-time setup cost. Optional monthly maintenance subscriptions are available if you want continuous optimization and support.",
+    q: "How does pricing and engagement work?",
+    a: "We start with a free, comprehensive AI audit of your operations. After identifying high-yield automations, we provide transparent, custom setup pricing tailored to your scale with no hidden costs.",
   },
   {
     q: "What happens if AI updates change my tools?",

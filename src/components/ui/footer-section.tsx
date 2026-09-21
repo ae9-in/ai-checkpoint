@@ -99,9 +99,9 @@ export function Footer() {
             {[
               { label: "AI Solutions", href: "/solutions" },
               { label: "Target Industries", href: "/industries" },
-              { label: "Founders' Pricing", href: "/pricing" },
               { label: "FAQ Portal", href: "/faq" },
               { label: "Insights & Resources", href: "/resources" },
+              { label: "Book Free Audit", href: "/register" },
             ].map((link) => (
               <li key={link.label}>
                 <Link
@@ -116,25 +116,24 @@ export function Footer() {
           </ul>
         </AnimatedContainer>
 
-        {/* Column 3: Premium Founders Card */}
+        {/* Column 3: Free Operations Audit Card */}
         <AnimatedContainer delay={0.3}>
           <div className="relative overflow-hidden rounded-2xl border border-indigo/40 bg-surface/30 p-6 backdrop-blur-sm shadow-xl shadow-black/20">
             {/* Glow effect inside card */}
-            <div className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gold/15 blur-2xl" />
+            <div className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-cyan/15 blur-2xl" />
 
             <div className="flex items-center gap-2">
-              <span className="font-mono-acc text-[10px] font-semibold uppercase tracking-widest text-gold border border-gold/30 bg-gold/5 px-2 py-0.5 rounded-full">
-                Limited Founders' Offer
+              <span className="font-mono-acc text-[10px] font-semibold uppercase tracking-widest text-cyan border border-cyan/30 bg-cyan/5 px-2.5 py-0.5 rounded-full">
+                Free Operations Audit
               </span>
             </div>
 
-            <div className="mt-4 flex items-baseline gap-1.5">
-              <span className="font-display text-3xl font-extrabold text-white">₹2,500</span>
-              <span className="text-xs text-soft/45 font-mono-acc line-through">₹5,000</span>
+            <div className="mt-4">
+              <span className="font-display text-2xl font-extrabold text-white">Scale With Custom AI</span>
             </div>
 
             <p className="mt-2 text-xs text-soft/70 leading-relaxed">
-              Full custom AI implementation setup + ₹1,000 digital marketing credit completely free.
+              Discover workflow bottlenecks and automate repetitive tasks with custom AI systems deployed in 48 hours.
             </p>
 
             <Link
@@ -142,7 +141,7 @@ export function Footer() {
               data-cursor="cta"
               className="pulse-glow mt-5 flex w-full items-center justify-center rounded-full bg-gradient-primary py-2.5 text-xs font-bold text-void transition-all hover:scale-[1.02]"
             >
-              Claim Now →
+              Book Free Audit →
             </Link>
           </div>
         </AnimatedContainer>

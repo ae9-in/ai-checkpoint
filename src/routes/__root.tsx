@@ -92,7 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "AI CheckPoint — AI for Every Indian Business" },
       {
         property: "og:description",
-        content: "Free AI audit + ₹2,500 founders package. Setup in 48 hours.",
+        content: "Free AI audit and custom AI automation setup for Indian enterprises in 48 hours.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

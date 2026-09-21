@@ -15,7 +15,7 @@ export const Route = createFileRoute("/register")({
         content: "Book your free AI audit. Our specialist will contact you within 24 hours.",
       },
       { property: "og:title", content: "Register — AI CheckPoint" },
-      { property: "og:description", content: "Free AI audit + ₹2,500 founders package." },
+      { property: "og:description", content: "Free AI audit and custom AI automation for Indian businesses." },
     ],
   }),
   component: RegisterPage,
@@ -49,19 +49,19 @@ function RegisterPage() {
             </span>
           </Link>
 
-          {/* Elegant Badge for Founders Package */}
-          <div className="hidden sm:flex items-center gap-2 rounded-full border border-gold/25 bg-gold/5 px-3.5 py-1 text-xs font-medium text-gold shadow-sm">
+          {/* Elegant Badge for Free Audit */}
+          <div className="hidden sm:flex items-center gap-2 rounded-full border border-cyan/25 bg-cyan/5 px-3.5 py-1 text-xs font-medium text-cyan shadow-sm">
             <Sparkles className="h-3 w-3 animate-pulse" />
-            <span>Founders Offer · ₹2,500</span>
+            <span>Free Operations Audit</span>
           </div>
         </div>
 
         {/* Centralized Form Container */}
         <div className="my-auto w-full max-w-lg mx-auto">
           {/* Small mobile package notice */}
-          <div className="flex sm:hidden items-center justify-center gap-2 rounded-full border border-gold/25 bg-gold/5 px-3 py-1 mb-6 text-xs text-gold w-fit mx-auto">
+          <div className="flex sm:hidden items-center justify-center gap-2 rounded-full border border-cyan/25 bg-cyan/5 px-3 py-1 mb-6 text-xs text-cyan w-fit mx-auto">
             <Sparkles className="h-3 w-3" />
-            <span>Founders Offer · ₹2,500</span>
+            <span>Free Operations Audit</span>
           </div>
           <RegisterForm />
         </div>
@@ -130,7 +130,7 @@ function RegisterPage() {
                   "Transform your business workflow. A customized AI roadmap and audit awaits.",
                   "Save hours of manual effort by automating your repetitive processes.",
                   "Deploy cutting-edge AI agents tailored specifically for your operational needs.",
-                  "Lock in the Founders Package for just ₹2,500 (value ₹5,000).",
+                  "Get a complete operations audit and tailored AI implementation roadmap.",
                 ]}
                 speed={55}
                 loop={true}
