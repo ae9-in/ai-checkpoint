@@ -89,8 +89,14 @@ export function Benefits() {
     <section id="benefits" className="relative bg-void py-28 sm:py-32 overflow-hidden">
       {/* Floating parallax blur circles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <Parallax offset={80} className="absolute top-[20%] -left-48 w-96 h-96 rounded-full bg-cyan/5 blur-3xl" />
-        <Parallax offset={-80} className="absolute bottom-[20%] -right-48 w-96 h-96 rounded-full bg-indigo/5 blur-3xl" />
+        <Parallax
+          offset={80}
+          className="absolute top-[20%] -left-48 w-96 h-96 rounded-full bg-cyan/5 blur-3xl"
+        />
+        <Parallax
+          offset={-80}
+          className="absolute bottom-[20%] -right-48 w-96 h-96 rounded-full bg-indigo/5 blur-3xl"
+        />
       </div>
       <div className="mx-auto max-w-7xl px-6 relative z-10">
         <SectionLabel>Why choose us</SectionLabel>

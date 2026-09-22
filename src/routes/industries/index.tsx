@@ -13,10 +13,15 @@ export const Route = createFileRoute("/industries/")({
       { title: "AI Solutions by Industry — AI CheckPoint" },
       {
         name: "description",
-        content: "Explore tailored AI solutions for Indian businesses across retail, restaurants, medical, spas, gyms, education, real estate, logistics, and manufacturing.",
+        content:
+          "Explore tailored AI solutions for Indian businesses across retail, restaurants, medical, spas, gyms, education, real estate, logistics, and manufacturing.",
       },
       { property: "og:title", content: "AI Solutions by Industry — AI CheckPoint" },
-      { property: "og:description", content: "Custom operational audits and AI automation engineered specifically for your industry vertical." },
+      {
+        property: "og:description",
+        content:
+          "Custom operational audits and AI automation engineered specifically for your industry vertical.",
+      },
     ],
     links: [
       {
@@ -39,7 +44,7 @@ export function getIndustrySlug(name: string): string {
     "Schools & Coaching": "education",
     "Real Estate": "real-estate",
     "Logistics & Delivery": "logistics",
-    "Manufacturing": "manufacturing",
+    Manufacturing: "manufacturing",
     "Corporate Companies": "corporate",
   };
   return mapping[name] || name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
@@ -53,20 +58,20 @@ function IndustriesIndexPage() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.aicheckpoint.in/"
+        position: 1,
+        name: "Home",
+        item: "https://www.aicheckpoint.in/",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Industries",
-        "item": "https://www.aicheckpoint.in/industries"
-      }
-    ]
+        position: 2,
+        name: "Industries",
+        item: "https://www.aicheckpoint.in/industries",
+      },
+    ],
   };
 
   return (
@@ -83,10 +88,15 @@ function IndustriesIndexPage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
-              AI Solutions Custom Built for <span className="bg-gradient-to-r from-cyan via-indigo to-gold bg-clip-text text-transparent">Your Industry</span>
+              AI Solutions Custom Built for{" "}
+              <span className="bg-gradient-to-r from-cyan via-indigo to-gold bg-clip-text text-transparent">
+                Your Industry
+              </span>
             </h1>
             <p className="text-base sm:text-lg text-soft/65 leading-relaxed">
-              Generic tools fail. We design, audit, and deploy custom artificial intelligence integrations that respect the unique constraints and operations of your specific business vertical.
+              Generic tools fail. We design, audit, and deploy custom artificial intelligence
+              integrations that respect the unique constraints and operations of your specific
+              business vertical.
             </p>
           </div>
 
@@ -97,7 +107,8 @@ function IndustriesIndexPage() {
               return (
                 <Link
                   key={ind.name}
-                  to={`/industries/${slug}`}
+                  to="/industries/$industry"
+                  params={{ industry: slug }}
                   className="group relative overflow-hidden rounded-3xl border border-white/5 bg-surface/40 p-8 hover:border-cyan/30 transition-all duration-300 flex flex-col justify-between min-h-[280px]"
                 >
                   {/* Subtle Background Glow */}
@@ -112,14 +123,15 @@ function IndustriesIndexPage() {
                         {ind.name}
                       </h2>
                     </div>
-                    <p className="text-sm text-soft/60 leading-relaxed mb-6">
-                      {ind.description}
-                    </p>
+                    <p className="text-sm text-soft/60 leading-relaxed mb-6">{ind.description}</p>
                   </div>
 
                   <div className="flex items-center gap-2 text-xs font-mono-acc text-cyan tracking-wider">
                     <span>EXPLORE SOLUTIONS</span>
-                    <ArrowRight size={14} className="transform group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight
+                      size={14}
+                      className="transform group-hover:translate-x-1 transition-transform"
+                    />
                   </div>
                 </Link>
               );

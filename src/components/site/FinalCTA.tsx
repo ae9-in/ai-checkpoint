@@ -40,14 +40,20 @@ export function FinalCTA() {
         background: "linear-gradient(180deg, #06070C 0%, #0B0C12 60%, #101117 100%)",
       }}
     >
-      <Parallax offset={95} className="pointer-events-none absolute -right-32 -top-32 h-[400px] w-[400px] rounded-full">
+      <Parallax
+        offset={95}
+        className="pointer-events-none absolute -right-32 -top-32 h-[400px] w-[400px] rounded-full"
+      >
         <div
           aria-hidden
           className="w-full h-full"
           style={{ background: "radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%)" }}
         />
       </Parallax>
-      <Parallax offset={-75} className="pointer-events-none absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full">
+      <Parallax
+        offset={-75}
+        className="pointer-events-none absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full"
+      >
         <div
           aria-hidden
           className="w-full h-full"

@@ -67,7 +67,7 @@
   justify-content: center;
   height: 100%;
   padding: 0 var(--pill-pad-x);
-  background: var(--pill-bg, #120F17);
+  background: var(--pill-bg, #120f17);
   color: var(--pill-text, var(--base, #fff));
   text-decoration: none;
   border-radius: 9999px;
@@ -115,14 +115,14 @@
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--hover-text, #120F17);
+  color: var(--hover-text, #120f17);
   z-index: 3;
   display: inline-block;
   will-change: transform, opacity;
 }
 
 .pill.is-active::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 2px;
   left: 50%;

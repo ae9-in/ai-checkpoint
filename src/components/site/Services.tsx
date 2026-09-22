@@ -17,7 +17,7 @@ const servicesSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "AI CheckPoint Services",
-  description: "AI Courses, Custom Websites, AI Automations, CRMs, and Custom Tech Solutions.",
+  description: "AI Courses, Custom Websites, AI Automations, and CRMs.",
   itemListElement: services.map((service, idx) => ({
     "@type": "ListItem",
     position: idx + 1,
@@ -163,8 +163,7 @@ export function Services() {
           What we build for you
         </RollingText>
         <p className="mx-auto mt-3 max-w-2xl text-center text-soft/60 text-base sm:text-lg leading-relaxed">
-          Courses, websites, automations, CRMs — and anything else your business needs on the tech
-          side.
+          Courses, websites, automations, and CRMs — built to scale your business operations.
         </p>
 
         {/* ------------------------------------------------------------- */}
@@ -205,7 +204,7 @@ export function Services() {
                     willChange: isWillChange ? "width" : "auto",
                   }}
                   animate={{
-                    width: reduceMotion ? "20%" : isOpen ? "44%" : "14%",
+                    width: reduceMotion ? "25%" : isOpen ? "52%" : "16%",
                   }}
                   transition={
                     reduceMotion
@@ -438,8 +437,7 @@ export function Services() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: idx * 0.08 }}
                 className={cn(
-                  "relative overflow-hidden rounded-[24px] border p-6 flex flex-col justify-between",
-                  isLast ? "col-span-2 aspect-[16/9]" : "aspect-[4/5]",
+                  "relative overflow-hidden rounded-[24px] border p-6 flex flex-col justify-between aspect-[4/5]",
                   isGold
                     ? "border-gold/45 shadow-[0_0_20px_rgba(201,162,107,0.1)]"
                     : "border-line bg-surface/40",
@@ -484,19 +482,22 @@ export function Services() {
                     {service.description}
                   </p>
 
-                  {/* Show chips on panel 05 */}
-                  {isLast && (
-                    <div className="mt-3.5 flex flex-wrap gap-1.5">
-                      {service.chips.map((chip) => (
-                        <span
-                          key={chip}
-                          className="font-mono-acc text-[10px] px-2 py-0.5 rounded-full border border-gold/30 bg-gold/10 text-gold/90"
-                        >
-                          {chip}
-                        </span>
-                      ))}
-                    </div>
-                  )}
+                  {/* Show chips */}
+                  <div className="mt-3.5 flex flex-wrap gap-1.5">
+                    {service.chips.map((chip) => (
+                      <span
+                        key={chip}
+                        className={cn(
+                          "font-mono-acc text-[10px] px-2 py-0.5 rounded-full border",
+                          isGold
+                            ? "border-gold/30 bg-gold/10 text-gold/90"
+                            : "border-line bg-soft/5 text-soft/75",
+                        )}
+                      >
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
 
                   {service.cta && (
                     <div className="mt-4">

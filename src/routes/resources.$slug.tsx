@@ -47,51 +47,51 @@ function ArticleDetailPage() {
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": article.title,
-    "description": article.excerpt,
-    "datePublished": new Date(article.date).toISOString().split('T')[0],
-    "author": {
+    headline: article.title,
+    description: article.excerpt,
+    datePublished: new Date(article.date).toISOString().split("T")[0],
+    author: {
       "@type": "Organization",
-      "name": "AI CheckPoint",
-      "url": "https://www.aicheckpoint.in/"
+      name: "AI CheckPoint",
+      url: "https://www.aicheckpoint.in/",
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": "AI CheckPoint",
-      "logo": {
+      name: "AI CheckPoint",
+      logo: {
         "@type": "ImageObject",
-        "url": "https://www.aicheckpoint.in/favicon.png"
-      }
+        url: "https://www.aicheckpoint.in/favicon.png",
+      },
     },
-    "mainEntityOfPage": {
+    mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.aicheckpoint.in/resources/${article.slug}`
-    }
+      "@id": `https://www.aicheckpoint.in/resources/${article.slug}`,
+    },
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.aicheckpoint.in/"
+        position: 1,
+        name: "Home",
+        item: "https://www.aicheckpoint.in/",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Resources",
-        "item": "https://www.aicheckpoint.in/resources"
+        position: 2,
+        name: "Resources",
+        item: "https://www.aicheckpoint.in/resources",
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": article.title,
-        "item": `https://www.aicheckpoint.in/resources/${article.slug}`
-      }
-    ]
+        position: 3,
+        name: article.title,
+        item: `https://www.aicheckpoint.in/resources/${article.slug}`,
+      },
+    ],
   };
 
   return (
@@ -109,7 +109,7 @@ function ArticleDetailPage() {
       <Breadcrumbs
         items={[
           { label: "Resources", to: "/resources" },
-          { label: article.title, to: `/resources/${article.slug}` }
+          { label: article.title, to: `/resources/${article.slug}` },
         ]}
       />
 

@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { Link } from '@tanstack/react-router';
-import { gsap } from 'gsap';
-import './PillNav.css';
+import { useEffect, useRef } from "react";
+import { Link } from "@tanstack/react-router";
+import { gsap } from "gsap";
+import "./PillNav.css";
 
 interface PillNavItem {
   label: string;
@@ -26,16 +26,16 @@ interface PillNavProps {
 
 const PillNav = ({
   logo,
-  logoAlt = 'Logo',
+  logoAlt = "Logo",
   items,
   activeHref,
-  className = '',
-  ease = 'power3.easeOut',
-  baseColor = '#fff',
-  pillColor = '#120F17',
-  hoveredPillTextColor = '#120F17',
+  className = "",
+  ease = "power3.easeOut",
+  baseColor = "#fff",
+  pillColor = "#120F17",
+  hoveredPillTextColor = "#120F17",
   pillTextColor,
-  initialLoadAnimation = true
+  initialLoadAnimation = true,
 }: PillNavProps) => {
   const resolvedPillTextColor = pillTextColor ?? baseColor;
   const circleRefs = useRef<(HTMLSpanElement | null)[]>([]);
@@ -66,11 +66,11 @@ const PillNav = ({
         gsap.set(circle, {
           xPercent: -50,
           scale: 0,
-          transformOrigin: `50% ${originY}px`
+          transformOrigin: `50% ${originY}px`,
         });
 
-        const label = pill.querySelector('.pill-label');
-        const white = pill.querySelector('.pill-label-hover');
+        const label = pill.querySelector(".pill-label");
+        const white = pill.querySelector(".pill-label-hover");
 
         if (label) gsap.set(label, { y: 0 });
         if (white) gsap.set(white, { y: h + 12, opacity: 0 });
@@ -78,15 +78,15 @@ const PillNav = ({
         tlRefs.current[index]?.kill();
         const tl = gsap.timeline({ paused: true });
 
-        tl.to(circle, { scale: 1.2, xPercent: -50, duration: 0.4, ease, overwrite: 'auto' }, 0);
+        tl.to(circle, { scale: 1.2, xPercent: -50, duration: 0.4, ease, overwrite: "auto" }, 0);
 
         if (label) {
-          tl.to(label, { y: -(h + 8), duration: 0.4, ease, overwrite: 'auto' }, 0);
+          tl.to(label, { y: -(h + 8), duration: 0.4, ease, overwrite: "auto" }, 0);
         }
 
         if (white) {
           gsap.set(white, { y: Math.ceil(h + 12), opacity: 0 });
-          tl.to(white, { y: 0, opacity: 1, duration: 0.4, ease, overwrite: 'auto' }, 0);
+          tl.to(white, { y: 0, opacity: 1, duration: 0.4, ease, overwrite: "auto" }, 0);
         }
 
         tlRefs.current[index] = tl;
@@ -96,7 +96,7 @@ const PillNav = ({
     layout();
 
     const onResize = () => layout();
-    window.addEventListener('resize', onResize);
+    window.addEventListener("resize", onResize);
 
     // Run layout again once fonts are loaded to prevent layout shifts
     if (document.fonts?.ready) {
@@ -112,7 +112,7 @@ const PillNav = ({
         gsap.to(logoEl, {
           scale: 1,
           duration: 0.6,
-          ease
+          ease,
         });
       }
 
@@ -122,12 +122,12 @@ const PillNav = ({
           opacity: 1,
           y: 0,
           duration: 0.6,
-          ease
+          ease,
         });
       }
     }
 
-    return () => window.removeEventListener('resize', onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, [items, ease, initialLoadAnimation]);
 
   const handleEnter = (i: number) => {
@@ -137,7 +137,7 @@ const PillNav = ({
     activeTweenRefs.current[i] = tl.tweenTo(tl.duration(), {
       duration: 0.3,
       ease,
-      overwrite: 'auto'
+      overwrite: "auto",
     });
   };
 
@@ -148,7 +148,7 @@ const PillNav = ({
     activeTweenRefs.current[i] = tl.tweenTo(0, {
       duration: 0.2,
       ease,
-      overwrite: 'auto'
+      overwrite: "auto",
     });
   };
 
@@ -161,15 +161,15 @@ const PillNav = ({
       rotate: 360,
       duration: 0.5,
       ease,
-      overwrite: 'auto'
+      overwrite: "auto",
     });
   };
 
   const cssVars = {
-    ['--base' as any]: baseColor,
-    ['--pill-bg' as any]: pillColor,
-    ['--hover-text' as any]: hoveredPillTextColor,
-    ['--pill-text' as any]: resolvedPillTextColor
+    ["--base" as any]: baseColor,
+    ["--pill-bg" as any]: pillColor,
+    ["--hover-text" as any]: hoveredPillTextColor,
+    ["--pill-text" as any]: resolvedPillTextColor,
   };
 
   return (
@@ -190,12 +190,12 @@ const PillNav = ({
         <div className="pill-nav-items" ref={navItemsRef}>
           <ul className="pill-list" role="menubar">
             {items.map((item, i) => (
-              <li key={item.to + (item.hash || '')} role="none">
+              <li key={item.to + (item.hash || "")} role="none">
                 <Link
                   role="menuitem"
                   to={item.to as any}
                   hash={item.hash}
-                  className={`pill${activeHref === item.to ? ' is-active' : ''}`}
+                  className={`pill${activeHref === item.to ? " is-active" : ""}`}
                   aria-label={item.ariaLabel || item.label}
                   onMouseEnter={() => handleEnter(i)}
                   onMouseLeave={() => handleLeave(i)}
@@ -203,7 +203,7 @@ const PillNav = ({
                   <span
                     className="hover-circle"
                     aria-hidden="true"
-                    ref={el => {
+                    ref={(el) => {
                       circleRefs.current[i] = el;
                     }}
                   />

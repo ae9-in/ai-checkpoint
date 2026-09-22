@@ -84,8 +84,14 @@ export function Stats() {
     <section className="relative bg-mid py-24 sm:py-28 overflow-hidden">
       {/* Background Parallax Glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <Parallax offset={60} className="absolute top-[10%] right-[10%] w-[500px] h-[500px] rounded-full bg-indigo/5 blur-3xl" />
-        <Parallax offset={-60} className="absolute bottom-[10%] left-[5%] w-[400px] h-[400px] rounded-full bg-cyan/5 blur-3xl" />
+        <Parallax
+          offset={60}
+          className="absolute top-[10%] right-[10%] w-[500px] h-[500px] rounded-full bg-indigo/5 blur-3xl"
+        />
+        <Parallax
+          offset={-60}
+          className="absolute bottom-[10%] left-[5%] w-[400px] h-[400px] rounded-full bg-cyan/5 blur-3xl"
+        />
       </div>
       <div className="mx-auto max-w-7xl px-6 relative z-10">
         <SectionLabel>The numbers</SectionLabel>

@@ -1,8 +1,8 @@
-import { GraduationCap, Globe, Workflow, Users, Sparkles, type LucideIcon } from "lucide-react";
+import { GraduationCap, Globe, Workflow, Users, type LucideIcon } from "lucide-react";
 
 export type Service = {
   id: string; // stable slug, used for DOM ids / aria-controls
-  index: string; // "01".."05"
+  index: string; // "01".."04"
   icon: LucideIcon;
   title: string;
   description: string;
@@ -11,7 +11,7 @@ export type Service = {
   alt: string;
   imagePosition?: string; // e.g. "50% 22%" for dashboard focal alignment
   dimClosed?: number; // custom brightness for closed state (e.g. 0.62 for vector UI)
-  accent?: "gold"; // panel 05 only
+  accent?: "gold";
   cta?: { label: string; to: string };
 };
 
@@ -62,22 +62,5 @@ export const services: Service[] = [
     alt: "A dark CRM dashboard showing pipeline value, deal stages and a revenue trend",
     imagePosition: "50% 22%",
     dimClosed: 0.62,
-  },
-  {
-    id: "anything-else",
-    index: "05",
-    icon: Sparkles,
-    title: "Anything Else in Tech",
-    description:
-      "Got a requirement that doesn't fit a box? Tell us what you need and we will build it.",
-    chips: ["Custom builds", "Integrations", "Tell us your idea"],
-    accent: "gold",
-    cta: {
-      label: "Tell us what you need →",
-      to: "/register",
-    },
-    image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-    alt: "Abstract glowing digital network connectivity and custom technology infrastructure",
   },
 ];

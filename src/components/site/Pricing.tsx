@@ -18,7 +18,12 @@ const includes = [
 const steps = [
   { step: "Phase 1", label: "Operations Audit", value: "100% FREE", highlight: true },
   { step: "Phase 2", label: "AI Roadmap & Architecture", value: "Included", highlight: false },
-  { step: "Phase 3", label: "Custom Setup & Integration", value: "Custom Scoped Quote", highlight: false },
+  {
+    step: "Phase 3",
+    label: "Custom Setup & Integration",
+    value: "Custom Scoped Quote",
+    highlight: false,
+  },
 ];
 
 export function Pricing() {
@@ -54,7 +59,8 @@ export function Pricing() {
               Free Initial Audit
             </h3>
             <p className="mt-2 text-sm text-soft/70">
-              Zero upfront commitment. Get a 48-hour diagnostic of your operations with tailored AI recommendations.
+              Zero upfront commitment. Get a 48-hour diagnostic of your operations with tailored AI
+              recommendations.
             </p>
           </div>
 

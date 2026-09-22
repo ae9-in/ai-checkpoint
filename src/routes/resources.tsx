@@ -13,10 +13,15 @@ export const Route = createFileRoute("/resources")({
       { title: "Business Automation Articles & Blog — AI CheckPoint" },
       {
         name: "description",
-        content: "Read articles and guides on implementing artificial intelligence, cost models, operational audits, and workflow automation for small businesses in India.",
+        content:
+          "Read articles and guides on implementing artificial intelligence, cost models, operational audits, and workflow automation for small businesses in India.",
       },
       { property: "og:title", content: "Business Automation Articles & Blog — AI CheckPoint" },
-      { property: "og:description", content: "Expert guides and resources on business automation, ROI audits, and custom AI tools." },
+      {
+        property: "og:description",
+        content:
+          "Expert guides and resources on business automation, ROI audits, and custom AI tools.",
+      },
     ],
     links: [
       {
@@ -36,20 +41,20 @@ function ResourcesPage() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.aicheckpoint.in/"
+        position: 1,
+        name: "Home",
+        item: "https://www.aicheckpoint.in/",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Resources",
-        "item": "https://www.aicheckpoint.in/resources"
-      }
-    ]
+        position: 2,
+        name: "Resources",
+        item: "https://www.aicheckpoint.in/resources",
+      },
+    ],
   };
 
   return (
@@ -69,7 +74,8 @@ function ResourcesPage() {
               Insights & Resources
             </h1>
             <p className="text-base sm:text-lg text-soft/65 leading-relaxed">
-              Step-by-step guides, pricing models, and operational frameworks to help you implement custom AI workflows and save costs.
+              Step-by-step guides, pricing models, and operational frameworks to help you implement
+              custom AI workflows and save costs.
             </p>
           </div>
 
@@ -93,9 +99,7 @@ function ResourcesPage() {
                     {art.title}
                   </h2>
 
-                  <p className="text-sm text-soft/60 leading-relaxed mb-6">
-                    {art.excerpt}
-                  </p>
+                  <p className="text-sm text-soft/60 leading-relaxed mb-6">{art.excerpt}</p>
                 </div>
 
                 <div className="pt-4 border-t border-white/5 flex items-center justify-between">
@@ -105,11 +109,15 @@ function ResourcesPage() {
                   </div>
 
                   <Link
-                    to={`/resources/${art.slug}`}
+                    to="/resources/$slug"
+                    params={{ slug: art.slug }}
                     className="inline-flex items-center gap-1 text-xs font-mono-acc text-cyan tracking-wider hover:text-white transition-colors"
                   >
                     <span>READ ARTICLE</span>
-                    <ArrowRight size={14} className="transform group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight
+                      size={14}
+                      className="transform group-hover:translate-x-1 transition-transform"
+                    />
                   </Link>
                 </div>
               </div>

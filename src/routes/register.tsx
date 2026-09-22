@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { RegisterForm } from "@/components/register/RegisterForm";
 import { Typewriter } from "@/components/ui/auth-fuse";
-import { Sparkles, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import logoImage from "@/assets/logo.png";
@@ -15,7 +15,10 @@ export const Route = createFileRoute("/register")({
         content: "Book your free AI audit. Our specialist will contact you within 24 hours.",
       },
       { property: "og:title", content: "Register — AI CheckPoint" },
-      { property: "og:description", content: "Free AI audit and custom AI automation for Indian businesses." },
+      {
+        property: "og:description",
+        content: "Free AI audit and custom AI automation for Indian businesses.",
+      },
     ],
   }),
   component: RegisterPage,
@@ -28,12 +31,12 @@ function RegisterPage() {
 
   return (
     <motion.main
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="w-full min-h-screen md:grid md:grid-cols-2 bg-void text-soft selection:bg-cyan selection:text-void"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+      className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-void text-soft relative selection:bg-cyan/20 selection:text-white"
     >
-      {/* Left Column: Form and Details */}
+      {/* Left Column: Register Form */}
       <div className="flex min-h-screen flex-col justify-between p-6 md:p-12 lg:p-16">
         {/* Top Header */}
         <div className="flex items-center justify-between w-full mb-8">
@@ -51,7 +54,6 @@ function RegisterPage() {
 
           {/* Elegant Badge for Free Audit */}
           <div className="hidden sm:flex items-center gap-2 rounded-full border border-cyan/25 bg-cyan/5 px-3.5 py-1 text-xs font-medium text-cyan shadow-sm">
-            <Sparkles className="h-3 w-3 animate-pulse" />
             <span>Free Operations Audit</span>
           </div>
         </div>
@@ -60,7 +62,6 @@ function RegisterPage() {
         <div className="my-auto w-full max-w-lg mx-auto">
           {/* Small mobile package notice */}
           <div className="flex sm:hidden items-center justify-center gap-2 rounded-full border border-cyan/25 bg-cyan/5 px-3 py-1 mb-6 text-xs text-cyan w-fit mx-auto">
-            <Sparkles className="h-3 w-3" />
             <span>Free Operations Audit</span>
           </div>
           <RegisterForm />

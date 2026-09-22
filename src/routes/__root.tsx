@@ -139,31 +139,34 @@ function RootShell({ children }: { children: ReactNode }) {
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "AI CheckPoint",
-    "url": "https://www.aicheckpoint.in/",
-    "logo": "https://www.aicheckpoint.in/favicon.png",
-    "description": "AI audit and implementation services for Indian small and medium businesses.",
-    "areaServed": "IN"
+    name: "AI CheckPoint",
+    url: "https://www.aicheckpoint.in/",
+    logo: "https://www.aicheckpoint.in/favicon.png",
+    description: "AI audit and implementation services for Indian small and medium businesses.",
+    areaServed: "IN",
   };
 
   const businessSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "AI CheckPoint",
-    "url": "https://www.aicheckpoint.in/",
-    "logo": "https://www.aicheckpoint.in/favicon.png",
-    "description": "AI operations audit and automation integrations for Indian businesses.",
-    "priceRange": "₹₹",
-    "areaServed": {
+    name: "AI CheckPoint",
+    url: "https://www.aicheckpoint.in/",
+    logo: "https://www.aicheckpoint.in/favicon.png",
+    description: "AI operations audit and automation integrations for Indian businesses.",
+    priceRange: "₹₹",
+    areaServed: {
       "@type": "Country",
-      "name": "India"
-    }
+      name: "India",
+    },
   };
 
   return (
     <html lang="en-IN">
       <head>
-        <meta name="google-site-verification" content="0_DCP051x6LejV-Td0sW5vLOIbXEk8gY8BMX-Cnm9qM" />
+        <meta
+          name="google-site-verification"
+          content="0_DCP051x6LejV-Td0sW5vLOIbXEk8gY8BMX-Cnm9qM"
+        />
         <HeadContent />
         <script
           type="application/ld+json"

@@ -12,10 +12,14 @@ export const Route = createFileRoute("/pricing")({
       { title: "Pricing & Engagement — AI CheckPoint" },
       {
         name: "description",
-        content: "Transparent, value-driven AI implementation for Indian SMBs. Start with a free operations audit and get started in 48 hours.",
+        content:
+          "Transparent, value-driven AI implementation for Indian SMBs. Start with a free operations audit and get started in 48 hours.",
       },
       { property: "og:title", content: "Pricing & Engagement — AI CheckPoint" },
-      { property: "og:description", content: "Audit-first AI implementation tailored to your operational scale." },
+      {
+        property: "og:description",
+        content: "Audit-first AI implementation tailored to your operational scale.",
+      },
     ],
     links: [
       {
@@ -35,33 +39,33 @@ function PricingPage() {
   const pricingSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "AI Audit & Implementation Services",
-    "image": "https://www.aicheckpoint.in/favicon.png",
-    "description": "Comprehensive AI audit, custom roadmap, setup, training, and ongoing support.",
-    "provider": {
+    name: "AI Audit & Implementation Services",
+    image: "https://www.aicheckpoint.in/favicon.png",
+    description: "Comprehensive AI audit, custom roadmap, setup, training, and ongoing support.",
+    provider: {
       "@type": "Organization",
-      "name": "AI CheckPoint",
-      "url": "https://www.aicheckpoint.in/"
-    }
+      name: "AI CheckPoint",
+      url: "https://www.aicheckpoint.in/",
+    },
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.aicheckpoint.in/"
+        position: 1,
+        name: "Home",
+        item: "https://www.aicheckpoint.in/",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Pricing",
-        "item": "https://www.aicheckpoint.in/pricing"
-      }
-    ]
+        position: 2,
+        name: "Pricing",
+        item: "https://www.aicheckpoint.in/pricing",
+      },
+    ],
   };
 
   return (

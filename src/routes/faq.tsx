@@ -12,10 +12,14 @@ export const Route = createFileRoute("/faq")({
       { title: "Frequently Asked Questions — AI CheckPoint" },
       {
         name: "description",
-        content: "Find answers to common questions about our AI audits, setup process, custom pricing, staff training, maintenance, and cancellation policies.",
+        content:
+          "Find answers to common questions about our AI audits, setup process, custom pricing, staff training, maintenance, and cancellation policies.",
       },
       { property: "og:title", content: "Frequently Asked Questions — AI CheckPoint" },
-      { property: "og:description", content: "How AI CheckPoint works, integration time, staff training, and pricing details." },
+      {
+        property: "og:description",
+        content: "How AI CheckPoint works, integration time, staff training, and pricing details.",
+      },
     ],
     links: [
       {
@@ -70,33 +74,33 @@ function FAQPage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map((f) => ({
+    mainEntity: faqs.map((f) => ({
       "@type": "Question",
-      "name": f.q,
-      "acceptedAnswer": {
+      name: f.q,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": f.a
-      }
-    }))
+        text: f.a,
+      },
+    })),
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.aicheckpoint.in/"
+        position: 1,
+        name: "Home",
+        item: "https://www.aicheckpoint.in/",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "FAQ",
-        "item": "https://www.aicheckpoint.in/faq"
-      }
-    ]
+        position: 2,
+        name: "FAQ",
+        item: "https://www.aicheckpoint.in/faq",
+      },
+    ],
   };
 
   return (

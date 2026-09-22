@@ -77,7 +77,9 @@ export function RegisterLeft() {
         <div className="mt-2">
           <span className="font-display text-2xl font-bold text-soft">100% Free Initial Audit</span>
         </div>
-        <p className="mt-1 text-sm text-soft/70">Custom AI roadmap + workflow analysis with zero upfront commitment.</p>
+        <p className="mt-1 text-sm text-soft/70">
+          Custom AI roadmap + workflow analysis with zero upfront commitment.
+        </p>
       </div>
 
       <div className="font-mono-acc mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] uppercase tracking-wider text-soft/55">

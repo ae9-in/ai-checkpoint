@@ -129,11 +129,14 @@ export function Footer() {
             </div>
 
             <div className="mt-4">
-              <span className="font-display text-2xl font-extrabold text-white">Scale With Custom AI</span>
+              <span className="font-display text-2xl font-extrabold text-white">
+                Scale With Custom AI
+              </span>
             </div>
 
             <p className="mt-2 text-xs text-soft/70 leading-relaxed">
-              Discover workflow bottlenecks and automate repetitive tasks with custom AI systems deployed in 48 hours.
+              Discover workflow bottlenecks and automate repetitive tasks with custom AI systems
+              deployed in 48 hours.
             </p>
 
             <Link

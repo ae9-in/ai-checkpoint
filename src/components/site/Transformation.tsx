@@ -7,7 +7,10 @@ export function Transformation() {
   const manualCardRef = useRef<HTMLDivElement>(null);
   const aiCardRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, ref: React.RefObject<HTMLDivElement | null>) => {
+  const handleMouseMove = (
+    e: React.MouseEvent<HTMLDivElement>,
+    ref: React.RefObject<HTMLDivElement | null>,
+  ) => {
     const card = ref.current;
     if (!card) return;
 
@@ -53,7 +56,12 @@ export function Transformation() {
             transition={{ duration: 0.6 }}
             onMouseMove={(e) => handleMouseMove(e, manualCardRef)}
             className="relative rounded-3xl border border-transparent cursor-reactive-border bg-red-950/[0.04] backdrop-blur-xl p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-red-500/35 transition-all duration-300 shadow-[0_8px_32px_0_rgba(0,0,0,0.55)] shadow-red-500/5"
-            style={{ "--border-glow": "#ef4444", "--border-dim": "rgba(239, 68, 68, 0.15)" } as React.CSSProperties}
+            style={
+              {
+                "--border-glow": "#ef4444",
+                "--border-dim": "rgba(239, 68, 68, 0.15)",
+              } as React.CSSProperties
+            }
           >
             <div>
               <div className="flex items-center gap-2 mb-4">
@@ -66,7 +74,7 @@ export function Transformation() {
               <h3 className="font-display text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500/40 via-red-500/80 to-red-500/40 tracking-tight uppercase mb-2 select-none">
                 MANUAL
               </h3>
-              
+
               <div className="font-mono-acc text-[11px] tracking-wider text-red-400/80 uppercase mb-8 border-b border-white/10 pb-4">
                 SLOW · EXPENSIVE · EXHAUSTING
               </div>
@@ -111,7 +119,12 @@ export function Transformation() {
             transition={{ duration: 0.6 }}
             onMouseMove={(e) => handleMouseMove(e, aiCardRef)}
             className="relative rounded-3xl border border-transparent cursor-reactive-border bg-white/[0.02] backdrop-blur-xl p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-cyan/35 transition-all duration-300 shadow-[0_8px_32px_0_rgba(0,0,0,0.55)] shadow-indigo/5"
-            style={{ "--border-glow": "#00f5d4", "--border-dim": "rgba(0, 245, 212, 0.15)" } as React.CSSProperties}
+            style={
+              {
+                "--border-glow": "#00f5d4",
+                "--border-dim": "rgba(0, 245, 212, 0.15)",
+              } as React.CSSProperties
+            }
           >
             <div>
               <div className="flex items-center gap-2 mb-4">
@@ -124,7 +137,7 @@ export function Transformation() {
               <h3 className="font-display text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-soft to-cyan tracking-tight uppercase mb-2">
                 AI-POWERED
               </h3>
-              
+
               <div className="font-mono-acc text-[11px] tracking-wider text-cyan/90 uppercase mb-8 border-b border-white/10 pb-4">
                 FAST · INTELLIGENT · INFINITE
               </div>
